@@ -13,27 +13,27 @@ The setup is based on [this boilerplate project](https://github.com/andrew-r-kin
     - Alternatively, download the code directly without cloning it
 1. Download and Install [MonoGame](https://www.monogame.net/downloads/)
 1. Download and Install the [.NET Core SDK (3.x)](https://dotnet.microsoft.com/download)
-    - Make sure to grab the Core SDK, not the Framework or Runtime 
+    - Make sure to grab the **Core SDK**, NOT the Framework or Runtime 
 1. Open VS Code
-1. In VS Code, open the [FlyingWizardGame](/) folder
-    - It must be this specific folder, not the `cs-201` folder that contains it!
+1. In VS Code, open the **FlyingWizardGame** folder
+    - It must be this specific folder, NOT the `cs-201` folder that contains it!
 1. Press `F5` to run the game!
 
-If there are any issues with the environment setup, please do not hesitate to reach out to [Joseph Maxwell](joseph.maxwell@hyland.com).
+If there are any issues with the environment setup, please do not hesitate to reach out to [Joseph Maxwell](mailto:joseph.maxwell@hyland.com).
 
 ## Project Structure
 There are three important folders that make up the **Flying Wizard Game** project:
 
-- The [.vscode](/.vscode) folder contains configuration files that tell VS Code how to build and run the game
-- The [Content](/Content) folder contains all the assets for the game, and the [Content.mgcb](Content/Content.mgcb) file that tells MonoGame how to build those assets
-- The [src](/src) folder contains all the C# code for the project
+- The [.vscode](./.vscode) folder contains configuration files that tell VS Code how to build and run the game
+- The [Content](./Content) folder contains all the assets for the game, and the [Content.mgcb](Content/Content.mgcb) file that tells MonoGame how to build those assets
+- The [src](./src) folder contains all the C# code for the project
 
 ## The Source Code
 There are several code files that make the game run.
 
 The [FlyingWizardGame.csproj](FlyingWizardGame.csproj) file in the main directory contains everything needed to build the project. It should not be altered unless there is a change in OS, framework, or folder structure.
 
-All of the C# code files are in the [src](/src) folder. These create the actual elements in the game!
+All of the C# code files are in the [src](./src) folder. These create the actual elements in the game!
 
 ### Main Files
 - The [Program](src/Program.cs) class is the main entry point for the project. It simply starts the game.
