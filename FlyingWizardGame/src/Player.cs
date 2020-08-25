@@ -167,8 +167,8 @@ namespace FlyingWizard2D
             {
                 // Colliding to the bottom
                 position.Y = bottomBound;
-                velocity.X = -bounceSpeed;
-                acceleration.X = movementAcceleration;
+                velocity.Y = -bounceSpeed;
+                acceleration.Y = movementAcceleration;
             }
         }
 
