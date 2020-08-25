@@ -2,7 +2,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace FlyingWizard2D
-{    class Sprite
+{
+    // Sprite base class, contains basic sprite functionality
+    class Sprite
     {
         // An image texture for the sprite
         private Texture2D spriteImage;
@@ -40,6 +42,7 @@ namespace FlyingWizard2D
             }
         }
 
+        // Number of frames for an animated sprite
         private int numberOfFrames;
         public int NumberOfFrames
         {
@@ -54,9 +57,14 @@ namespace FlyingWizard2D
             }
         }
 
+        // Timer for animation frame switching
         private CoolDown animationCoolDown;
+
+        // Current frame of the animation
         private int currentFrame;
 
+        // The part of the sprite image that will be drawn for the sprite
+        // (can change based on animation)
         public Rectangle? SourceRectangle { get; set; }
 
         // The current position of the sprite
@@ -77,6 +85,7 @@ namespace FlyingWizard2D
             this.SourceRectangle = null;
         }
 
+        // Set the sprite image, along with the total number of frames the image contains
         public void SetSpriteImage(Texture2D spriteImage, int numberOfFrames)
         {
             this.spriteImage = spriteImage;
@@ -89,17 +98,26 @@ namespace FlyingWizard2D
             spriteBatch.Draw(spriteImage, PositionRectangle, SourceRectangle, Color.White);
         }
 
+        // Called every frame
         public virtual void Update(GameTime gameTime)
         {
+            // If the animation timer goes off, time to switch frames
             if (!animationCoolDown.CoolingDown)
             {
-                currentFrame = (currentFrame + 1) % NumberOfFrames; 
+                // Get the next frame (cycle back to the beginning if necessary)
+                currentFrame = (currentFrame + 1) % NumberOfFrames;
+
+                // Calculate the height of a frame
                 int frameHeight = SpriteImage.Height / NumberOfFrames;
+
+                // Create the source rectangle based on the current frame, and the frame height
                 this.SourceRectangle = new Rectangle(0, currentFrame*frameHeight, SpriteImage.Width, frameHeight);
 
+                // Kick off the cool down
                 animationCoolDown.StartCoolDown();
             }
 
+            // Update the animation timer
             animationCoolDown.Update(gameTime);
         }
     }

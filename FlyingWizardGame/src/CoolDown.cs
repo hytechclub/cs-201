@@ -2,7 +2,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace FlyingWizard2D
-{    class CoolDown
+{
+    // Timer mechanism class
+    class CoolDown
     {
         // Total amount of time (in seconds) for each cool down
         private float coolDownTime;
@@ -13,7 +15,7 @@ namespace FlyingWizard2D
         // Is the cool down currently cooling down?
         public bool CoolingDown { get; private set; }
         
-        // Initialize a sprite
+        // Initialize a CoolDown object
         public CoolDown(float coolDownTime = 0.5f)
         {
             // Initialize values
@@ -32,10 +34,13 @@ namespace FlyingWizard2D
         // Update the cool down timer
         public void Update(GameTime gameTime)
         {
-            // If currently cooling down, increment the timer
+            // If currently cooling down...
             if (CoolingDown)
             {
+                // Increment the timer
                 coolDownTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                // If all the time has elapsed...
                 if (coolDownTimer >= coolDownTime)
                 {
                     // Done cooling down!

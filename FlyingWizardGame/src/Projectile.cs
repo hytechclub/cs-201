@@ -2,7 +2,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace FlyingWizard2D
-{    class Projectile : Sprite
+{
+    // Something that someone has fired
+    class Projectile : Sprite
     {
         // The current velocity of the sprite
         private Vector2 velocity = Vector2.Zero;
@@ -17,7 +19,6 @@ namespace FlyingWizard2D
             get { return projectileType; }
             set { projectileType = value; }
         }
-        
 
         // Initialize a projectile
         public Projectile(Vector2 position, Vector2 velocity, Texture2D spriteImage, ProjectileType projectileType) : base(position)

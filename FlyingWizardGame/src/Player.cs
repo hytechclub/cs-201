@@ -3,7 +3,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace FlyingWizard2D
-{    class Player : Sprite
+{
+    // The player, controlled by the keyboard
+    class Player : Sprite
     {
         // The movement acceleration for the player
         private float movementAcceleration = 0.45f;
@@ -131,6 +133,7 @@ namespace FlyingWizard2D
             }
         }
 
+        // Update movement based on edge collisions
         private void handleBounce()
         {
             // Set up edge bounds
