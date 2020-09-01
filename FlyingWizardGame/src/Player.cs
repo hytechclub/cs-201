@@ -15,6 +15,7 @@ namespace FlyingWizard2D
             set { movementAcceleration = value; }
         }
 
+        // The rate at which the player decelerates
         private float movementDeceleration = 0.09f;
 
         // The maximum speed the player can move
@@ -32,7 +33,6 @@ namespace FlyingWizard2D
             get { return bounceSpeed; }
             set { bounceSpeed = value; }
         }
-        
 
         // The current velocity of the sprite
         private Vector2 velocity = Vector2.Zero;
