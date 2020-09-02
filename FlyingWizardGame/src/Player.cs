@@ -7,6 +7,15 @@ namespace FlyingWizard2D
     // The player, controlled by the keyboard
     class Player : Sprite
     {
+        // The current velocity of the sprite
+        private Vector2 velocity = Vector2.Zero;
+
+        // The current acceleration for the sprite
+        private Vector2 acceleration = Vector2.Zero;
+
+        // A reference to the game that will contain the player
+        private FlyingWizardGame root;
+
         // The movement acceleration for the player
         private float movementAcceleration = 0.45f;
         public float VerticalAcceleration
@@ -33,12 +42,6 @@ namespace FlyingWizard2D
             get { return bounceSpeed; }
             set { bounceSpeed = value; }
         }
-
-        // The current velocity of the sprite
-        private Vector2 velocity = Vector2.Zero;
-
-        // The current acceleration for the sprite
-        private Vector2 acceleration = Vector2.Zero;
         
         // Cool down object for projectile firing
         private CoolDown projectileCoolDown;
@@ -47,9 +50,6 @@ namespace FlyingWizard2D
             get { return projectileCoolDown; }
             set { projectileCoolDown = value;}
         }
-
-        // A reference to the game that will contain the player
-        private FlyingWizardGame root;
 
         // Initialize a player
         public Player(FlyingWizardGame root, Vector2 position) : base(position)

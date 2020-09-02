@@ -9,6 +9,12 @@ namespace FlyingWizard2D
         // The current velocity of the Enemy
         private Vector2 velocity = Vector2.Zero;
 
+        // Cool down object for projectile firing
+        private CoolDown projectileCoolDown;
+
+        // A reference to the game that will contain the player
+        private FlyingWizardGame root;
+
         // X Velocity for this Enemy
         public float VelocityX
         {
@@ -36,12 +42,6 @@ namespace FlyingWizard2D
                 velocity.Y = value;
             }
         }
-
-        // Cool down object for projectile firing
-        private CoolDown projectileCoolDown;
-
-        // A reference to the game that will contain the player
-        private FlyingWizardGame root;
 
         // Initialize an Enemy
         public Enemy(FlyingWizardGame root, Vector2 position, float projectileCoolDownTime = 1.0f, float spriteWidth = 64.0f) : base(position, 2, 0.5f)

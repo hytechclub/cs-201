@@ -6,6 +6,12 @@ namespace FlyingWizard2D
     // Sprite base class, contains basic sprite functionality
     class Sprite
     {
+        // Timer for animation frame switching
+        private CoolDown animationCoolDown;
+
+        // Current frame of the animation
+        private int currentFrame;
+        
         // An image texture for the sprite
         private Texture2D spriteImage;
         public Texture2D SpriteImage
@@ -56,12 +62,6 @@ namespace FlyingWizard2D
                 numberOfFrames = value;
             }
         }
-
-        // Timer for animation frame switching
-        private CoolDown animationCoolDown;
-
-        // Current frame of the animation
-        private int currentFrame;
 
         // The part of the sprite image that will be drawn for the sprite
         // (can change based on animation)

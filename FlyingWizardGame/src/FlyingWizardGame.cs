@@ -10,13 +10,13 @@ namespace FlyingWizard2D
     class FlyingWizardGame : Game
     {
         // Graphics Manager
-        GraphicsDeviceManager graphics;
+        private GraphicsDeviceManager graphics;
 
         // Sprite Drawer
-        SpriteBatch spriteBatch;
+        private SpriteBatch spriteBatch;
 
         // Font for any text on the screen
-        SpriteFont textFont;
+        private SpriteFont textFont;
 
         // Keep track of the player's life count
         private int life = 3;
@@ -25,10 +25,37 @@ namespace FlyingWizard2D
         private int score = 0;
 
         // The one player
-        Player player;
+        private Player player;
 
         // A list of all Enemy Columns in the game
-        List<EnemyColumn> enemyColumns;
+        private List<EnemyColumn> enemyColumns;
+
+        // List of all Projectile objects currently on the screen
+        private List<Projectile> projectiles;
+
+        // Sprite image for what the player fires
+        private Texture2D playerProjectileSprite;
+
+        // Sprite image for what the enemies fire
+        private Texture2D enemyProjectileSprite;
+
+        // Sprite image for the enemy
+        private Texture2D enemySprite;
+
+        // Sprite image for the divider line
+        private Texture2D dividerLine;
+
+        // Sprite image that covers the entire screen
+        private Texture2D screenCover;
+
+        // Text to appear when the screen is covered
+        private string screenCoverText;
+
+        // Is the screen currently covered?
+        private bool coverScreen;
+
+        // Timer that controls how often Enemy Columns are formed
+        private CoolDown enemyColumnTimer;
 
         // Preferred width of the screen in pixels
         private int screenWidth = 1600;
@@ -62,33 +89,6 @@ namespace FlyingWizard2D
                 dividerPosition.X = value;
             }
         }
-
-        // List of all Projectile objects currently on the screen
-        private List<Projectile> projectiles;
-
-        // Sprite image for what the player fires
-        private Texture2D playerProjectileSprite;
-
-        // Sprite image for what the enemies fire
-        private Texture2D enemyProjectileSprite;
-
-        // Sprite image for the enemy
-        private Texture2D enemySprite;
-
-        // Sprite image for the divider line
-        private Texture2D dividerLine;
-
-        // Sprite image that covers the entire screen
-        private Texture2D screenCover;
-
-        // Text to appear when the screen is covered
-        private string screenCoverText;
-
-        // Is the screen currently covered?
-        private bool coverScreen;
-
-        // Timer that controls how often Enemy Columns are formed
-        private CoolDown enemyColumnTimer;
         
         // Initalized the game
         public FlyingWizardGame()

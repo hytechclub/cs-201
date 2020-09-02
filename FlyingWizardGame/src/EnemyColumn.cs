@@ -8,6 +8,15 @@ namespace FlyingWizard2D
     // A group of little evil things
     class EnemyColumn
     {
+        // The top Y coordinate of the column (stays the same even when Enemy objects are removed)
+        private float columnTop;
+
+        // The bottom Y coordinate of the column (stays the same even when Enemy objects are removed)
+        private float columnBottom;
+
+        // A reference to the game that will contain the column
+        private FlyingWizardGame root;
+
         // All the enemies in this column
         private List<Enemy> enemies;
         public List<Enemy> Enemies
@@ -51,18 +60,9 @@ namespace FlyingWizard2D
             get { return ySpeed; }
             set { ySpeed = value; }
         }
-
-        // The top Y coordinate of the column (stays the same even when Enemy objects are removed)
-        private float columnTop;
-
-        // The bottom Y coordinate of the column (stays the same even when Enemy objects are removed)
-        private float columnBottom;
         
         // The number of enemies in the column
         public int Count { get { return enemies.Count; } }
-
-        // A reference to the game that will contain the column
-        private FlyingWizardGame root;
 
         // Initialize a column
         public EnemyColumn(FlyingWizardGame root, int numberOfEnemies, float spaceBetween, float topBound, float xSpeed, float ySpeed, float enemyWidth, Texture2D spriteImage)
