@@ -240,20 +240,20 @@
 <li>Click the &quot;Build&quot; button to include the asset in the content pipeline</li>
 </ol>
 <h3 id="texture2d"><code>Texture2D</code></h3>
-<p>A <code>Texture2D</code> object represents a two-dimensional grid of graphical units. Check out <a href="https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/bb199316(v=xnagamestudio.35" target="_blank">this page</a>/) for more information.</p>
+<p>A <code>Texture2D</code> object represents a two-dimensional grid of graphical units. Check out <a href="https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/bb199316(v=xnagamestudio.35)" target="_blank">this page</a> for more information.</p>
 <p>For the purposes of this course, think of a <code>Texture2D</code> object as an image. To load an asset into a <code>Texture2D</code> variable, use the following code:</p>
 <pre><code class="lang-cs">Texture2D myTexture = Content.Load&lt;Texture2D&gt;(<span class="hljs-string">&quot;AssetName&quot;</span>);
 </code></pre>
 <p>Note that the asset must first be loaded into the content pipeline, and the name passed to the <code>Load</code> method should NOT contain the file extension.</p>
 <h3 id="spritebatch"><code>SpriteBatch</code></h3>
-<p>A <code>SpriteBatch</code> object allows developers to draw multiple sprites to the screen. Check out <a href="https://docs.microsoft.com/en-us/previous-versions/windows/xna/bb199034(v=xnagamestudio.42" target="_blank">this page</a>/) for more information.</p>
+<p>A <code>SpriteBatch</code> object allows developers to draw multiple sprites to the screen. Check out <a href="https://docs.microsoft.com/en-us/previous-versions/windows/xna/bb199034(v=xnagamestudio.42)" target="_blank">this page</a> for more information.</p>
 <p>A <code>SpriteBatch</code> must <code>Begin</code> before drawing, and <code>End</code> after drawing:</p>
 <pre><code class="lang-cs">spriteBatch.Begin();
 <span class="hljs-comment">// Drawing will happen here!</span>
 spriteBatch.End();
 </code></pre>
 <h4 id="the-spritebatchdraw-method">The <code>SpriteBatch.Draw</code> Method</h4>
-<p>There are a few different implementations of the <code>SpriteBatch.Draw</code> method. They can be viewed on <a href="https://docs.microsoft.com/en-us/previous-versions/windows/xna/bb196426(v=xnagamestudio.42" target="_blank">this page</a>/).</p>
+<p>There are a few different implementations of the <code>SpriteBatch.Draw</code> method. They can be viewed on <a href="https://docs.microsoft.com/en-us/previous-versions/windows/xna/bb196426(v=xnagamestudio.42)" target="_blank">this page</a>.</p>
 <p>For the purposes of this course, the <code>SpriteBatch.Draw</code> method will be used as follows:</p>
 <pre><code class="lang-cs"><span class="hljs-comment">// Texture2D myTexture -&gt; a Texture2D image</span>
 <span class="hljs-comment">// Rectangle myDestinationRect -&gt; The location where the image will appear on the screen</span>
@@ -262,7 +262,7 @@ spriteBatch.Draw(myTexture, myDestinationRect, Color.White);
 spriteBatch.Draw(myTexture, myDestinationRect, mySourceRect, Color.White);
 </code></pre>
 <h3 id="rectangle"><code>Rectangle</code></h3>
-<p>A <code>Rectangle</code> object in MonoGame represents a rectangle shape on the screen. For more information, check out <a href="https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/bb198628(v=xnagamestudio.35" target="_blank">this page</a>/). It has four <code>int</code> properties: an <code>X</code> and <code>Y</code> position (the coordinates of the top left corner on the screen), and a <code>Width</code> and <code>Height</code>.</p>
+<p>A <code>Rectangle</code> object in MonoGame represents a rectangle shape on the screen. For more information, check out <a href="https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/bb198628(v=xnagamestudio.35)" target="_blank">this page</a>. It has four <code>int</code> properties: an <code>X</code> and <code>Y</code> position (the coordinates of the top left corner on the screen), and a <code>Width</code> and <code>Height</code>.</p>
 <p><code>Rectangle</code> objects can be created as follows:</p>
 <pre><code class="lang-cs"><span class="hljs-comment">// int xPosition -&gt; X coordinate of top left corner</span>
 <span class="hljs-comment">// int yPosition -&gt; Y coordinate of top left corner</span>
@@ -315,7 +315,7 @@ Rectangle myRect = <span class="hljs-keyword">new</span> Rectangle(xPosition, yP
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Reference","level":"1.4","depth":1,"next":{"title":"Enhancement Ideas","level":"1.5","depth":1,"path":"EnhancementIdeas.md","ref":"EnhancementIdeas.md","articles":[]},"previous":{"title":"Part 0 - Hello World","level":"1.3.1","depth":2,"path":"Walkthroughs/Part0HelloWorld.md","ref":"Walkthroughs/Part0HelloWorld.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters"],"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"BOOKREADME.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Reference.md","mtime":"2020-09-02T18:04:26.817Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-02T18:05:05.598Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Reference","level":"1.4","depth":1,"next":{"title":"Enhancement Ideas","level":"1.5","depth":1,"path":"EnhancementIdeas.md","ref":"EnhancementIdeas.md","articles":[]},"previous":{"title":"Part 0 - Hello World","level":"1.3.1","depth":2,"path":"Walkthroughs/Part0HelloWorld.md","ref":"Walkthroughs/Part0HelloWorld.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters"],"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"BOOKREADME.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Reference.md","mtime":"2020-09-02T18:22:32.413Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-02T18:23:08.930Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
