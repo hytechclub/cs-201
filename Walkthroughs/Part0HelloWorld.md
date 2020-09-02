@@ -82,7 +82,7 @@ Now, the **MainChar** image can be loaded into the game!
 ## Loading the Main Character Image
 The **MainChar** asset is in the pipeline, but it still has to be loaded into the game. This will happen in the **ArcadeFlyerGame.cs** file (in the "src" folder).
 
-The asset will be loaded and stored within a [Texture2D](https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/bb199316(v=xnagamestudio.35)) field on the `ArcadeFlyerGame` class. `Texture2D` objects hold two dimensional graphical data, like images.
+The asset will be loaded and stored within a [Texture2D](https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/bb199316(v=xnagamestudio.35)/) field on the `ArcadeFlyerGame` class. `Texture2D` objects hold two dimensional graphical data, like images.
 
 1. Add a new `Texture2D` field on the `ArcadeFlyerGame` class named `playerImage`  
     ```cs
@@ -102,7 +102,7 @@ At this point, the image will NOT appear in the game. However, the image _has_ b
 Now that the image has been loaded, it's time to actually display it.
 
 ### Using the Sprite Batch
-The [Sprite Batch](https://docs.microsoft.com/en-us/previous-versions/windows/xna/bb199034(v=xnagamestudio.42)) allows developers to draw multiple sprites to the screen. To do this, all the drawing must happen in between a `Begin` and `End` statement.
+The [Sprite Batch](https://docs.microsoft.com/en-us/previous-versions/windows/xna/bb199034(v=xnagamestudio.42)/) allows developers to draw multiple sprites to the screen. To do this, all the drawing must happen in between a `Begin` and `End` statement.
 
 Use the existing `spriteBatch` field to begin and end the drawing:
 
@@ -117,9 +117,9 @@ spriteBatch.End();
 It is always necessary to end every sprite batch that has been started.
 
 ### Creating the Rectangle
-In MonoGame, a lot of things can be represented using the [Rectangle](https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/bb198628(v=xnagamestudio.35)) structure. A `Rectangle` has an `X` position, `Y` position, `Width`, and `Height` (all `int`s). The `X` and `Y` represent the coordinates of the top left corner of the rectangle.
+In MonoGame, a lot of things can be represented using the [Rectangle](https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/bb198628(v=xnagamestudio.35)/) structure. A `Rectangle` has an `X` position, `Y` position, `Width`, and `Height` (all `int`s). The `X` and `Y` represent the coordinates of the top left corner of the rectangle.
 
-In order to use the [`SpriteBatch.Draw`](https://docs.microsoft.com/en-us/previous-versions/windows/xna/bb196413(v=xnagamestudio.10)) method, it is necessary to create a destination rectangle defining the location of the `Texture2D` object. To place the image in the top left corner, at its full width and height, use the following `Rectangle`:
+In order to use the [`SpriteBatch.Draw`](https://docs.microsoft.com/en-us/previous-versions/windows/xna/bb196413(v=xnagamestudio.10)/) method, it is necessary to create a destination rectangle defining the location of the `Texture2D` object. To place the image in the top left corner, at its full width and height, use the following `Rectangle`:
 
 ```cs
 Rectangle playerDestinationRect = new Rectangle(0, 0, playerImage.Width, playerImage.Height);
@@ -128,7 +128,7 @@ Rectangle playerDestinationRect = new Rectangle(0, 0, playerImage.Width, playerI
 Make sure to place the code _after_ the `spriteBatch.Begin` statement and _before_ the `spriteBatch.End` statement.
 
 ### Drawing the Sprite
-Now that the `Rectangle` has been created, use it to draw the sprite. The [`SpriteBatch.Draw`](https://docs.microsoft.com/en-us/previous-versions/windows/xna/bb196413(v=xnagamestudio.10)) method takes in a `Texture2D` (the image), a `Rectangle` (the destination rectangle), and a `Color` (a tint modulator). Use the following command right above the `spriteBatch.End` statement to properly draw the sprite with no tint modulation:
+Now that the `Rectangle` has been created, use it to draw the sprite. The [`SpriteBatch.Draw`](https://docs.microsoft.com/en-us/previous-versions/windows/xna/bb196413(v=xnagamestudio.10)/) method takes in a `Texture2D` (the image), a `Rectangle` (the destination rectangle), and a `Color` (a tint modulator). Use the following command right above the `spriteBatch.End` statement to properly draw the sprite with no tint modulation:
 
 ```cs
 spriteBatch.Draw(playerImage, playerDestinationRect, Color.White);
