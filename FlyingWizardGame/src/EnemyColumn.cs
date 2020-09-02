@@ -65,16 +65,20 @@ namespace FlyingWizard2D
         private FlyingWizardGame root;
 
         // Initialize a column
-        public EnemyColumn(FlyingWizardGame root, int numberOfEnemies, float spaceBetween, float topBound, float xSpeed, float ySpeed, float enemyWidth)
+        public EnemyColumn(FlyingWizardGame root, int numberOfEnemies, float spaceBetween, float topBound, float xSpeed, float ySpeed, float enemyWidth, Texture2D spriteImage)
         {
             // Set game root
             this.root = root;
+
+            // Create an example sprite for calculations
+            Enemy example = new Enemy(root, new Vector2(0, 0), 3.0f, enemyWidth);
+            example.SpriteImage = spriteImage;
 
             // Calculate initial values
             this.xSpeed = -xSpeed;
             this.ySpeed = ySpeed;
             this.columnTop = topBound;
-            this.columnBottom = topBound + numberOfEnemies * (enemyWidth + spaceBetween);
+            this.columnBottom = topBound + numberOfEnemies * (example.SpriteHeight + spaceBetween);
 
             // Create the list of Enemy objects
             enemies = new List<Enemy>();
@@ -82,7 +86,7 @@ namespace FlyingWizard2D
             {
                 // Calculate Enemy Coordinates
                 float xPosition = root.ScreenWidth;
-                float yPosition = topBound + i * (enemyWidth + spaceBetween);
+                float yPosition = topBound + i * (example.SpriteHeight + spaceBetween);
 
                 // Create the new Enemy and set some values
                 Enemy nextEnemy = new Enemy(root, new Vector2(xPosition, yPosition), 3.0f, enemyWidth);
@@ -92,6 +96,9 @@ namespace FlyingWizard2D
                 // Add the Enemy to the list
                 enemies.Add(nextEnemy);
             }
+
+            // Set the sprite image for all Enemy objects
+            this.SpriteImage = spriteImage;
         }
 
         // Called each frame

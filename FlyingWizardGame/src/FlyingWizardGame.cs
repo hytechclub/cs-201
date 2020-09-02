@@ -35,7 +35,7 @@ namespace FlyingWizard2D
         public int ScreenWidth
         {
             get { return screenWidth; }
-            set { screenWidth = value; }
+            private set { screenWidth = value; }
         }
 
         // Preferred height of the screen in pixels
@@ -43,7 +43,7 @@ namespace FlyingWizard2D
         public int ScreenHeight
         {
             get { return screenHeight; }
-            set { screenHeight = value; }
+            private set { screenHeight = value; }
         }
 
         // 2-coordinate position of the divider between the player and the space
@@ -236,10 +236,7 @@ namespace FlyingWizard2D
             if (!enemyColumnTimer.CoolingDown)
             {
                 // Create a new enemy column
-                EnemyColumn nextColumn = new EnemyColumn(this, 5, 20.0f, 50, 0.5f, 1.0f, 64.0f);
-
-                // Set the image to be the basic enemy sprite
-                nextColumn.SpriteImage = enemySprite;
+                EnemyColumn nextColumn = new EnemyColumn(this, 5, 20.0f, 50, 0.5f, 1.0f, 64.0f, enemySprite);
 
                 // Add the column to the list of columns
                 enemyColumns.Add(nextColumn);
