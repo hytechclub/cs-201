@@ -22,7 +22,7 @@ The general steps to add an asset are:
 1. Click the "Build" button to include the asset in the content pipeline
 
 ### `Texture2D`
-A `Texture2D` object represents a two-dimensional grid of graphical units. Check out [this page](https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/bb199316(v=xnagamestudio.35)/) for more information.
+A `Texture2D` object represents a two-dimensional grid of graphical units. Check out <a href="https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/bb199316(v=xnagamestudio.35)">this page</a> for more information.
 
 For the purposes of this course, think of a `Texture2D` object as an image. To load an asset into a `Texture2D` variable, use the following code:
 
@@ -33,7 +33,7 @@ Texture2D myTexture = Content.Load<Texture2D>("AssetName");
 Note that the asset must first be loaded into the content pipeline, and the name passed to the `Load` method should NOT contain the file extension.
 
 ### `SpriteBatch`
-A `SpriteBatch` object allows developers to draw multiple sprites to the screen. Check out [this page](https://docs.microsoft.com/en-us/previous-versions/windows/xna/bb199034(v=xnagamestudio.42)/) for more information.
+A `SpriteBatch` object allows developers to draw multiple sprites to the screen. Check out <a href="https://docs.microsoft.com/en-us/previous-versions/windows/xna/bb199034(v=xnagamestudio.42)">this page</a> for more information.
 
 A `SpriteBatch` must `Begin` before drawing, and `End` after drawing:
 
@@ -44,7 +44,7 @@ spriteBatch.End();
 ```
 
 #### The `SpriteBatch.Draw` Method
-There are a few different implementations of the `SpriteBatch.Draw` method. They can be viewed on [this page](https://docs.microsoft.com/en-us/previous-versions/windows/xna/bb196426(v=xnagamestudio.42)/).
+There are a few different implementations of the `SpriteBatch.Draw` method. They can be viewed on <a href="https://docs.microsoft.com/en-us/previous-versions/windows/xna/bb196426(v=xnagamestudio.42)">this page</a>.
 
 For the purposes of this course, the `SpriteBatch.Draw` method will be used as follows:
 
@@ -57,7 +57,7 @@ spriteBatch.Draw(myTexture, myDestinationRect, mySourceRect, Color.White);
 ```
 
 ### `Rectangle`
-A `Rectangle` object in MonoGame represents a rectangle shape on the screen. For more information, check out [this page](https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/bb198628(v=xnagamestudio.35)/). It has four `int` properties: an `X` and `Y` position (the coordinates of the top left corner on the screen), and a `Width` and `Height`.
+A `Rectangle` object in MonoGame represents a rectangle shape on the screen. For more information, check out <a href="https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/bb198628(v=xnagamestudio.35)">this page</a>. It has four `int` properties: an `X` and `Y` position (the coordinates of the top left corner on the screen), and a `Width` and `Height`.
 
 `Rectangle` objects can be created as follows:
 
