@@ -1,0 +1,400 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Part 0 - Hello World · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../Reference.html" />
+    
+    
+    <link rel="prev" href="StudentDesc.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../EnvironmentSetup.html">
+            
+                <a href="../EnvironmentSetup.html">
+            
+                    
+                    Environment Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="StudentDesc.html">
+            
+                <a href="StudentDesc.html">
+            
+                    
+                    Walkthroughs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1" data-path="Part0HelloWorld.html">
+            
+                <a href="Part0HelloWorld.html">
+            
+                    
+                    Part 0 - Hello World
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Reference.html">
+            
+                <a href="../Reference.html">
+            
+                    
+                    Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../EnhancementIdeas.html">
+            
+                <a href="../EnhancementIdeas.html">
+            
+                    
+                    Enhancement Ideas
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Part 0 - Hello World</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="part-0---hello-world">Part 0 - Hello World</h1>
+<p>In this walkthrough, update the starter game so that a sprite appears on the screen.</p>
+<h2 id="the-monogame-framework">The MonoGame Framework</h2>
+<p>Open up the <strong>ArcadeFlyerGame.cs</strong> file to take a look at the structure of the game so far.</p>
+<h3 id="the-game-class">The <code>Game</code> Class</h3>
+<p>The <code>ArcadeFlyerGame</code> class <em>inherits</em> from the MonoGame <code>Game</code> class. See the code for the <code>Game</code> class <a href="https://github.com/MonoGame/MonoGame/blob/develop/MonoGame.Framework/Game.cs" target="_blank">here</a>. The overarching <code>Game</code> class is the entry point for most games. It handles setting up a window and graphics, and runs a game loop.</p>
+<p>There are some fields and methods that come with pretty much any MonoGame game. Here are some methods of note:</p>
+<ul>
+<li><code>ArcadeFlyerGame</code> constructor: This builds the game and sets some basic configuration (like the screen dimensions). It is called at creation.</li>
+<li><code>LoadContent</code>: This method loads up the <code>spriteBatch</code> field, along with any assets. It is called once, after the game is created.</li>
+<li><code>Update</code>: This method is called whenever the game should update (once per frame)</li>
+<li><code>Draw</code>: This method is called when the game elements are meant to be drawn to the screen (once per frame)</li>
+</ul>
+<p>Don&apos;t worry about understanding exactly how that works! The important thing to know is that the <code>ArcadeFlyerGame</code> class already has some built-in features that do not need to be defined.</p>
+<h3 id="note-the-2d-video-game-world">Note: The 2D Video Game World</h3>
+<p>The screen in a <a href="http://rbwhitaker.wikidot.com/monogame-introduction-to-2d-graphics" target="_blank">two-dimensional video game</a> behaves very similarly to a cartesian plane. The big difference is that the Y axis <em>increases</em> as it goes down, and the origin (0, 0) is in the top left corner. It looks like this:</p>
+<p><img src="https://i.imgur.com/SqJR5w9.png" alt=""></p>
+<p>Understanding the layout of the screen is critical to developing a game, so keep this in mind throughout the course.</p>
+<h2 id="changing-the-color">Changing the Color</h2>
+<p>Before jumping into anything too complex, start with the game development version of a &quot;Hello World&quot; program: change the background color on the screen!</p>
+<p>In the <strong>ArcadeFlyerGame.cs</strong> file, find the <code>Draw</code> method. There should be one statement in the body of the method:</p>
+<pre><code class="lang-cs">GraphicsDevice.Clear(Color.CornflowerBlue);
+</code></pre>
+<p>Change <code>CornflowerBlue</code> to another color! Try removing the <code>.CornflowerBlue</code> text first, and then type the <code>.</code> again. That should trigger Visual Studio Code&apos;s intellisense, which will show all the available colors. It should end up looking something like this:</p>
+<pre><code class="lang-cs">GraphicsDevice.Clear(Color.White);
+</code></pre>
+<p>Run the program, and verify that the new color appears!</p>
+<h2 id="updating-the-content-build-pipeline">Updating the Content Build Pipeline</h2>
+<p>Now, it&apos;s time to add an image! There should be a picture of a crystal ball in the &quot;Content&quot; folder, with a filename of <strong>MainChar.png</strong>. The goal is to make that image appear in the game. To do that, it is necessary to update the <a href="http://rbwhitaker.wikidot.com/monogame-managing-content" target="_blank">MonoGame Content Pipeline</a> so that it properly handles the image file.</p>
+<p>First, install the <a href="https://marketplace.visualstudio.com/items?itemName=sandcastle.vscode-open" target="_blank">Open</a> extension in Visual Studio Code. This makes it easy to open a non-code file in its default application.</p>
+<p>Once the <strong>Open</strong> extension has been installed, right click on the <strong>Content.mgcb</strong> file from the <strong>Content</strong> folder, and select &quot;Open with default application&quot; from the menu:</p>
+<p><img src="https://i.imgur.com/LSJrAW9.png" alt=""></p>
+<p>This will open the MonoGame Pipeline Tool. This tool allows developers to decide which assets to bring into the game. Click the &quot;Add Existing Item&quot; button to add a new item to the pipeline:</p>
+<p><img src="https://i.imgur.com/EtJFEUO.png" alt=""></p>
+<p>In the file selector that opens, find the <strong>MainChar.png</strong> file. Double click it to open it:</p>
+<p><img src="https://i.imgur.com/JC7T9cA.png" alt=""></p>
+<p>Next, click the &quot;Build&quot; button to build the actual content file (which will now include the <strong>MainChar.png</strong> file):</p>
+<p><img src="https://i.imgur.com/uqslNhh.png" alt=""></p>
+<p>After that, the <strong>Content.mgcb</strong> file should be updated to include something like this:</p>
+<pre><code>#begin MainChar.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MainChar.png
+</code></pre><p>Now, the <strong>MainChar</strong> image can be loaded into the game!</p>
+<h2 id="loading-the-main-character-image">Loading the Main Character Image</h2>
+<p>The <strong>MainChar</strong> asset is in the pipeline, but it still has to be loaded into the game. This will happen in the <strong>ArcadeFlyerGame.cs</strong> file (in the &quot;src&quot; folder).</p>
+<p>The asset will be loaded and stored within a <a href="https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/bb199316(v=xnagamestudio.35" target="_blank">Texture2D</a>) field on the <code>ArcadeFlyerGame</code> class. <code>Texture2D</code> objects hold two dimensional graphical data, like images.</p>
+<ol>
+<li>Add a new <code>Texture2D</code> field on the <code>ArcadeFlyerGame</code> class named <code>playerImage</code>  <pre><code class="lang-cs"> <span class="hljs-keyword">private</span> Texture2D playerImage;
+</code></pre>
+</li>
+<li>Find the <code>LoadContent</code> method in the <code>ArcadeFlyerGame</code> class</li>
+<li>In the body of the <code>LoadContent</code> method, load in the texture using <code>Content.Load&lt;Texture2D&gt;</code><ul>
+<li>Pass in the filename WITHOUT the extension: <code>&quot;MainChar&quot;</code></li>
+</ul>
+</li>
+<li>Assign the loaded <code>Texture2D</code> object to the <code>playerImage</code> field  <pre><code class="lang-cs"> playerImage = Content.Load&lt;Texture2D&gt;(<span class="hljs-string">&quot;MainChar&quot;</span>);
+</code></pre>
+</li>
+</ol>
+<p>At this point, the image will NOT appear in the game. However, the image <em>has</em> been loaded into the <code>playerImage</code> field, so it is now possible to use it!</p>
+<h2 id="displaying-the-player-sprite">Displaying the Player Sprite</h2>
+<p>Now that the image has been loaded, it&apos;s time to actually display it.</p>
+<h3 id="using-the-sprite-batch">Using the Sprite Batch</h3>
+<p>The <a href="https://docs.microsoft.com/en-us/previous-versions/windows/xna/bb199034(v=xnagamestudio.42" target="_blank">Sprite Batch</a>) allows developers to draw multiple sprites to the screen. To do this, all the drawing must happen in between a <code>Begin</code> and <code>End</code> statement.</p>
+<p>Use the existing <code>spriteBatch</code> field to begin and end the drawing:</p>
+<pre><code class="lang-cs">spriteBatch.Begin();
+
+<span class="hljs-comment">// Drawing will happen here!</span>
+
+spriteBatch.End();
+</code></pre>
+<p>It is always necessary to end every sprite batch that has been started.</p>
+<h3 id="creating-the-rectangle">Creating the Rectangle</h3>
+<p>In MonoGame, a lot of things can be represented using the <a href="https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/bb198628(v=xnagamestudio.35" target="_blank">Rectangle</a>) structure. A <code>Rectangle</code> has an <code>X</code> position, <code>Y</code> position, <code>Width</code>, and <code>Height</code> (all <code>int</code>s). The <code>X</code> and <code>Y</code> represent the coordinates of the top left corner of the rectangle.</p>
+<p>In order to use the <a href="https://docs.microsoft.com/en-us/previous-versions/windows/xna/bb196413(v=xnagamestudio.10" target="_blank"><code>SpriteBatch.Draw</code></a>) method, it is necessary to create a destination rectangle defining the location of the <code>Texture2D</code> object. To place the image in the top left corner, at its full width and height, use the following <code>Rectangle</code>:</p>
+<pre><code class="lang-cs">Rectangle playerDestinationRect = <span class="hljs-keyword">new</span> Rectangle(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, playerImage.Width, playerImage.Height);
+</code></pre>
+<p>Make sure to place the code <em>after</em> the <code>spriteBatch.Begin</code> statement and <em>before</em> the <code>spriteBatch.End</code> statement.</p>
+<h3 id="drawing-the-sprite">Drawing the Sprite</h3>
+<p>Now that the <code>Rectangle</code> has been created, use it to draw the sprite. The <a href="https://docs.microsoft.com/en-us/previous-versions/windows/xna/bb196413(v=xnagamestudio.10" target="_blank"><code>SpriteBatch.Draw</code></a>) method takes in a <code>Texture2D</code> (the image), a <code>Rectangle</code> (the destination rectangle), and a <code>Color</code> (a tint modulator). Use the following command right above the <code>spriteBatch.End</code> statement to properly draw the sprite with no tint modulation:</p>
+<pre><code class="lang-cs">spriteBatch.Draw(playerImage, playerDestinationRect, Color.White);
+</code></pre>
+<p>Run the program, and verify that the crystal ball appears on the screen!</p>
+<p>The final code for this walkthrough is available on <a href="https://github.com/hylandtechoutreach/ArcadeFlyer/tree/Part1Start" target="_blank">GitHub</a>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="StudentDesc.html" class="navigation navigation-prev " aria-label="Previous page: Walkthroughs">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../Reference.html" class="navigation navigation-next " aria-label="Next page: Reference">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Part 0 - Hello World","level":"1.3.1","depth":2,"next":{"title":"Reference","level":"1.4","depth":1,"path":"Reference.md","ref":"Reference.md","articles":[]},"previous":{"title":"Walkthroughs","level":"1.3","depth":1,"path":"Walkthroughs/StudentDesc.md","ref":"Walkthroughs/StudentDesc.md","articles":[{"title":"Part 0 - Hello World","level":"1.3.1","depth":2,"path":"Walkthroughs/Part0HelloWorld.md","ref":"Walkthroughs/Part0HelloWorld.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters"],"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"BOOKREADME.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Walkthroughs/Part0HelloWorld.md","mtime":"2020-09-02T17:59:26.697Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-02T18:00:05.632Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

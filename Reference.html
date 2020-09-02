@@ -1,0 +1,358 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Reference · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="EnhancementIdeas.html" />
+    
+    
+    <link rel="prev" href="Walkthroughs/Part0HelloWorld.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="EnvironmentSetup.html">
+            
+                <a href="EnvironmentSetup.html">
+            
+                    
+                    Environment Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Walkthroughs/StudentDesc.html">
+            
+                <a href="Walkthroughs/StudentDesc.html">
+            
+                    
+                    Walkthroughs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="Walkthroughs/Part0HelloWorld.html">
+            
+                <a href="Walkthroughs/Part0HelloWorld.html">
+            
+                    
+                    Part 0 - Hello World
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="Reference.html">
+            
+                <a href="Reference.html">
+            
+                    
+                    Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="EnhancementIdeas.html">
+            
+                <a href="EnhancementIdeas.html">
+            
+                    
+                    Enhancement Ideas
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Reference</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="c-201-reference"><span>C# 201</span> Reference</h1>
+<p>Use this guide to review the concepts from the C# 201 course.</p>
+<h2 id="monogame">MonoGame</h2>
+<p>MonoGame (which is a re-implementation of XNA) has a lot of useful features.</p>
+<h3 id="screen-layout">Screen Layout</h3>
+<p>It is critical to understand the screen layout of a MonoGame project. Check out <a href="http://rbwhitaker.wikidot.com/monogame-introduction-to-2d-graphics" target="_blank">this guide</a> for more information.</p>
+<p>The screen works like this:</p>
+<p><img src="https://i.imgur.com/SqJR5w9.png" alt=""></p>
+<h3 id="content-pipeline">Content Pipeline</h3>
+<p>To add any assets (images, fonts, sounds) to a game, it is important to understand how the MonoGame Content Pipeline works. Check out <a href="http://rbwhitaker.wikidot.com/monogame-managing-content" target="_blank">this guide</a> for more information.</p>
+<p>The general steps to add an asset are:</p>
+<ol>
+<li>Place the asset file in the &quot;Content&quot; folder</li>
+<li>Open the <strong>Content.mgcb</strong> file in the MonoGame Content Pipeline Tool</li>
+<li>Click the &quot;Add Existing Item&quot; button, and select the asset file</li>
+<li>Click the &quot;Build&quot; button to include the asset in the content pipeline</li>
+</ol>
+<h3 id="texture2d"><code>Texture2D</code></h3>
+<p>A <code>Texture2D</code> object represents a two-dimensional grid of graphical units. Check out <a href="https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/bb199316(v=xnagamestudio.35" target="_blank">this page</a>) for more information.</p>
+<p>For the purposes of this course, think of a <code>Texture2D</code> object as an image. To load an asset into a <code>Texture2D</code> variable, use the following code:</p>
+<pre><code class="lang-cs">Texture2D myTexture = Content.Load&lt;Texture2D&gt;(<span class="hljs-string">&quot;AssetName&quot;</span>);
+</code></pre>
+<p>Note that the asset must first be loaded into the content pipeline, and the name passed to the <code>Load</code> method should NOT contain the file extension.</p>
+<h3 id="spritebatch"><code>SpriteBatch</code></h3>
+<p>A <code>SpriteBatch</code> object allows developers to draw multiple sprites to the screen. Check out <a href="https://docs.microsoft.com/en-us/previous-versions/windows/xna/bb199034(v=xnagamestudio.42" target="_blank">this page</a>) for more information.</p>
+<p>A <code>SpriteBatch</code> must <code>Begin</code> before drawing, and <code>End</code> after drawing:</p>
+<pre><code class="lang-cs">spriteBatch.Begin();
+<span class="hljs-comment">// Drawing will happen here!</span>
+spriteBatch.End();
+</code></pre>
+<h4 id="the-spritebatchdraw-method">The <code>SpriteBatch.Draw</code> Method</h4>
+<p>There are a few different implementations of the <code>SpriteBatch.Draw</code> method. They can be viewed on <a href="https://docs.microsoft.com/en-us/previous-versions/windows/xna/bb196426(v=xnagamestudio.42" target="_blank">this page</a>).</p>
+<p>For the purposes of this course, the <code>SpriteBatch.Draw</code> method will be used as follows:</p>
+<pre><code class="lang-cs"><span class="hljs-comment">// Texture2D myTexture -&gt; a Texture2D image</span>
+<span class="hljs-comment">// Rectangle myDestinationRect -&gt; The location where the image will appear on the screen</span>
+<span class="hljs-comment">// Rectangle mySourceRect -&gt; The part of the image to display</span>
+spriteBatch.Draw(myTexture, myDestinationRect, Color.White);
+spriteBatch.Draw(myTexture, myDestinationRect, mySourceRect, Color.White);
+</code></pre>
+<h3 id="rectangle"><code>Rectangle</code></h3>
+<p>A <code>Rectangle</code> object in MonoGame represents a rectangle shape on the screen. For more information, check out <a href="https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/bb198628(v=xnagamestudio.35" target="_blank">this page</a>). It has four <code>int</code> properties: an <code>X</code> and <code>Y</code> position (the coordinates of the top left corner on the screen), and a <code>Width</code> and <code>Height</code>.</p>
+<p><code>Rectangle</code> objects can be created as follows:</p>
+<pre><code class="lang-cs"><span class="hljs-comment">// int xPosition -&gt; X coordinate of top left corner</span>
+<span class="hljs-comment">// int yPosition -&gt; Y coordinate of top left corner</span>
+<span class="hljs-comment">// int rectWidth -&gt; width of the rectangle</span>
+<span class="hljs-comment">// int rectHeight -&gt; height of the rectangle</span>
+Rectangle myRect = <span class="hljs-keyword">new</span> Rectangle(xPosition, yPosition, rectWidth, rectHeight);
+</code></pre>
+<h2 id="c-language-features"><span>C#</span> Language Features</h2>
+<p>Coming Soon!</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Walkthroughs/Part0HelloWorld.html" class="navigation navigation-prev " aria-label="Previous page: Part 0 - Hello World">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="EnhancementIdeas.html" class="navigation navigation-next " aria-label="Next page: Enhancement Ideas">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Reference","level":"1.4","depth":1,"next":{"title":"Enhancement Ideas","level":"1.5","depth":1,"path":"EnhancementIdeas.md","ref":"EnhancementIdeas.md","articles":[]},"previous":{"title":"Part 0 - Hello World","level":"1.3.1","depth":2,"path":"Walkthroughs/Part0HelloWorld.md","ref":"Walkthroughs/Part0HelloWorld.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters"],"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"BOOKREADME.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Reference.md","mtime":"2020-09-02T17:59:26.697Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-02T18:00:05.632Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
