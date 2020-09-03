@@ -1,0 +1,578 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Part 1 - The Player Class · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../Reference.html" />
+    
+    
+    <link rel="prev" href="Part0HelloWorld.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../EnvironmentSetup.html">
+            
+                <a href="../EnvironmentSetup.html">
+            
+                    
+                    Environment Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="StudentDesc.html">
+            
+                <a href="StudentDesc.html">
+            
+                    
+                    Walkthroughs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="Part0HelloWorld.html">
+            
+                <a href="Part0HelloWorld.html">
+            
+                    
+                    Part 0 - Hello World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2" data-path="Part1PlayerClass.html">
+            
+                <a href="Part1PlayerClass.html">
+            
+                    
+                    Part 1 - The Player Class
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Reference.html">
+            
+                <a href="../Reference.html">
+            
+                    
+                    Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../EnhancementIdeas.html">
+            
+                <a href="../EnhancementIdeas.html">
+            
+                    
+                    Enhancement Ideas
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Part 1 - The Player Class</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="part-1---the-player-class">Part 1 - The <code>Player</code> Class</h1>
+<p>In this walkthrough, create a new <code>Player</code> class and use it to allow the player to control a character on the screen.</p>
+<h2 id="defining-the-player-class">Defining the <code>Player</code> Class</h2>
+<p>Define a <code>Player</code> class that will represent the game component that the user will control. </p>
+<h3 id="setup">Setup</h3>
+<p>There is some essential setup necessary when defining a new class.</p>
+<ol>
+<li>Create a new file named <strong>Player.cs</strong> in the &quot;src&quot; folder</li>
+<li>At the top of the file, add two <code>using</code> statements that include the proper MonoGame tools:  <pre><code class="lang-cs"> <span class="hljs-keyword">using</span> Microsoft.Xna.Framework;
+ <span class="hljs-keyword">using</span> Microsoft.Xna.Framework.Graphics;
+</code></pre>
+</li>
+<li>Under the <code>using</code> statements, create a <code>namespace</code> wrapper to ensure that the <code>Player</code> class will be included in the same namespace as the <code>ArcadeFlyerGame</code> class:  <pre><code class="lang-cs"> <span class="hljs-keyword">namespace</span> <span class="hljs-title">ArcadeFlyer2D</span> { }
+</code></pre>
+</li>
+<li>In the body of the <code>namespace</code> wrapper, define a new class named <code>Player</code>:  <pre><code class="lang-cs"> <span class="hljs-keyword">class</span> <span class="hljs-title">Player</span> { }
+</code></pre>
+</li>
+</ol>
+<p>Now the <code>Player</code> has been defined! It does not do much of anything yet, but the basic setup is complete.</p>
+<h3 id="fields">Fields</h3>
+<p>The <code>Player</code> class should hold some sort of data so that a <code>Player</code> object can actually be displayed on the screen.</p>
+<p>One thing the <code>Player</code> will need is a reference to the game that contains it. This can facilitate communication between the player and the overarching game structure. In the body of the <code>Player</code> class, add a field named <code>root</code> with a type of <code>ArcadeFlyerGame</code>:</p>
+<pre><code class="lang-cs"><span class="hljs-keyword">private</span> ArcadeFlyerGame root;
+</code></pre>
+<p>Another thing to track is the player&apos;s position on the screen. This can be stored in a <code>Vector2</code> structure in MonoGame. <a href="https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/bb199660(v=xnagamestudio.35)" target="_blank">This structure</a> simply holds two <code>float</code> values; an <code>X</code> and a <code>Y</code>. These can be used to represent the player&apos;s position. Add the field in the body of the <code>Player</code> class:</p>
+<pre><code class="lang-cs"><span class="hljs-keyword">private</span> Vector2 position;
+</code></pre>
+<p>Next, the player should have a <code>Texture2D</code> image. Add this field under the <code>position</code> field:</p>
+<pre><code class="lang-cs"><span class="hljs-keyword">private</span> Texture2D spriteImage;
+</code></pre>
+<p>Another important thing to store will be the width of the sprite as it appears on the screen. The sprite may need to resize the image to make it fit. Add this field under the <code>spriteImage</code> field:</p>
+<pre><code class="lang-cs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">float</span> spriteWidth;
+</code></pre>
+<p>Now the <code>Player</code> class actually has some data associate with it!</p>
+<h3 id="constructor-and-content-loading">Constructor and Content Loading</h3>
+<p>Next, add some initialization to the <code>Player</code> class that will build the player object.</p>
+<ol>
+<li>Define a constructor for the <code>Player</code> class that takes in a <code>root</code> parameter of type <code>ArcadeFlyerGame</code>, and a <code>position</code> parameter of type <code>Vector2</code>:  <pre><code class="lang-cs"> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Player</span>(<span class="hljs-params">ArcadeFlyerGame root, Vector2 position</span>) </span>{ }
+</code></pre>
+</li>
+<li>In the body of the constructor, initialize the <code>root</code> and <code>position</code> fields with <code>this.root</code> and <code>this.position</code>:  <pre><code class="lang-cs"> <span class="hljs-keyword">this</span>.root = root;
+ <span class="hljs-keyword">this</span>.position = position;
+</code></pre>
+</li>
+<li>Under those statements, set the <code>spriteWidth</code> field to <code>128.0f</code>:<pre><code class="lang-cs"> <span class="hljs-keyword">this</span>.spriteWidth = <span class="hljs-number">128.0</span>f;
+</code></pre>
+</li>
+<li>Under that, call a method named <code>LoadContent</code> that has yet to exist:<pre><code class="lang-cs"> LoadContent();
+</code></pre>
+</li>
+<li>Time to define the method! In the <code>Player</code> class, define a new method named <code>LoadContent</code> with no parameters and a <code>void</code> return type:  <pre><code class="lang-cs"> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">LoadContent</span>(<span class="hljs-params"></span>) </span>{ }
+</code></pre>
+</li>
+<li>In the body of the <code>LoadContent</code> method, use the <code>root</code> field to load the <code>Texture2D</code> &quot;MainChar&quot; asset</li>
+<li>Set the <code>spriteImage</code> property to the loaded <code>Texture2D</code>:  <pre><code class="lang-cs"> <span class="hljs-keyword">this</span>.spriteImage = root.Content.Load&lt;Texture2D&gt;(<span class="hljs-string">&quot;MainChar&quot;</span>);
+</code></pre>
+</li>
+</ol>
+<p>Now, the class has a way to properly initialize a new <code>Player</code> object!</p>
+<h3 id="properties">Properties</h3>
+<p>Next, there are a couple of calculated <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties" target="_blank">properties</a> that will be necessary for the player. <strong>Properties</strong> in C# behave like fields, but they actually have special <em>accessor methods</em> that can do some interesting things.</p>
+<h4 id="spriteheight"><code>SpriteHeight</code></h4>
+<p>The <code>SpriteHeight</code> property will calculate the height of the sprite on the screen based on the height of the actual image asset, and the resizing scale from the width.</p>
+<ol>
+<li>In the <code>Player</code> class, create a <code>float</code> property named <code>SpriteHeight</code>:  <pre><code class="lang-cs"> <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> SpriteHeight { }
+</code></pre>
+</li>
+<li>In the body of the <code>SpriteHeight</code> property, create a <code>get</code> accessor:  <pre><code class="lang-cs"> <span class="hljs-keyword">get</span> { }
+</code></pre>
+</li>
+<li>The code in the body of the <code>get</code> accessor will determine how the property returns its value; first, define a variable to calculate the scale:  <pre><code class="lang-cs"> <span class="hljs-keyword">float</span> scale = spriteWidth / spriteImage.Width;
+</code></pre>
+</li>
+<li>Return the adjusted height value:  <pre><code class="lang-cs"> <span class="hljs-keyword">return</span> spriteImage.Height * scale;
+</code></pre>
+</li>
+</ol>
+<p>That&apos;s it for the <code>SpriteHeight</code> property! This property will only be <em>gettable</em>; it will not be <em>settable</em>.</p>
+<h4 id="positionrectangle"><code>PositionRectangle</code></h4>
+<p>The position rectangle for the player represents the rectangle where they will appear on the screen. This can also be calculated based on the <code>position</code> field, the <code>spriteWidth</code> field, and the <code>SpriteHeight</code> property. Note that the <code>Rectangle</code> object must be created using <code>int</code> values, so the values from the <code>Player</code> class will have to be <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions#explicit-conversions" target="_blank">casted</a>.</p>
+<ol>
+<li>In the <code>Player</code> class, create a <code>Rectangle</code> property named <code>PositionRectangle</code>:  <pre><code class="lang-cs"> <span class="hljs-keyword">public</span> Rectangle PositionRectangle { }
+</code></pre>
+</li>
+<li>In the body of the <code>PositionRectangle</code> property, create a <code>get</code> accessor:<pre><code class="lang-cs"> <span class="hljs-keyword">get</span> { }
+</code></pre>
+</li>
+<li>In the body of the <code>get</code> accessor, return a new <code>Rectangle</code> with the properly casted x-coordinate, y-coordinate, width, and height (based on the <code>Player</code> values):  <pre><code class="lang-cs"> <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Rectangle((<span class="hljs-keyword">int</span>)position.X, (<span class="hljs-keyword">int</span>)position.Y, (<span class="hljs-keyword">int</span>)spriteWidth, (<span class="hljs-keyword">int</span>)SpriteHeight);
+</code></pre>
+</li>
+</ol>
+<p>That&apos;s it for the <code>PositionRectangle</code> property! Like the <code>SpriteHeight</code> property, this property will only be <em>gettable</em>; it will not be <em>settable</em>.</p>
+<h3 id="updating-and-drawing">Updating and Drawing</h3>
+<p>Now the <code>Player</code> class has everything it needs to exist in the game. It&apos;s time to add functionality to make that happen!</p>
+<ol>
+<li>In the <code>Player</code> class, define a new method named <code>Update</code> with a <code>void</code> return type and a <code>GameTime</code> parameter:  <pre><code class="lang-cs"> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params">GameTime gameTime</span>) </span>{ }
+</code></pre>
+</li>
+<li>Keep the body of the <code>Update</code> method empty for now</li>
+<li>Under the <code>Update</code> method, define a new method named <code>Draw</code> with a <code>void</code> return type, a <code>GameTime</code> parameter, and a <code>SpriteBatch</code> parameter:  <pre><code class="lang-cs"> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Draw</span>(<span class="hljs-params">GameTime gameTime, SpriteBatch spriteBatch</span>)
+</span></code></pre>
+</li>
+<li>In the body of the <code>Draw</code> method, use the <code>spriteBatch</code> parameter to draw the <code>spriteImage</code> with the <code>PositionRectangle</code> and a white color mask:  <pre><code class="lang-cs"> spriteBatch.Draw(spriteImage, PositionRectangle, Color.White);
+</code></pre>
+</li>
+</ol>
+<p>That&apos;s it! The <code>Player</code> class can now update and draw a player.</p>
+<h3 id="player-code">Player Code</h3>
+<p>At this point, the code in the <strong>Player.cs</strong> file should look like this:</p>
+<pre><code class="lang-cs"><span class="hljs-keyword">using</span> Microsoft.Xna.Framework;
+<span class="hljs-keyword">using</span> Microsoft.Xna.Framework.Graphics;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">ArcadeFlyer2D</span>
+{
+    <span class="hljs-keyword">class</span> <span class="hljs-title">Player</span>
+    {
+        <span class="hljs-keyword">private</span> ArcadeFlyerGame root;
+        <span class="hljs-keyword">private</span> Vector2 position;
+        <span class="hljs-keyword">private</span> Texture2D spriteImage;
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">float</span> spriteWidth;
+
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> SpriteHeight
+        {
+            <span class="hljs-keyword">get</span>
+            {
+                <span class="hljs-keyword">float</span> scale = spriteWidth / spriteImage.Width;
+                <span class="hljs-keyword">return</span> spriteImage.Height * scale;
+            }
+        }
+
+        <span class="hljs-keyword">public</span> Rectangle PositionRectangle
+        {
+            <span class="hljs-keyword">get</span>
+            {
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Rectangle((<span class="hljs-keyword">int</span>)position.X, (<span class="hljs-keyword">int</span>)position.Y, (<span class="hljs-keyword">int</span>)spriteWidth, (<span class="hljs-keyword">int</span>)SpriteHeight);
+            }
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Player</span>(<span class="hljs-params">ArcadeFlyerGame root, Vector2 position</span>)
+        </span>{
+            <span class="hljs-keyword">this</span>.root = root;
+            <span class="hljs-keyword">this</span>.spriteWidth = <span class="hljs-number">128.0</span>f;
+            <span class="hljs-keyword">this</span>.position = position;
+
+            LoadContent();
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">LoadContent</span>(<span class="hljs-params"></span>)
+        </span>{
+            <span class="hljs-keyword">this</span>.spriteImage = root.Content.Load&lt;Texture2D&gt;(<span class="hljs-string">&quot;MainChar&quot;</span>);
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params">GameTime gameTime</span>)
+        </span>{
+
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Draw</span>(<span class="hljs-params">GameTime gameTime, SpriteBatch spriteBatch</span>)
+        </span>{
+            spriteBatch.Draw(spriteImage, PositionRectangle, Color.White);
+        }
+    }
+}
+</code></pre>
+<h2 id="using-the-player-class">Using the <code>Player</code> Class</h2>
+<p>Now that the <code>Player</code> class has been defined, it&apos;s time to start using it in the <strong>ArcadeFlyerGame.cs</strong> file!</p>
+<ol>
+<li>Remove the <code>Texture2D playerImage</code> field from the <code>ArcadeFlyerGame</code> class, and add a <code>Player</code> field:  <pre><code class="lang-cs"> <span class="hljs-keyword">private</span> Player player;
+</code></pre>
+</li>
+<li>In the <code>ArcadeFlyerGame</code> constructor, initialize the <code>player</code> field. Set it to a new <code>Player</code> object, passing in <code>this</code> for the root, and a <code>(0, 0)</code> vector for the position:  <pre><code class="lang-cs"> player = <span class="hljs-keyword">new</span> Player(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">new</span> Vector2(<span class="hljs-number">0.0</span>f, <span class="hljs-number">0.0</span>f));
+</code></pre>
+</li>
+<li>In the <code>LoadContent</code> method, remove the statement that loads the <code>&quot;MainChar&quot;</code> image. This happens in the <code>Player</code> class now, so it is not necessary here</li>
+<li>In the <code>ArcadeFlyerGame</code> class <code>Update</code> method, call the <code>Player</code> class <code>Update</code> method:  <pre><code class="lang-cs"> player.Update(gameTime);
+</code></pre>
+</li>
+<li>In the <code>ArcadeFlyerGame</code> class <code>Draw</code> method, remove the current drawing code between <code>spriteBatch.Begin();</code> and <code>spriteBatch.End();</code></li>
+<li>Replace the previous drawing code with a call to the <code>Player</code> class <code>Draw</code> method, passing in the <code>gameTime</code> and <code>spriteBatch</code>:  <pre><code class="lang-cs"> player.Draw(gameTime, spriteBatch);
+</code></pre>
+</li>
+</ol>
+<p>Run the game to verify that the player sprite appears on the screen! It may seem like this was a lot of work for very little payoff, but creating the <code>Player</code> class will help tremendously with the organization of the code as development continues.</p>
+<h2 id="handling-input">Handling Input</h2>
+<p>Currently, the <code>Update</code> method on the <code>Player</code> class does nothing. It&apos;s time fix that and make the <code>Player</code> object controllable!</p>
+<p>Use the <code>KeyboardState</code> structure to make this happen. This allows developers to detect which keys are pressed. For more information, check out <a href="https://docs.microsoft.com/en-us/previous-versions/windows/xna/bb197763(v=xnagamestudio.42)" target="_blank">this page</a>. Make the changes in the <strong>Player.cs</strong> file. </p>
+<ol>
+<li>Add a new <code>float</code> property to the <code>Player</code> class named <code>movementSpeed</code>, and set it equal to <code>4.0f</code>:  <pre><code class="lang-cs"> <span class="hljs-keyword">private</span> <span class="hljs-keyword">float</span> movementSpeed = <span class="hljs-number">4.0</span>f;
+</code></pre>
+</li>
+<li>Define a new method on the <code>Player</code> class. The method should have:  <ul>
+<li>An access modifier of <code>private</code></li>
+<li>A return type of <code>void</code></li>
+<li>A name of <code>HandleInput</code></li>
+<li>A parameter named <code>currentKeyboardState</code> of type <code>KeyboardState</code><pre><code class="lang-cs"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">HandleInput</span>(<span class="hljs-params">KeyboardState currentKeyboardState</span>) </span>{ }
+</code></pre>
+</li>
+</ul>
+</li>
+<li>In the body of the <code>HandleInput</code> method, use the <code>currentKeyboardState.IsKeyDown</code> method to check if the <code>Keys.Up</code> key is pressed. Store the result in a <code>bool</code> variable:  <pre><code class="lang-cs"> <span class="hljs-keyword">bool</span> upKeyPressed = currentKeyboardState.IsKeyDown(Keys.Up);
+</code></pre>
+</li>
+<li>Create an <code>if</code> statement with <code>upKeyPressed</code> as the condition:  <pre><code class="lang-cs"> <span class="hljs-keyword">if</span> (upKeyPressed) { }
+</code></pre>
+</li>
+<li>In the body of the <code>if</code> statement, since the up key is pressed, decrement the <code>Y</code> value of the position to make the player move up:  <pre><code class="lang-cs"> position.Y -= movementSpeed;
+</code></pre>
+</li>
+<li>Repeat the steps above for the Down, Left, and Right keys. Make sure the player moves in the proper direction for each key press</li>
+<li>In the body of the <code>Update</code> method, use <code>Keyboard.GetState()</code> to get the current <code>KeyboardState</code> for the game and store it in a variable:  <pre><code class="lang-cs"> KeyboardState currentKeyboardState = Keyboard.GetState();
+</code></pre>
+</li>
+<li>Under that line, call the <code>HandleInput</code> method, passing in the <code>currentKeyboardState</code> variable:  <pre><code class="lang-cs"> HandleInput(currentKeyboardState);
+</code></pre>
+</li>
+</ol>
+<h3 id="the-handleinput-method">The <code>HandleInput</code> Method</h3>
+<p>The code for the <code>HandleInput</code> method should look something like this:</p>
+<pre><code class="lang-cs"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">HandleInput</span>(<span class="hljs-params">KeyboardState currentKeyboardState</span>)
+</span>{
+    <span class="hljs-keyword">bool</span> upKeyPressed = currentKeyboardState.IsKeyDown(Keys.Up);
+    <span class="hljs-keyword">bool</span> downKeyPressed = currentKeyboardState.IsKeyDown(Keys.Down);
+    <span class="hljs-keyword">bool</span> leftKeyPressed = currentKeyboardState.IsKeyDown(Keys.Left);
+    <span class="hljs-keyword">bool</span> rightKeyPressed = currentKeyboardState.IsKeyDown(Keys.Right);
+
+    <span class="hljs-keyword">if</span> (upKeyPressed)
+    {
+        position.Y -= movementSpeed;
+    }
+
+    <span class="hljs-keyword">if</span> (downKeyPressed)
+    {
+        position.Y += movementSpeed;
+    }
+
+    <span class="hljs-keyword">if</span> (leftKeyPressed)
+    {
+        position.X -= movementSpeed;
+    }
+
+    <span class="hljs-keyword">if</span> (rightKeyPressed)
+    {
+        position.X += movementSpeed;
+    }
+}
+</code></pre>
+<p>The <code>Update</code> method should look something like this:</p>
+<pre><code class="lang-cs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params">GameTime gameTime</span>)
+</span>{
+    KeyboardState currentKeyboardState = Keyboard.GetState();
+    HandleInput(currentKeyboardState);
+}
+</code></pre>
+<p>Run the program and test out the game! The main character should move based on they keyboard state!</p>
+<h2 id="final-code">Final Code</h2>
+<p>The final code for this walkthrough is available on <a href="https://github.com/hylandtechoutreach/ArcadeFlyer/tree/Part2Start" target="_blank">GitHub</a>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Part0HelloWorld.html" class="navigation navigation-prev " aria-label="Previous page: Part 0 - Hello World">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../Reference.html" class="navigation navigation-next " aria-label="Next page: Reference">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Part 1 - The Player Class","level":"1.3.2","depth":2,"next":{"title":"Reference","level":"1.4","depth":1,"path":"Reference.md","ref":"Reference.md","articles":[]},"previous":{"title":"Part 0 - Hello World","level":"1.3.1","depth":2,"path":"Walkthroughs/Part0HelloWorld.md","ref":"Walkthroughs/Part0HelloWorld.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters"],"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"BOOKREADME.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Walkthroughs/Part1PlayerClass.md","mtime":"2020-09-03T17:27:08.005Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-03T17:27:49.447Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
