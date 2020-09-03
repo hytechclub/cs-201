@@ -1,6 +1,6 @@
 - [Environment Setup](EnvironmentSetup.md)
 - [Walkthroughs](Walkthroughs/StudentDesc.md)
     - [Part 0 - Hello World](Walkthroughs/Part0HelloWorld.md)
-    - [Part 1 - The `Player` Class](WalkThroughs/Part1PlayerClass.md)
+    - [Part 1 - The `Player` Class](Walkthroughs/Part1PlayerClass.md)
 - [Reference](Reference.md)
 - [Enhancement Ideas](EnhancementIdeas.md)
