@@ -69,5 +69,119 @@ A `Rectangle` object in MonoGame represents a rectangle shape on the screen. For
 Rectangle myRect = new Rectangle(xPosition, yPosition, rectWidth, rectHeight);
 ```
 
+### `Vector2`
+In MonoGame, the `Vector2` structure stores two `float` values: an `X` and a `Y`. For more information, look at the documentation <a href="https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/bb199660(v=xnagamestudio.35)">here</a>. `Vector2` objects are used to store a number of different values. Due to the fact that the world is two-dimensional, game components often require data in both the X and Y axis. These objects can represent coordinate positions on the screen, dimensions of shapes, two-dimensional speeds, and much more.
+
+`Vector2` objects can be created as follows:
+
+```cs
+// float xValue -> a value pertaining to the X axis
+// float yValue -> a value pertaining to the Y axis
+Vector2 myVector = new Vector2(xValue, yValue);
+```
+
 ## <span>C#</span> Language Features
-Coming Soon!
+There are some important parts of the C# language that will be useful to know.
+
+### Properties
+In C#, a **property** is a more robust version of a field. [This page](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties) contains more in-depth information about properties. Properties can be used as if they are public fields, but they are actually special methods called _accessors_. The benefit to this is that other code can access properties in a simple way.
+
+Below is an example of a property in C#.
+
+**Defining the `Width` property:**
+
+```cs
+public class Shape
+{
+    // Private backing field
+    private float width;
+
+    // Property definition
+    public float Width
+    {
+        // Get accessor
+        get
+        {
+            return width;
+        }
+
+        // Set accessor
+        set
+        {
+            // The value is whatever is being set
+            width = value;
+        }
+    }
+}
+```
+
+**Using the `Width` property:**
+
+```cs
+// Create a new Shape object
+Shape myShape = new Shape();
+
+// This will call the `set` accessor
+myShape.Width = 500.0f;
+
+// This will call the `get` accessor
+float myShapeWidth = myShape.Width;
+```
+
+Properties can also be calculated:
+
+```cs
+public class Shape
+{
+    // Private backing fields
+    private float width;
+    private float imgWidth;
+    private float imgHeight;
+
+    // Public property for Height - note that there is no height backing field
+    public int Height
+    {
+        // Get accessor
+        get
+        {
+            // Calculate a scale for the height
+            float scale = width / imgWidth;
+
+            // Return the properly scaled height
+            return imgHeight * scale;
+        }
+    }
+}
+```
+
+There are also _auto-implemented_ properties, that do not require a backing field:
+
+```cs
+public class Shape
+{
+    public int Width
+    {
+        // Empty accessors -> automatically get/set an invisible backing field
+        get;
+        set;
+    }
+}
+```
+
+Properties are used frequently in C#, so it is important to understand how they work!
+
+### Casting: Explicit Conversions
+In C#, **casting** is a way to change the type of a variable. For more information, check out [this page](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions). Specifically, the type of casting used for this course will be [explicit conversions](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions#explicit-conversions).
+
+In this course, explicit conversions will be used to switch between number types (i.e., converting `int` to `float` and vice-versa). It looks like this:
+
+```cs
+// Set float
+float x = 10.0f;
+
+// Set int based on float; will be 10
+int y = (int)x;
+
+// Set float based on int; will be 10.0f
+float z = (float)y;
+```
