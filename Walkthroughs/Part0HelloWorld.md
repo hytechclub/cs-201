@@ -136,4 +136,5 @@ spriteBatch.Draw(playerImage, playerDestinationRect, Color.White);
 
 Run the program, and verify that the crystal ball appears on the screen!
 
+## Final Code
 The final code for this walkthrough is available on [GitHub](https://github.com/hylandtechoutreach/ArcadeFlyer/tree/Part1Start).
