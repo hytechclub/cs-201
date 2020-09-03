@@ -64,7 +64,7 @@
     <link rel="next" href="EnhancementIdeas.html" />
     
     
-    <link rel="prev" href="Walkthroughs/Part0HelloWorld.html" />
+    <link rel="prev" href="WalkThroughs/Part1PlayerClass.md" />
     
 
     </head>
@@ -139,6 +139,19 @@
             
                     
                     Part 0 - Hello World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="WalkThroughs/Part1PlayerClass.md">
+            
+                <span>
+            
+                    
+                    Part 1 - The Player Class
             
                 </a>
             
@@ -270,8 +283,99 @@ spriteBatch.Draw(myTexture, myDestinationRect, mySourceRect, Color.White);
 <span class="hljs-comment">// int rectHeight -&gt; height of the rectangle</span>
 Rectangle myRect = <span class="hljs-keyword">new</span> Rectangle(xPosition, yPosition, rectWidth, rectHeight);
 </code></pre>
+<h3 id="vector2"><code>Vector2</code></h3>
+<p>In MonoGame, the <code>Vector2</code> structure stores two <code>float</code> values: an <code>X</code> and a <code>Y</code>. For more information, look at the documentation <a href="https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/bb199660(v=xnagamestudio.35)" target="_blank">here</a>. <code>Vector2</code> objects are used to store a number of different values. Due to the fact that the world is two-dimensional, game components often require data in both the X and Y axis. These objects can represent coordinate positions on the screen, dimensions of shapes, two-dimensional speeds, and much more.</p>
+<p><code>Vector2</code> objects can be created as follows:</p>
+<pre><code class="lang-cs"><span class="hljs-comment">// float xValue -&gt; a value pertaining to the X axis</span>
+<span class="hljs-comment">// float yValue -&gt; a value pertaining to the Y axis</span>
+Vector2 myVector = <span class="hljs-keyword">new</span> Vector2(xValue, yValue);
+</code></pre>
 <h2 id="c-language-features"><span>C#</span> Language Features</h2>
-<p>Coming Soon!</p>
+<p>There are some important parts of the C# language that will be useful to know.</p>
+<h3 id="properties">Properties</h3>
+<p>In C#, a <strong>property</strong> is a more robust version of a field. <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties" target="_blank">This page</a> contains more in-depth information about properties. Properties can be used as if they are public fields, but they are actually special methods called <em>accessors</em>. The benefit to this is that other code can access properties in a simple way.</p>
+<p>Below is an example of a property in C#.</p>
+<p><strong>Defining the <code>Width</code> property:</strong></p>
+<pre><code class="lang-cs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Shape</span>
+{
+    <span class="hljs-comment">// Private backing field</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">float</span> width;
+
+    <span class="hljs-comment">// Property definition</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> Width
+    {
+        <span class="hljs-comment">// Get accessor</span>
+        <span class="hljs-keyword">get</span>
+        {
+            <span class="hljs-keyword">return</span> width;
+        }
+
+        <span class="hljs-comment">// Set accessor</span>
+        <span class="hljs-keyword">set</span>
+        {
+            <span class="hljs-comment">// The value is whatever is being set</span>
+            width = <span class="hljs-keyword">value</span>;
+        }
+    }
+}
+</code></pre>
+<p><strong>Using the <code>Width</code> property:</strong></p>
+<pre><code class="lang-cs"><span class="hljs-comment">// Create a new Shape object</span>
+Shape myShape = <span class="hljs-keyword">new</span> Shape();
+
+<span class="hljs-comment">// This will call the `set` accessor</span>
+myShape.Width = <span class="hljs-number">500.0</span>f;
+
+<span class="hljs-comment">// This will call the `get` accessor</span>
+<span class="hljs-keyword">float</span> myShapeWidth = myShape.Width;
+</code></pre>
+<p>Properties can also be calculated:</p>
+<pre><code class="lang-cs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Shape</span>
+{
+    <span class="hljs-comment">// Private backing fields</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">float</span> width;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">float</span> imgWidth;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">float</span> imgHeight;
+
+    <span class="hljs-comment">// Public property for Height - note that there is no height backing field</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> Height
+    {
+        <span class="hljs-comment">// Get accessor</span>
+        <span class="hljs-keyword">get</span>
+        {
+            <span class="hljs-comment">// Calculate a scale for the height</span>
+            <span class="hljs-keyword">float</span> scale = width / imgWidth;
+
+            <span class="hljs-comment">// Return the properly scaled height</span>
+            <span class="hljs-keyword">return</span> imgHeight * scale;
+        }
+    }
+}
+</code></pre>
+<p>There are also <em>auto-implemented</em> properties, that do not require a backing field:</p>
+<pre><code class="lang-cs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Shape</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> Width
+    {
+        <span class="hljs-comment">// Empty accessors -&gt; automatically get/set an invisible backing field</span>
+        <span class="hljs-keyword">get</span>;
+        <span class="hljs-keyword">set</span>;
+    }
+}
+</code></pre>
+<p>Properties are used frequently in C#, so it is important to understand how they work!</p>
+<h3 id="casting-explicit-conversions">Casting: Explicit Conversions</h3>
+<p>In C#, <strong>casting</strong> is a way to change the type of a variable. For more information, check out <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions" target="_blank">this page</a>. Specifically, the type of casting used for this course will be <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions#explicit-conversions" target="_blank">explicit conversions</a>.</p>
+<p>In this course, explicit conversions will be used to switch between number types (i.e., converting <code>int</code> to <code>float</code> and vice-versa). It looks like this:</p>
+<pre><code class="lang-cs"><span class="hljs-comment">// Set float</span>
+<span class="hljs-keyword">float</span> x = <span class="hljs-number">10.0</span>f;
+
+<span class="hljs-comment">// Set int based on float; will be 10</span>
+<span class="hljs-keyword">int</span> y = (<span class="hljs-keyword">int</span>)x;
+
+<span class="hljs-comment">// Set float based on int; will be 10.0f</span>
+<span class="hljs-keyword">float</span> z = (<span class="hljs-keyword">float</span>)y;
+</code></pre>
 
                                 
                                 </section>
@@ -299,7 +403,7 @@ Rectangle myRect = <span class="hljs-keyword">new</span> Rectangle(xPosition, yP
 
             
                 
-                <a href="Walkthroughs/Part0HelloWorld.html" class="navigation navigation-prev " aria-label="Previous page: Part 0 - Hello World">
+                <a href="WalkThroughs/Part1PlayerClass.md" class="navigation navigation-prev " aria-label="Previous page: Part 1 - The Player Class">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -315,7 +419,7 @@ Rectangle myRect = <span class="hljs-keyword">new</span> Rectangle(xPosition, yP
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Reference","level":"1.4","depth":1,"next":{"title":"Enhancement Ideas","level":"1.5","depth":1,"path":"EnhancementIdeas.md","ref":"EnhancementIdeas.md","articles":[]},"previous":{"title":"Part 0 - Hello World","level":"1.3.1","depth":2,"path":"Walkthroughs/Part0HelloWorld.md","ref":"Walkthroughs/Part0HelloWorld.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters"],"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"BOOKREADME.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Reference.md","mtime":"2020-09-02T18:22:32.413Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-02T18:23:08.930Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Reference","level":"1.4","depth":1,"next":{"title":"Enhancement Ideas","level":"1.5","depth":1,"path":"EnhancementIdeas.md","ref":"EnhancementIdeas.md","articles":[]},"previous":{"title":"Part 1 - The Player Class","level":"1.3.2","depth":2,"path":"WalkThroughs/Part1PlayerClass.md","ref":"WalkThroughs/Part1PlayerClass.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters"],"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"BOOKREADME.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Reference.md","mtime":"2020-09-03T17:21:09.773Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-03T17:21:48.570Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
