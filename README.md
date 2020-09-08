@@ -40,12 +40,12 @@ There will be a series of code-along activities, each building on the last. Ther
 - "Hello World" - make the player appear, loading in a Texture2D object, representing its position with a Vector and Rectangle
 - Create the Player class
 - Control the Player's movement
+- Create the Enemy class
+- Create the Sprite class
+- Make the Player and Enemy classes inherit from the Sprite class
 - Create the Projectile class
 - Create the CoolDown class
-- Allow the Player to fire Projectiles
-- Create the Sprite class
-- Make the Player and Projectile classes inherit from the Sprite class
-- Create the Enemy class that should inherit from the Sprite class and fire projectiles
+- Allow the Player and Enemy to fire Projectiles
 - Update the Enemy sprite image with Piskel
 - Handle collisions between projectiles
     - Create the ProjectileType enum
@@ -54,4 +54,4 @@ There will be a series of code-along activities, each building on the last. Ther
 - Create the screen cover
 - Create the divider line
 - Add animations
-- 
+- Make smoother movement

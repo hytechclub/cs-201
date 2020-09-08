@@ -2,5 +2,6 @@
 - [Walkthroughs](Walkthroughs/StudentDesc.md)
     - [Part 0 - Hello World](Walkthroughs/Part0HelloWorld.md)
     - [Part 1 - The `Player` Class](Walkthroughs/Part1PlayerClass.md)
+    - [Part 2 - The `Enemy` Class](Walkthroughs/Part2EnemyClass.md)
 - [Reference](Reference.md)
 - [Enhancement Ideas](EnhancementIdeas.md)
