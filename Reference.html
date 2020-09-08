@@ -64,7 +64,7 @@
     <link rel="next" href="EnhancementIdeas.html" />
     
     
-    <link rel="prev" href="Walkthroughs/Part2EnemyClass.html" />
+    <link rel="prev" href="Walkthroughs/Part3SpriteClass.html" />
     
 
     </head>
@@ -165,6 +165,19 @@
             
                     
                     Part 2 - The Enemy Class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="Walkthroughs/Part3SpriteClass.html">
+            
+                <a href="Walkthroughs/Part3SpriteClass.html">
+            
+                    
+                    Part 3 - The Sprite Class
             
                 </a>
             
@@ -305,6 +318,18 @@ Vector2 myVector = <span class="hljs-keyword">new</span> Vector2(xValue, yValue)
 </code></pre>
 <h2 id="c-language-features"><span>C#</span> Language Features</h2>
 <p>There are some important parts of the C# language that will be useful to know.</p>
+<h3 id="casting-explicit-conversions">Casting: Explicit Conversions</h3>
+<p>In C#, <strong>casting</strong> is a way to change the type of a variable. For more information, check out <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions" target="_blank">this page</a>. Specifically, the type of casting used for this course will be <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions#explicit-conversions" target="_blank">explicit conversions</a>.</p>
+<p>In this course, explicit conversions will be used to switch between number types (i.e., converting <code>int</code> to <code>float</code> and vice-versa). It looks like this:</p>
+<pre><code class="lang-cs"><span class="hljs-comment">// Set float</span>
+<span class="hljs-keyword">float</span> x = <span class="hljs-number">10.0</span>f;
+
+<span class="hljs-comment">// Set int based on float; will be 10</span>
+<span class="hljs-keyword">int</span> y = (<span class="hljs-keyword">int</span>)x;
+
+<span class="hljs-comment">// Set float based on int; will be 10.0f</span>
+<span class="hljs-keyword">float</span> z = (<span class="hljs-keyword">float</span>)y;
+</code></pre>
 <h3 id="properties">Properties</h3>
 <p>In C#, a <strong>property</strong> is a more robust version of a field. <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties" target="_blank">This page</a> contains more in-depth information about properties. Properties can be used as if they are public fields, but they are actually special methods called <em>accessors</em>. The benefit to this is that other code can access properties in a simple way.</p>
 <p>Below is an example of a property in C#.</p>
@@ -377,18 +402,81 @@ myShape.Width = <span class="hljs-number">500.0</span>f;
 }
 </code></pre>
 <p>Properties are used frequently in C#, so it is important to understand how they work!</p>
-<h3 id="casting-explicit-conversions">Casting: Explicit Conversions</h3>
-<p>In C#, <strong>casting</strong> is a way to change the type of a variable. For more information, check out <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions" target="_blank">this page</a>. Specifically, the type of casting used for this course will be <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions#explicit-conversions" target="_blank">explicit conversions</a>.</p>
-<p>In this course, explicit conversions will be used to switch between number types (i.e., converting <code>int</code> to <code>float</code> and vice-versa). It looks like this:</p>
-<pre><code class="lang-cs"><span class="hljs-comment">// Set float</span>
-<span class="hljs-keyword">float</span> x = <span class="hljs-number">10.0</span>f;
-
-<span class="hljs-comment">// Set int based on float; will be 10</span>
-<span class="hljs-keyword">int</span> y = (<span class="hljs-keyword">int</span>)x;
-
-<span class="hljs-comment">// Set float based on int; will be 10.0f</span>
-<span class="hljs-keyword">float</span> z = (<span class="hljs-keyword">float</span>)y;
+<h3 id="inheritance">Inheritance</h3>
+<p>In C#, <strong>inheritance</strong> enables developers to create new classes that reuse, extend, and modify the behavior defined in other classes. Check out <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/inheritance" target="_blank">this page</a> for more information. Inheritance makes it much easier to organize code, prevents code repetition, and simplifies maintenance.</p>
+<p>There are two types of classes in an inheritance context: <strong>base classes</strong> and <strong>derived classes</strong>. A derived class <em>inherits from</em> a base class. This means that the derived class receives all of the fields, properties, and methods from the base class (depending on the <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers" target="_blank">access modifiers</a> on the base class). When a derived class inherits from a base class, objects of the derived type are <em>also</em> objects of the base type.</p>
+<p>Derived classes can inherit from base classes using the <code>:</code> in their definition. In this example, <code>Animal</code> is the base class, and <code>Dog</code> is the derived class:</p>
+<pre><code class="lang-cs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Dog</span> : <span class="hljs-title">Animal</span> { }
 </code></pre>
+<p>The colon essentially means &quot;is a&quot; in this situation. So, a <code>Dog</code> <em>is an</em> <code>Animal</code>.</p>
+<p>To create a constructor for a derived class, the constructor for the base class may also need to be invoked. To do that, use <code>: base()</code> after the method signature for the derived constructor. In this example, the <code>Dog</code> constructor properly calls the <code>Animal</code> constructor with the given arguments:</p>
+<pre><code class="lang-cs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Dog</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> name</span>) : <span class="hljs-title">base</span>(<span class="hljs-params">name</span>) </span>{ }
+</code></pre>
+<p>Below is full example of inheritance in C#.</p>
+<p><strong>Base Class: <code>Animal</code></strong></p>
+<pre><code class="lang-cs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span>
+{
+    <span class="hljs-comment">// Public properties</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> Name { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> Height { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+
+    <span class="hljs-comment">// Construction</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Animal</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> name, <span class="hljs-keyword">float</span> height</span>)
+    </span>{
+        Name = name;
+        Height = height;
+    }
+
+    <span class="hljs-comment">// Method</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">SayName</span>(<span class="hljs-params"></span>)
+    </span>{
+        Console.WriteLine(<span class="hljs-string">&quot;My name is &quot;</span> + Name);
+    }
+}
+</code></pre>
+<p><strong>Derived Class: <code>Dog</code></strong></p>
+<pre><code class="lang-cs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Dog</span> : <span class="hljs-title">Animal</span> <span class="hljs-comment">/* Inherit from Animal */</span>
+{
+    <span class="hljs-comment">// Another public property</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> Breed { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+
+    <span class="hljs-comment">// Constructor calls the Animal constructor</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Dog</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> name, <span class="hljs-keyword">float</span> height, <span class="hljs-keyword">string</span> breed</span>) : <span class="hljs-title">base</span>(<span class="hljs-params">name, height</span>)
+    </span>{
+        Breed = breed;
+    }
+
+    <span class="hljs-comment">// Another method</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Bark</span>(<span class="hljs-params"></span>)
+    </span>{
+        Console.WriteLine(<span class="hljs-string">&quot;Bark!!!&quot;</span>);
+    }
+}
+</code></pre>
+<p><strong>Using the <code>Dog</code> class</strong></p>
+<pre><code class="lang-cs"><span class="hljs-comment">// Construction</span>
+Dog myDog = <span class="hljs-keyword">new</span> Dog(<span class="hljs-string">&quot;Clifford&quot;</span>, <span class="hljs-number">300</span>, <span class="hljs-string">&quot;Vizsla&quot;</span>);
+
+<span class="hljs-comment">// Accessing one of its own properties</span>
+Console.WriteLine(<span class="hljs-string">&quot;Breed: &quot;</span> + myDog.Breed);
+
+<span class="hljs-comment">// Accessing an Animal property</span>
+Console.WriteLine(<span class="hljs-string">&quot;Height: &quot;</span> + myDog.Height);
+
+<span class="hljs-comment">// Calling one of its own methods</span>
+myDog.Bark();
+
+<span class="hljs-comment">// Calling an Animal method</span>
+myDog.SayName();
+</code></pre>
+<h3 id="access-modifiers">Access Modifiers</h3>
+<p>In C#, <strong>access modifiers</strong> control which parts of the code can be used in which other parts of the code. Check out <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers" target="_blank">this article</a> for further information.</p>
+<p>There are three access modifiers that apply to this course:</p>
+<ul>
+<li><code>public</code>: the code is accessible from anywhere</li>
+<li><code>protected</code>: the code is accessible in the <code>class</code> where it is defined, <em>and</em> in any derived <code>class</code></li>
+<li><code>private</code>: the code is only accessible in the <code>class</code> where it is defined</li>
+</ul>
 
                                 
                                 </section>
@@ -416,7 +504,7 @@ myShape.Width = <span class="hljs-number">500.0</span>f;
 
             
                 
-                <a href="Walkthroughs/Part2EnemyClass.html" class="navigation navigation-prev " aria-label="Previous page: Part 2 - The Enemy Class">
+                <a href="Walkthroughs/Part3SpriteClass.html" class="navigation navigation-prev " aria-label="Previous page: Part 3 - The Sprite Class">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -432,7 +520,7 @@ myShape.Width = <span class="hljs-number">500.0</span>f;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Reference","level":"1.4","depth":1,"next":{"title":"Enhancement Ideas","level":"1.5","depth":1,"path":"EnhancementIdeas.md","ref":"EnhancementIdeas.md","articles":[]},"previous":{"title":"Part 2 - The Enemy Class","level":"1.3.3","depth":2,"path":"Walkthroughs/Part2EnemyClass.md","ref":"Walkthroughs/Part2EnemyClass.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters"],"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"BOOKREADME.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Reference.md","mtime":"2020-09-08T17:25:40.028Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-08T17:26:20.868Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Reference","level":"1.4","depth":1,"next":{"title":"Enhancement Ideas","level":"1.5","depth":1,"path":"EnhancementIdeas.md","ref":"EnhancementIdeas.md","articles":[]},"previous":{"title":"Part 3 - The Sprite Class","level":"1.3.4","depth":2,"path":"Walkthroughs/Part3SpriteClass.md","ref":"Walkthroughs/Part3SpriteClass.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters"],"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"BOOKREADME.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Reference.md","mtime":"2020-09-08T19:21:04.101Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-08T19:21:41.773Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
