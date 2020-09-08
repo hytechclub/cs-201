@@ -56,15 +56,13 @@ graphics.PreferredBackBufferHeight = screenHeight;
 ## Loading an Enemy Image Asset
 To create an enemy, it will be necessary to have an image for the enemy! Use the following evil ball image, or any other image:
 
-<a href="https://i.imgur.com/Z10wxnw.png" download="Enemy">
-  <img src="https://i.imgur.com/Z10wxnw.png">
-</a>
+![](https://i.imgur.com/Z10wxnw.png)
 
 1. Save a new image named **Enemy.png** in the "Content" folder
-1. Open up the **Content.mgcb** file in the MonoGame Pipeline Tool
-1. Click the "Add Existing Item" button
-1. Select the **Enemy.png** file
-1. Click the "Build" button
+2. Open up the **Content.mgcb** file in the MonoGame Pipeline Tool
+3. Click the "Add Existing Item" button
+4. Select the **Enemy.png** file
+5. Click the "Build" button
 
 Now the "Enemy" asset should be loadable in the game!
 
@@ -225,6 +223,7 @@ namespace ArcadeFlyer2D
         private Texture2D spriteImage;
         private float spriteWidth;
         private Vector2 velocity;
+
         public float SpriteHeight
         {
             get
