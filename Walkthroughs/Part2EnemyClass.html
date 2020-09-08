@@ -1,0 +1,608 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Part 2 - The Enemy Class · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../Reference.html" />
+    
+    
+    <link rel="prev" href="Part1PlayerClass.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../EnvironmentSetup.html">
+            
+                <a href="../EnvironmentSetup.html">
+            
+                    
+                    Environment Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="StudentDesc.html">
+            
+                <a href="StudentDesc.html">
+            
+                    
+                    Walkthroughs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="Part0HelloWorld.html">
+            
+                <a href="Part0HelloWorld.html">
+            
+                    
+                    Part 0 - Hello World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="Part1PlayerClass.html">
+            
+                <a href="Part1PlayerClass.html">
+            
+                    
+                    Part 1 - The Player Class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.3" data-path="Part2EnemyClass.html">
+            
+                <a href="Part2EnemyClass.html">
+            
+                    
+                    Part 2 - The Enemy Class
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Reference.html">
+            
+                <a href="../Reference.html">
+            
+                    
+                    Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../EnhancementIdeas.html">
+            
+                <a href="../EnhancementIdeas.html">
+            
+                    
+                    Enhancement Ideas
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Part 2 - The Enemy Class</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="part-2---the-enemy-class">Part 2 - The <code>Enemy</code> Class</h1>
+<p>In this walkthrough, create a new <code>Enemy</code> class and use it to display a moving enemy on the screen.</p>
+<h2 id="adding-screenheight-and-screenwidth-properties-to-the-arcadeflyergame-class">Adding <code>ScreenHeight</code> and <code>ScreenWidth</code> Properties to the <code>ArcadeFlyerGame</code> Class</h2>
+<p>Before creating an enemy, it will be necessary to add two properties to the <code>ArcadeFlyerGame</code> class: <code>ScreenHeight</code> and <code>ScreenWidth</code>. This will allow the <code>Enemy</code> objects to know where the screen starts and ends. A simple way to create these properties is to use the <code>propfull</code> <a href="https://docs.microsoft.com/en-us/visualstudio/ide/visual-csharp-code-snippets?view=vs-2019" target="_blank">code snippet</a>.</p>
+<ol>
+<li>Open the <strong>ArcadeFlyerGame.cs</strong> file</li>
+<li>Make a new line in the body of the <code>ArcadeFlyerGame</code> class, under the existing private fields</li>
+<li>If using VS Code with the C# extension, type in &quot;propfull&quot; and press <code>Enter</code>. The following code should appear automatically:  <pre><code class="lang-cs"> <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> myVar;
+ <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> MyProperty
+ {
+     <span class="hljs-keyword">get</span> { <span class="hljs-keyword">return</span> myVar; }
+     <span class="hljs-keyword">set</span> { myVar = <span class="hljs-keyword">value</span>; }
+ }
+</code></pre>
+</li>
+<li>Press the <code>Tab</code> key to tab through and update the property values; <code>myVar</code> should be <code>screenWidth</code>, and <code>MyProperty</code> should be <code>ScreenWidth</code>:<pre><code class="lang-cs"> <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> screenWidth;
+ <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> ScreenWidth
+ {
+     <span class="hljs-keyword">get</span> { <span class="hljs-keyword">return</span> screenWidth; }
+     <span class="hljs-keyword">set</span> { screenWidth = <span class="hljs-keyword">value</span>; }
+ }
+</code></pre>
+</li>
+<li>Set the initial field value to be <code>1600</code>, the preferred width of the screen</li>
+<li>Add the <code>private</code> keyword in front of the <code>set</code> accessor, so that only the <code>ArcadeFlyerGame</code> class can set the screen width</li>
+<li>Repeat the steps above for the <code>ScreenHeight</code> property, using <code>900</code> for the preferred height</li>
+<li>In the <code>ArcadeFlyerGame</code> constructor, replace the hard-coded <code>1600</code> and <code>900</code> with the field values</li>
+</ol>
+<h3 id="code">Code</h3>
+<p><code>ArcadeFlyerGame</code> class:</p>
+<pre><code class="lang-cs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> screenWidth = <span class="hljs-number">1600</span>;
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> ScreenWidth
+{
+    <span class="hljs-keyword">get</span> { <span class="hljs-keyword">return</span> screenWidth; }
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">set</span> { screenWidth = <span class="hljs-keyword">value</span>; }
+}
+
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> screenHeight = <span class="hljs-number">900</span>;
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> ScreenHeight
+{
+    <span class="hljs-keyword">get</span> { <span class="hljs-keyword">return</span> screenHeight; }
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">set</span> { screenHeight = <span class="hljs-keyword">value</span>; }
+}
+</code></pre>
+<p><code>ArcadeFlyerGame</code> constructor:</p>
+<pre><code class="lang-cs">graphics.PreferredBackBufferWidth = screenWidth;
+graphics.PreferredBackBufferHeight = screenHeight;
+</code></pre>
+<h2 id="loading-an-enemy-image-asset">Loading an Enemy Image Asset</h2>
+<p>To create an enemy, it will be necessary to have an image for the enemy! Use the following evil ball image, or any other image:</p>
+<p><a href="https://i.imgur.com/Z10wxnw.png" download="Enemy" target="_blank">
+  <img src="https://i.imgur.com/Z10wxnw.png">
+</a></p>
+<ol>
+<li>Save a new image named <strong>Enemy.png</strong> in the &quot;Content&quot; folder</li>
+<li>Open up the <strong>Content.mgcb</strong> file in the MonoGame Pipeline Tool</li>
+<li>Click the &quot;Add Existing Item&quot; button</li>
+<li>Select the <strong>Enemy.png</strong> file</li>
+<li>Click the &quot;Build&quot; button</li>
+</ol>
+<p>Now the &quot;Enemy&quot; asset should be loadable in the game!</p>
+<h2 id="defining-the-enemy-class">Defining the <code>Enemy</code> Class</h2>
+<p>Now it&apos;s time to create an <code>Enemy</code> class. This will be very similar to creating the <code>Player</code> class.</p>
+<h3 id="setup">Setup</h3>
+<p>Start with the basic setup for the class.</p>
+<ol>
+<li>Create a new file named <strong>Enemy.cs</strong> in the &quot;src&quot; folder</li>
+<li>Add <code>using</code> statements for <code>Microsoft.Xna.Framework</code> and <code>Microsoft.Xna.Framework.Graphics</code></li>
+<li>Create a <code>namespace</code> wrapper for <code>ArcadeFlyer2D</code></li>
+<li>In the body of the <code>ArcadeFlyer2D</code> namespace, define a <code>class</code> named <code>Enemy</code></li>
+</ol>
+<pre><code class="lang-cs"><span class="hljs-keyword">using</span> Microsoft.Xna.Framework;
+<span class="hljs-keyword">using</span> Microsoft.Xna.Framework.Graphics;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">ArcadeFlyer2D</span>
+{
+    <span class="hljs-keyword">class</span> <span class="hljs-title">Enemy</span>
+    {
+
+    }
+}
+</code></pre>
+<h3 id="basic-fields">Basic Fields</h3>
+<p>Add some basic private fields for the <code>Enemy</code> class:</p>
+<ul>
+<li>A reference to the <code>root</code> <code>ArcadeFlyerGame</code> object</li>
+<li>A <code>position</code> stored in a <code>Vector2</code> object</li>
+<li>A <code>spriteImage</code> stored in a <code>Texture2D</code> object</li>
+<li>A <code>spriteWidth</code> stored in a <code>float</code></li>
+<li>A two-dimensional <code>velocity</code> stored in a <code>Vector2</code> object</li>
+</ul>
+<pre><code class="lang-cs"><span class="hljs-keyword">private</span> ArcadeFlyerGame root;
+<span class="hljs-keyword">private</span> Vector2 position;
+<span class="hljs-keyword">private</span> Texture2D spriteImage;
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">float</span> spriteWidth;
+<span class="hljs-keyword">private</span> Vector2 velocity;
+</code></pre>
+<h3 id="calculated-properties">Calculated Properties</h3>
+<p>Some properties can be calculated based on the private fields:</p>
+<ul>
+<li>A <code>SpriteHeight</code> property that calculates the properly scaled height <code>float</code> based on the image dimensions and sprite width</li>
+<li>A <code>PositionRectangle</code> property that returns a <code>Rectangle</code> representing the location of the enemy on the screen</li>
+</ul>
+<p>Because they are calculated, these properties should only have <code>get</code> accessors, and no <code>set</code> accessors.</p>
+<pre><code class="lang-cs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> SpriteHeight
+{
+    <span class="hljs-keyword">get</span>
+    {
+        <span class="hljs-keyword">float</span> scale = spriteWidth / spriteImage.Width;
+        <span class="hljs-keyword">return</span> spriteImage.Height * scale;
+    }
+}
+
+<span class="hljs-keyword">public</span> Rectangle PositionRectangle
+{
+    <span class="hljs-keyword">get</span>
+    {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Rectangle((<span class="hljs-keyword">int</span>)position.X, (<span class="hljs-keyword">int</span>)position.Y, (<span class="hljs-keyword">int</span>)spriteWidth, (<span class="hljs-keyword">int</span>)SpriteHeight);
+    }
+}
+</code></pre>
+<h3 id="construction-and-content-loading">Construction and Content Loading</h3>
+<p>Next, create the constructor for the <code>Enemy</code> class, and a <code>LoadContent</code> method for loading the &quot;Enemy&quot; image asset.</p>
+<ol>
+<li>Define a <code>public</code> constructor for the <code>Enemy</code> class that takes in an <code>ArcadeFlyerGame root</code> object and a <code>Vector2 position</code> object</li>
+<li>In the body of the constructor, set the <code>root</code> and <code>position</code> private fields to the parameter values</li>
+<li>Under those statements, set the <code>spriteWidth</code> field to <code>128.0f</code></li>
+<li>Set the <code>velocity</code> field to a new <code>Vector2</code> object with <code>-1.0f</code> and <code>5.0f</code><ul>
+<li>This means the enemy will move left and down</li>
+</ul>
+</li>
+<li>Define a new method named <code>LoadContent</code> with a return type of <code>void</code> and no parameters</li>
+<li>In the body of the <code>LoadContent</code> method, use <code>root.Content.Load</code> to load the &quot;Enemy&quot; asset</li>
+<li>Under that, set the <code>spriteImage</code> field to the loaded &quot;Enemy&quot; asset</li>
+<li>Back in the constructor, at the bottom of the body, call the <code>LoadContent</code> method</li>
+</ol>
+<pre><code class="lang-cs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Enemy</span>(<span class="hljs-params">ArcadeFlyerGame root, Vector2 position</span>)
+</span>{
+    <span class="hljs-keyword">this</span>.root = root;
+    <span class="hljs-keyword">this</span>.position = position;
+    <span class="hljs-keyword">this</span>.spriteWidth = <span class="hljs-number">128.0</span>f;
+    <span class="hljs-keyword">this</span>.velocity = <span class="hljs-keyword">new</span> Vector2(<span class="hljs-number">-1.0</span>f, <span class="hljs-number">5.0</span>f);
+
+    LoadContent();
+}
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">LoadContent</span>(<span class="hljs-params"></span>)
+</span>{
+    <span class="hljs-keyword">this</span>.spriteImage = root.Content.Load&lt;Texture2D&gt;(<span class="hljs-string">&quot;Enemy&quot;</span>);
+}
+</code></pre>
+<h3 id="the-update-method">The <code>Update</code> Method</h3>
+<p>To make an enemy move from frame to frame, it will be necessary to update the <code>position</code> field. This should happen in a method named <code>Update</code>. The enemy should move according to the <code>velocity</code> field, and the <code>velocity</code> should update so the enemy bounces off the top and bottom of the screen.</p>
+<ol>
+<li>In the body of the <code>Enemy</code> class, define a new method named <code>Update</code><ul>
+<li>The method should have a <code>void</code> return type, and it should take in a <code>GameTime</code> parameter</li>
+</ul>
+</li>
+<li>In the body of the <code>Update</code> method, update the <code>position</code> field by adding the <code>velocity</code> to it: <code>position += velocity;</code></li>
+<li>Under the <code>position</code> update, create an <code>if</code> statement</li>
+<li>In the condition for the <code>if</code> statement, check if the enemy is hitting the top or the bottom of the screen. Either of the following:<ul>
+<li>Its Y position is less than <code>0</code></li>
+<li>Its Y position is greater than the height of the screen minus its own height</li>
+</ul>
+</li>
+<li>In the body of the <code>if</code> statement, flip the Y velocity by multiplying it by <code>-1</code></li>
+</ol>
+<p>Now, the sprite should be able to move and bounce properly!</p>
+<pre><code class="lang-cs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params">GameTime gameTime</span>)
+</span>{
+    position += velocity;
+
+    <span class="hljs-keyword">if</span> (position.Y &lt; <span class="hljs-number">0</span> || position.Y &gt; (root.ScreenHeight - SpriteHeight))
+    {
+        velocity.Y *= <span class="hljs-number">-1</span>;
+    }
+}
+</code></pre>
+<h3 id="the-draw-method">The <code>Draw</code> Method</h3>
+<p>The last thing the <code>Enemy</code> class needs to do is actually draw the enemy on the screen!</p>
+<ol>
+<li>In the body of the <code>Enemy</code> class, define a new method named <code>Draw</code><ul>
+<li>The method should have a <code>void</code> return type, and it should take in a <code>GameTime</code> parameter and a <code>SpriteBatch</code> parameter</li>
+</ul>
+</li>
+<li>In the body of the <code>Draw</code> method, call the <code>spriteBatch.Draw</code> method<ul>
+<li>Pass in the <code>spriteImage</code> field, the <code>PositionRectangle</code> property, and <code>Color.White</code></li>
+</ul>
+</li>
+</ol>
+<p>That&apos;s all that&apos;s needed to draw the sprite!</p>
+<pre><code class="lang-cs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Draw</span>(<span class="hljs-params">GameTime gameTime, SpriteBatch spriteBatch</span>)
+</span>{
+    spriteBatch.Draw(spriteImage, PositionRectangle, Color.White);
+}
+</code></pre>
+<h3 id="the-enemy-class">The <code>Enemy</code> Class</h3>
+<p>The code in the <strong>Enemy.cs</strong> file should look something like this:</p>
+<pre><code class="lang-cs"><span class="hljs-keyword">using</span> Microsoft.Xna.Framework;
+<span class="hljs-keyword">using</span> Microsoft.Xna.Framework.Graphics;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">ArcadeFlyer2D</span>
+{
+    <span class="hljs-keyword">class</span> <span class="hljs-title">Enemy</span>
+    {
+        <span class="hljs-keyword">private</span> ArcadeFlyerGame root;
+        <span class="hljs-keyword">private</span> Vector2 position;
+        <span class="hljs-keyword">private</span> Texture2D spriteImage;
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">float</span> spriteWidth;
+        <span class="hljs-keyword">private</span> Vector2 velocity;
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> SpriteHeight
+        {
+            <span class="hljs-keyword">get</span>
+            {
+                <span class="hljs-keyword">float</span> scale = spriteWidth / spriteImage.Width;
+                <span class="hljs-keyword">return</span> spriteImage.Height * scale;
+            }
+        }
+
+        <span class="hljs-keyword">public</span> Rectangle PositionRectangle
+        {
+            <span class="hljs-keyword">get</span>
+            {
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Rectangle((<span class="hljs-keyword">int</span>)position.X, (<span class="hljs-keyword">int</span>)position.Y, (<span class="hljs-keyword">int</span>)spriteWidth, (<span class="hljs-keyword">int</span>)SpriteHeight);
+            }
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Enemy</span>(<span class="hljs-params">ArcadeFlyerGame root, Vector2 position</span>)
+        </span>{
+            <span class="hljs-keyword">this</span>.root = root;
+            <span class="hljs-keyword">this</span>.position = position;
+            <span class="hljs-keyword">this</span>.spriteWidth = <span class="hljs-number">128.0</span>f;
+            <span class="hljs-keyword">this</span>.velocity = <span class="hljs-keyword">new</span> Vector2(<span class="hljs-number">-1.0</span>f, <span class="hljs-number">5.0</span>f);
+
+            LoadContent();
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">LoadContent</span>(<span class="hljs-params"></span>)
+        </span>{
+            <span class="hljs-keyword">this</span>.spriteImage = root.Content.Load&lt;Texture2D&gt;(<span class="hljs-string">&quot;Enemy&quot;</span>);
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params">GameTime gameTime</span>)
+        </span>{
+            position += velocity;
+
+            <span class="hljs-keyword">if</span> (position.Y &lt; <span class="hljs-number">0</span> || position.Y &gt; (root.ScreenHeight - SpriteHeight))
+            {
+                velocity.Y *= <span class="hljs-number">-1</span>;
+            }
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Draw</span>(<span class="hljs-params">GameTime gameTime, SpriteBatch spriteBatch</span>)
+        </span>{
+            spriteBatch.Draw(spriteImage, PositionRectangle, Color.White);
+        }
+    }
+}
+</code></pre>
+<h2 id="using-the-enemy-class-to-create-an-enemy">Using the <code>Enemy</code> Class to Create an Enemy</h2>
+<p>Now that the <code>Enemy</code> class has been defined, all that&apos;s left is to use it in the <code>ArcadeFlyerGame</code> class to make an enemy in the game!</p>
+<ol>
+<li>Open the <strong>ArcadeFlyerGame.cs</strong> file</li>
+<li>In the body of the <code>ArcadeFlyerGame</code> class, add a private field named <code>enemy</code> of type <code>Enemy</code></li>
+<li>In the body of the <code>ArcadeFlyerGame</code> constructor, initialize a new <code>Enemy</code> object</li>
+<li>Pass in <code>this</code>, and a new <code>Vector2</code> object for the position to make it appear on the right side of the screen:  <pre><code class="lang-cs"> enemy = <span class="hljs-keyword">new</span> Enemy(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">new</span> Vector2(screenWidth, <span class="hljs-number">0</span>));
+</code></pre>
+</li>
+<li>In the <code>Update</code> method, call the <code>Enemy</code>&apos;s <code>Update</code> method on the <code>enemy</code> field</li>
+<li>In the <code>Draw</code> method, call the <code>Enemy</code>&apos;s <code>Draw</code> method on the <code>enemy</code> field</li>
+</ol>
+<p>Run the game, and the new enemy should appear! It should move to the left, and bounce off the bottom and top of the screen.</p>
+<h2 id="final-code">Final Code</h2>
+<p>The final code for this walkthrough is available on <a href="https://github.com/hylandtechoutreach/ArcadeFlyer/tree/Part3Start" target="_blank">GitHub</a>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Part1PlayerClass.html" class="navigation navigation-prev " aria-label="Previous page: Part 1 - The Player Class">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../Reference.html" class="navigation navigation-next " aria-label="Next page: Reference">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Part 2 - The Enemy Class","level":"1.3.3","depth":2,"next":{"title":"Reference","level":"1.4","depth":1,"path":"Reference.md","ref":"Reference.md","articles":[]},"previous":{"title":"Part 1 - The Player Class","level":"1.3.2","depth":2,"path":"Walkthroughs/Part1PlayerClass.md","ref":"Walkthroughs/Part1PlayerClass.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters"],"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"BOOKREADME.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Walkthroughs/Part2EnemyClass.md","mtime":"2020-09-08T17:15:44.808Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-08T17:16:26.645Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
