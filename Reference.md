@@ -83,6 +83,22 @@ Vector2 myVector = new Vector2(xValue, yValue);
 ## <span>C#</span> Language Features
 There are some important parts of the C# language that will be useful to know.
 
+### Casting: Explicit Conversions
+In C#, **casting** is a way to change the type of a variable. For more information, check out [this page](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions). Specifically, the type of casting used for this course will be [explicit conversions](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions#explicit-conversions).
+
+In this course, explicit conversions will be used to switch between number types (i.e., converting `int` to `float` and vice-versa). It looks like this:
+
+```cs
+// Set float
+float x = 10.0f;
+
+// Set int based on float; will be 10
+int y = (int)x;
+
+// Set float based on int; will be 10.0f
+float z = (float)y;
+```
+
 ### Properties
 In C#, a **property** is a more robust version of a field. [This page](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties) contains more in-depth information about properties. Properties can be used as if they are public fields, but they are actually special methods called _accessors_. The benefit to this is that other code can access properties in a simple way.
 
@@ -170,18 +186,93 @@ public class Shape
 
 Properties are used frequently in C#, so it is important to understand how they work!
 
-### Casting: Explicit Conversions
-In C#, **casting** is a way to change the type of a variable. For more information, check out [this page](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions). Specifically, the type of casting used for this course will be [explicit conversions](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions#explicit-conversions).
+### Inheritance
+In C#, **inheritance** enables developers to create new classes that reuse, extend, and modify the behavior defined in other classes. Check out [this page](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/inheritance) for more information. Inheritance makes it much easier to organize code, prevents code repetition, and simplifies maintenance.
 
-In this course, explicit conversions will be used to switch between number types (i.e., converting `int` to `float` and vice-versa). It looks like this:
+There are two types of classes in an inheritance context: **base classes** and **derived classes**. A derived class _inherits from_ a base class. This means that the derived class receives all of the fields, properties, and methods from the base class (depending on the [access modifiers](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers) on the base class). When a derived class inherits from a base class, objects of the derived type are _also_ objects of the base type.
+
+Derived classes can inherit from base classes using the `:` in their definition. In this example, `Animal` is the base class, and `Dog` is the derived class:
+```cs
+public class Dog : Animal { }
+```
+
+The colon essentially means "is a" in this situation. So, a `Dog` _is an_ `Animal`.
+
+To create a constructor for a derived class, the constructor for the base class may also need to be invoked. To do that, use `: base()` after the method signature for the derived constructor. In this example, the `Dog` constructor properly calls the `Animal` constructor with the given arguments:
 
 ```cs
-// Set float
-float x = 10.0f;
-
-// Set int based on float; will be 10
-int y = (int)x;
-
-// Set float based on int; will be 10.0f
-float z = (float)y;
+public Dog(string name) : base(name) { }
 ```
+
+Below is full example of inheritance in C#.
+
+**Base Class: `Animal`**
+```cs
+public class Animal
+{
+    // Public properties
+    public string Name { get; set; }
+    public float Height { get; set; }
+
+    // Construction
+    public Animal(string name, float height)
+    {
+        Name = name;
+        Height = height;
+    }
+
+    // Method
+    public void SayName()
+    {
+        Console.WriteLine("My name is " + Name);
+    }
+}
+```
+
+**Derived Class: `Dog`**
+```cs
+public class Dog : Animal /* Inherit from Animal */
+{
+    // Another public property
+    public string Breed { get; set; }
+
+    // Constructor calls the Animal constructor
+    public Dog(string name, float height, string breed) : base(name, height)
+    {
+        Breed = breed;
+    }
+
+    // Another method
+    public void Bark()
+    {
+        Console.WriteLine("Bark!!!");
+    }
+}
+```
+
+**Using the `Dog` class**
+```cs
+// Construction
+Dog myDog = new Dog("Clifford", 300, "Vizsla");
+
+// Accessing one of its own properties
+Console.WriteLine("Breed: " + myDog.Breed);
+
+// Accessing an Animal property
+Console.WriteLine("Height: " + myDog.Height);
+
+// Calling one of its own methods
+myDog.Bark();
+
+// Calling an Animal method
+myDog.SayName();
+```
+
+### Access Modifiers
+In C#, **access modifiers** control which parts of the code can be used in which other parts of the code. Check out [this article](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers) for further information.
+
+There are three access modifiers that apply to this course:
+
+- `public`: the code is accessible from anywhere
+- `protected`: the code is accessible in the `class` where it is defined, _and_ in any derived `class`
+- `private`: the code is only accessible in the `class` where it is defined
