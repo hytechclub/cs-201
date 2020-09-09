@@ -64,7 +64,7 @@
     <link rel="next" href="EnhancementIdeas.html" />
     
     
-    <link rel="prev" href="Walkthroughs/Part4PlayerProjectiles.html" />
+    <link rel="prev" href="Walkthroughs/Part5EnemyProjectiles.html" />
     
 
     </head>
@@ -191,6 +191,19 @@
             
                     
                     Part 4 - Player Projectiles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="Walkthroughs/Part5EnemyProjectiles.html">
+            
+                <a href="Walkthroughs/Part5EnemyProjectiles.html">
+            
+                    
+                    Part 5 - Enemy Projectiles
             
                 </a>
             
@@ -496,6 +509,22 @@ myDog.SayName();
 <li><code>protected</code>: the code is accessible in the <code>class</code> where it is defined, <em>and</em> in any derived <code>class</code></li>
 <li><code>private</code>: the code is only accessible in the <code>class</code> where it is defined</li>
 </ul>
+<h3 id="enumerations">Enumerations</h3>
+<p>In C#, <strong>enumerations</strong> are value types that are defined by a set of named constants with symbolic meaning. Take a look at <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum" target="_blank">this page</a> for more information. Enumerations are useful when variable values need to be confined to a certain set of values.</p>
+<p>For example, imagine a program that can display something in three different colors: red, blue, and green. If the <code>color</code> variable stored a string, there is no guarantee that a given value would actually be displayable by the program. Enumerations work at the compiler-level to make sure that variable restrictions are respected.</p>
+<p>Below is an example of the usage of enumerations in C#.</p>
+<p><strong><code>BgColor</code> Enumeration Definition</strong></p>
+<pre><code class="lang-cs"><span class="hljs-keyword">enum</span> BgColor
+{
+    Red,
+    Blue,
+    Green
+}
+</code></pre>
+<p><strong><code>BgColor</code> Enumeration Usage</strong></p>
+<pre><code class="lang-cs">Color background = BgColor.Red;
+SetDisplayBg(background);
+</code></pre>
 
                                 
                                 </section>
@@ -523,7 +552,7 @@ myDog.SayName();
 
             
                 
-                <a href="Walkthroughs/Part4PlayerProjectiles.html" class="navigation navigation-prev " aria-label="Previous page: Part 4 - Player Projectiles">
+                <a href="Walkthroughs/Part5EnemyProjectiles.html" class="navigation navigation-prev " aria-label="Previous page: Part 5 - Enemy Projectiles">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -539,7 +568,7 @@ myDog.SayName();
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Reference","level":"1.4","depth":1,"next":{"title":"Enhancement Ideas","level":"1.5","depth":1,"path":"EnhancementIdeas.md","ref":"EnhancementIdeas.md","articles":[]},"previous":{"title":"Part 4 - Player Projectiles","level":"1.3.5","depth":2,"path":"Walkthroughs/Part4PlayerProjectiles.md","ref":"Walkthroughs/Part4PlayerProjectiles.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters"],"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"BOOKREADME.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Reference.md","mtime":"2020-09-09T15:44:26.104Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-09T15:45:04.454Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Reference","level":"1.4","depth":1,"next":{"title":"Enhancement Ideas","level":"1.5","depth":1,"path":"EnhancementIdeas.md","ref":"EnhancementIdeas.md","articles":[]},"previous":{"title":"Part 5 - Enemy Projectiles","level":"1.3.6","depth":2,"path":"Walkthroughs/Part5EnemyProjectiles.md","ref":"Walkthroughs/Part5EnemyProjectiles.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters"],"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"BOOKREADME.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Reference.md","mtime":"2020-09-09T18:10:18.680Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-09T18:10:58.348Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
