@@ -7,7 +7,7 @@ namespace FlyingWizard2D
     class Sprite
     {
         // Timer for animation frame switching
-        private CoolDown animationCoolDown;
+        private Timer nextFrameTimer;
 
         // Current frame of the animation
         private int currentFrame;
@@ -81,7 +81,7 @@ namespace FlyingWizard2D
             // Initialize values
             this.position = position;
             this.NumberOfFrames = numberOfFrames;
-            this.animationCoolDown = new CoolDown(timeBetweenFrames);
+            this.nextFrameTimer = new Timer(timeBetweenFrames);
             this.SourceRectangle = null;
         }
 
@@ -101,8 +101,8 @@ namespace FlyingWizard2D
         // Called every frame
         public virtual void Update(GameTime gameTime)
         {
-            // If the animation timer goes off, time to switch frames
-            if (!animationCoolDown.CoolingDown)
+            // If the animation timer goes off (is no longer active), time to switch frames
+            if (!nextFrameTimer.Active)
             {
                 // Get the next frame (cycle back to the beginning if necessary)
                 currentFrame = (currentFrame + 1) % NumberOfFrames;
@@ -113,12 +113,12 @@ namespace FlyingWizard2D
                 // Create the source rectangle based on the current frame, and the frame height
                 this.SourceRectangle = new Rectangle(0, currentFrame*frameHeight, SpriteImage.Width, frameHeight);
 
-                // Kick off the cool down
-                animationCoolDown.StartCoolDown();
+                // Kick off the timer for the next frame
+                nextFrameTimer.StartTimer();
             }
 
             // Update the animation timer
-            animationCoolDown.Update(gameTime);
+            nextFrameTimer.Update(gameTime);
         }
     }
 }

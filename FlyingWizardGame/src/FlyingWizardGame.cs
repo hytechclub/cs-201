@@ -55,7 +55,7 @@ namespace FlyingWizard2D
         private bool coverScreen;
 
         // Timer that controls how often Enemy Columns are formed
-        private CoolDown enemyColumnTimer;
+        private Timer enemyColumnTimer;
 
         // Preferred width of the screen in pixels
         private int screenWidth = 1600;
@@ -119,8 +119,8 @@ namespace FlyingWizard2D
             // Initialize empty list of enemy columns
             enemyColumns = new List<EnemyColumn>();
 
-            // Set the column creation timer cool down (20 seconds)
-            enemyColumnTimer = new CoolDown(20.0f);
+            // Set the column creation timer (20 seconds)
+            enemyColumnTimer = new Timer(20.0f);
         }
 
         // Create a texture of a rectangle of the given width, height, and color
@@ -233,7 +233,7 @@ namespace FlyingWizard2D
             }
 
             // If a new enemy column can be created...
-            if (!enemyColumnTimer.CoolingDown)
+            if (!enemyColumnTimer.Active)
             {
                 // Create a new enemy column
                 EnemyColumn nextColumn = new EnemyColumn(this, 5, 20.0f, 50, 0.5f, 1.0f, 64.0f, enemySprite);
@@ -242,7 +242,7 @@ namespace FlyingWizard2D
                 enemyColumns.Add(nextColumn);
 
                 // Restart the timer
-                enemyColumnTimer.StartCoolDown();
+                enemyColumnTimer.StartTimer();
             }
 
             // Update the enemy column cool down timer
