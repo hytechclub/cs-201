@@ -6,3 +6,4 @@ Use these walkthroughs to guide the creation of the Arcade Flyer game. Make sure
 - [Part 2 - The `Enemy` Class](Part2EnemyClass.md)
 - [Part 3 - The `Sprite` Class](Part3SpriteClass.md)
 - [Part 4 - Player Projectiles](Part4PlayerProjectiles.md)
+- [Part 5 - Enemy Projectiles](Part5EnemyProjectiles.md)

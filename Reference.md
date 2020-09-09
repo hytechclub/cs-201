@@ -286,3 +286,26 @@ There are three access modifiers that apply to this course:
 - `public`: the code is accessible from anywhere
 - `protected`: the code is accessible in the `class` where it is defined, _and_ in any derived `class`
 - `private`: the code is only accessible in the `class` where it is defined
+
+### Enumerations
+In C#, **enumerations** are value types that are defined by a set of named constants with symbolic meaning. Take a look at [this page](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum) for more information. Enumerations are useful when variable values need to be confined to a certain set of values.
+
+For example, imagine a program that can display something in three different colors: red, blue, and green. If the `color` variable stored a string, there is no guarantee that a given value would actually be displayable by the program. Enumerations work at the compiler-level to make sure that variable restrictions are respected.
+
+Below is an example of the usage of enumerations in C#.
+
+**`BgColor` Enumeration Definition**
+```cs
+enum BgColor
+{
+    Red,
+    Blue,
+    Green
+}
+```
+
+**`BgColor` Enumeration Usage**
+```cs
+Color background = BgColor.Red;
+SetDisplayBg(background);
+```
