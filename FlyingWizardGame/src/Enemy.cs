@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace FlyingWizard2D
 {
@@ -9,8 +8,8 @@ namespace FlyingWizard2D
         // The current velocity of the Enemy
         private Vector2 velocity = Vector2.Zero;
 
-        // Cool down object for projectile firing
-        private CoolDown projectileCoolDown;
+        // Cool down timer for projectile firing
+        private Timer projectileCoolDown;
 
         // A reference to the game that will contain the player
         private FlyingWizardGame root;
@@ -49,7 +48,7 @@ namespace FlyingWizard2D
             // Initialize values
             this.root = root;
             this.SpriteWidth = spriteWidth;
-            this.projectileCoolDown = new CoolDown(projectileCoolDownTime);
+            this.projectileCoolDown = new Timer(projectileCoolDownTime);
         }
 
         // Called each frame
@@ -58,8 +57,8 @@ namespace FlyingWizard2D
             // Update base Sprite
             base.Update(gameTime);
 
-            // Fire a projectile if not cooling down
-            if (!projectileCoolDown.CoolingDown)
+            // Fire a projectile if not currently cooling down
+            if (!projectileCoolDown.Active)
             {
                 // Generate projectile information
                 Vector2 projectilePosition = new Vector2(position.X, position.Y + SpriteHeight / 2);
@@ -69,7 +68,7 @@ namespace FlyingWizard2D
                 root.FireProjectile(projectilePosition, projectileVelocity, ProjectileType.Enemy);
 
                 // Kick off the cool down process
-                projectileCoolDown.StartCoolDown();
+                projectileCoolDown.StartTimer();
             }
             
             // Update the cool down timer

@@ -43,9 +43,9 @@ namespace FlyingWizard2D
             set { bounceSpeed = value; }
         }
         
-        // Cool down object for projectile firing
-        private CoolDown projectileCoolDown;
-        public CoolDown ProjectileCoolDown
+        // Cool down timer for projectile firing
+        private Timer projectileCoolDown;
+        public Timer ProjectileCoolDown
         {
             get { return projectileCoolDown; }
             set { projectileCoolDown = value;}
@@ -57,7 +57,7 @@ namespace FlyingWizard2D
             this.root = root;
             this.SpriteWidth = 64.0f;
             this.NumberOfFrames = 2;
-            this.projectileCoolDown = new CoolDown();
+            this.projectileCoolDown = new Timer();
 
             LoadContent();
         }
@@ -187,8 +187,8 @@ namespace FlyingWizard2D
             // Handle any movement input
             HandleInput(currentKeyboardState);
 
-            // Fire a projectile if not cooling down and Space is pressed
-            if (!projectileCoolDown.CoolingDown && currentKeyboardState.IsKeyDown(Keys.Space))
+            // Fire a projectile if the cool down is not active and Space is pressed
+            if (!projectileCoolDown.Active && currentKeyboardState.IsKeyDown(Keys.Space))
             {
                 // Generate the projectile information
                 Vector2 projectilePosition = new Vector2(position.X + SpriteWidth, position.Y + SpriteHeight / 2);
@@ -197,8 +197,8 @@ namespace FlyingWizard2D
                 // Fire the projectile
                 root.FireProjectile(projectilePosition, projectileVelocity, ProjectileType.Player);
                 
-                // Kick off the cool down process
-                projectileCoolDown.StartCoolDown();
+                // Kick off the cool down timer process
+                projectileCoolDown.StartTimer();
             }
             
             // Update the cool down
