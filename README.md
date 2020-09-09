@@ -53,3 +53,6 @@ There will be a series of code-along activities, each building on the last. Ther
 - Create the divider line
 - Add animations
 - Make smoother movement
+
+### Starting/Ending Points for Walkthroughs
+All of the walkthrough code is available in [this GitHub Repository](https://github.com/hylandtechoutreach/ArcadeFlyer/). To see the difference from one part to another, utilize GitHub's [diff tool](https://github.com/hylandtechoutreach/ArcadeFlyer/compare/Part1Start...Part2Start). Select the part to start and the part to end to see the changes.
