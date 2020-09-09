@@ -80,6 +80,16 @@ In MonoGame, the `Vector2` structure stores two `float` values: an `X` and a `Y`
 Vector2 myVector = new Vector2(xValue, yValue);
 ```
 
+### `GameTime`
+In MonoGame, the `GameTime` structure is kind of like the heartbeat for a game. For more information, check out [this article](http://rbwhitaker.wikidot.com/gametime). The `GameTime` is automatically passed into the `Update` and `Draw` methods for the game. It can be used to keep track of how much time has passed since the previous frame.
+
+`GameTime` objects can be used as follows:
+
+```cs
+// GameTime gameTime -> value passed into the method
+float secondsPassedSinceLastFrame = (float)gameTime.ElapsedGameTime.TotalSeconds;
+```
+
 ## <span>C#</span> Language Features
 There are some important parts of the C# language that will be useful to know.
 

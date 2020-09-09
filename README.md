@@ -38,20 +38,18 @@ There will be a series of code-along activities, each building on the last. Ther
 
 - Environment setup
 - "Hello World" - make the player appear, loading in a Texture2D object, representing its position with a Vector and Rectangle
-- Create the Player class
-- Control the Player's movement
+- Create the Player class and control the player's movement
 - Create the Enemy class
-- Create the Sprite class
-- Make the Player and Enemy classes inherit from the Sprite class
-- Create the Projectile class
-- Create the CoolDown class
+- Create the Sprite class and make the Player and Enemy classes inherit from the Sprite class
+- Create the Projectile class and let the player and enemy fire projectiles
+- Create the CoolDown class and use it on the player and enemy
 - Allow the Player and Enemy to fire Projectiles
 - Update the Enemy sprite image with Piskel
 - Handle collisions between projectiles
     - Create the ProjectileType enum
-- Create the EnemyColumn class
 - Create the life count / score
 - Create the screen cover
+- Create the EnemyColumn class
 - Create the divider line
 - Add animations
 - Make smoother movement
