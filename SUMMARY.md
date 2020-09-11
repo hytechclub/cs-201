@@ -6,5 +6,6 @@
     - [Part 3 - The `Sprite` Class](Walkthroughs/Part3SpriteClass.md)
     - [Part 4 - Player Projectiles](Walkthroughs/Part4PlayerProjectiles.md)
     - [Part 5 - Enemy Projectiles](Walkthroughs/Part5EnemyProjectiles.md)
+    - [Part 6 - Collisions](Walkthroughs/Part6Collisions.md)
 - [Reference](Reference.md)
 - [Enhancement Ideas](EnhancementIdeas.md)

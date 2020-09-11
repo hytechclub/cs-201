@@ -90,6 +90,18 @@ In MonoGame, the `GameTime` structure is kind of like the heartbeat for a game. 
 float secondsPassedSinceLastFrame = (float)gameTime.ElapsedGameTime.TotalSeconds;
 ```
 
+### `Point`
+In MonoGame, the `Point` structure stores two `int` values: an `X` and a `Y`. For more information, look at the documentation <a href="https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/bb198467(v=xnagamestudio.35)">here</a>. `Point` objects are used to store coordinates in the 2D space. They are very similar to `Vector2` objects, but they use `int` properties instead of `float` properties.
+
+`Point` objects can be used as follows:
+
+```cs
+// Rectangle rect -> a Rectangle object
+Point centerPoint = rect.Center;
+int xCoordinate = centerPoint.X;
+int yCoordinate = centerPoint.Y;
+```
+
 ## <span>C#</span> Language Features
 There are some important parts of the C# language that will be useful to know.
 
