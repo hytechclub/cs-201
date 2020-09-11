@@ -1,0 +1,529 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Part 6 - Collisions · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../Reference.html" />
+    
+    
+    <link rel="prev" href="Part5EnemyProjectiles.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../EnvironmentSetup.html">
+            
+                <a href="../EnvironmentSetup.html">
+            
+                    
+                    Environment Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="StudentDesc.html">
+            
+                <a href="StudentDesc.html">
+            
+                    
+                    Walkthroughs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="Part0HelloWorld.html">
+            
+                <a href="Part0HelloWorld.html">
+            
+                    
+                    Part 0 - Hello World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="Part1PlayerClass.html">
+            
+                <a href="Part1PlayerClass.html">
+            
+                    
+                    Part 1 - The Player Class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="Part2EnemyClass.html">
+            
+                <a href="Part2EnemyClass.html">
+            
+                    
+                    Part 2 - The Enemy Class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="Part3SpriteClass.html">
+            
+                <a href="Part3SpriteClass.html">
+            
+                    
+                    Part 3 - The Sprite Class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="Part4PlayerProjectiles.html">
+            
+                <a href="Part4PlayerProjectiles.html">
+            
+                    
+                    Part 4 - Player Projectiles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="Part5EnemyProjectiles.html">
+            
+                <a href="Part5EnemyProjectiles.html">
+            
+                    
+                    Part 5 - Enemy Projectiles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.7" data-path="Part6Collisions.html">
+            
+                <a href="Part6Collisions.html">
+            
+                    
+                    Part 6 - Collisions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Reference.html">
+            
+                <a href="../Reference.html">
+            
+                    
+                    Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../EnhancementIdeas.html">
+            
+                <a href="../EnhancementIdeas.html">
+            
+                    
+                    Enhancement Ideas
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Part 6 - Collisions</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="part-6---collisions">Part 6 - Collisions</h1>
+<p>In this walkthrough, add the ability for the game to detect collisions from projectiles.</p>
+<h2 id="adding-a-projectiletype-on-the-projectile-class">Adding a <code>ProjectileType</code> on the <code>Projectile</code> Class</h2>
+<p>In order to properly check for collisions, it will be necessary to know the <em>type</em> of each <code>Projectile</code> object. If a projectile is coming from the <code>Player</code>, it should check for collisions with <code>Enemy</code> objects. If a projectile is coming from an <code>Enemy</code>, it should check for collisions with the <code>Player</code> object.</p>
+<h3 id="add-the-field-and-property">Add the Field and Property</h3>
+<p>First, update the <code>Projectile</code> class with a new field and property. Open up the <strong>Projectile.cs</strong> class to get started.</p>
+<ol>
+<li>In the body of the <code>Projectile</code> class, type in &quot;propfull&quot; and press Enter<ul>
+<li>This <a href="https://docs.microsoft.com/en-us/visualstudio/ide/visual-csharp-code-snippets?view=vs-2019" target="_blank">code snippet</a> creates a template for a new property</li>
+</ul>
+</li>
+<li>For the type of the new field/property, enter <code>ProjectileType</code></li>
+<li>Press Tab to go to the next part of the template; the field name</li>
+<li>For the field name, enter <code>projectileType</code></li>
+<li>Press Tab again to move onto the property name, and enter <code>ProjectileType</code></li>
+</ol>
+<p>The code should ultimately look something like this:</p>
+<pre><code class="lang-cs"><span class="hljs-keyword">private</span> ProjectileType projectileType;
+<span class="hljs-keyword">public</span> ProjectileType ProjectileType
+{
+    <span class="hljs-keyword">get</span> { <span class="hljs-keyword">return</span> projectileType; }
+    <span class="hljs-keyword">set</span> { projectileType = <span class="hljs-keyword">value</span>; }
+}
+</code></pre>
+<h3 id="add-the-constructor-parameter">Add the Constructor Parameter</h3>
+<p>Now that there is a <code>ProjectileType</code> on the <code>Projectile</code> class, it needs to be populated!</p>
+<ol>
+<li>Find the <code>Projectile</code> constructor</li>
+<li>In the method signature, add a <code>ProjectileType</code> parameter named <code>projectileType</code></li>
+<li>In the body of the constructor, set the <code>this.projectileType</code> field to the value of the <code>projectileType</code> parameter</li>
+<li>Open up the <strong>ArcadeFlyerGame.cs</strong> file, and find the <code>FireProjectile</code> method</li>
+<li>Update the call to the <code>Projectile</code> constructor, and pass in the <code>projectileType</code> parameter value</li>
+</ol>
+<p>At this point, there should be no errors in the code. Nothing will have changed, but the new <code>ProjectileType</code> property will make it possible to distinguish between projectiles in the game.</p>
+<h2 id="the-getcollision-method">The <code>getCollision</code> Method</h2>
+<p>Next, it&apos;s time to actually detect collisions! To do this, define a method named <code>getCollision</code> that can detect if two objects overlap. Open up the <strong>ArcadeFlyerGame.cs</strong> file to get started.</p>
+<h3 id="setup">Setup</h3>
+<p>Start with some basic setup for the method.</p>
+<ol>
+<li>At the top of the <strong>ArcadeFlyerGame.cs</strong> file, add a <code>using</code> statement for <code>System</code><ul>
+<li>This will be necessary for some <code>Math</code> utilities</li>
+</ul>
+</li>
+<li>In the body of the <code>ArcadeFlyerGame</code> class, define a new method named <code>getCollision</code></li>
+<li>Make the method <code>private</code><ul>
+<li>This is because it will only be used within the <code>ArcadeFlyerGame</code> class</li>
+</ul>
+</li>
+<li>Make the return type of the method <code>bool</code></li>
+<li>Give the method two <code>Rectangle</code> parameters named <code>spriteBounds1</code> and <code>spriteBounds2</code><ul>
+<li>These will represent the locations of the two objects</li>
+</ul>
+</li>
+</ol>
+<pre><code class="lang-cs"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">bool</span> <span class="hljs-title">getCollision</span>(<span class="hljs-params">Rectangle spriteBounds1, Rectangle spriteBounds2</span>)
+</span>{
+
+}
+</code></pre>
+<h3 id="collision-detection-geometry">Collision Detection Geometry</h3>
+<p>For two rectangles to collide, they must <em>overlap</em> across both the X and Y axis:</p>
+<p><img src="https://i.imgur.com/toTo7Di.png" alt=""></p>
+<p>There are a few different ways to check for this, but for the purposes of this method, the center points of each rectangle will be used. To detect an overlap across the X-axis, the horizontal distance between the center points must be <em>less</em> than the sum of each rectangle&apos;s width divided by two.</p>
+<p>Take a look at these two examples:</p>
+<p><img src="https://i.imgur.com/68RsMxF.png" alt=""></p>
+<p><img src="https://i.imgur.com/9ZfHmVb.png" alt=""></p>
+<p>The same principle holds true for detecting Y-axis overlap. So to detect collisions, the method should find the centers of the rectangles, find the horizontal and vertical distance between the two centers, and check if those distances both are less than the distance required for overlap (A width / 2 + B width / 2).</p>
+<h3 id="collision-detection-code">Collision Detection Code</h3>
+<p>Based on the geometry above, it will be possible to write code to detect a collision between the <code>spriteBounds1</code> rectangle, and the <code>spriteBounds2</code> rectangle.</p>
+<p>To get the center points of the rectangles, use the <code>Center</code> property which returns a <code>Point</code> object. For more information about <code>Point</code> objects, check out <a href="https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/bb198467(v=xnagamestudio.35)" target="_blank">this article</a>. <code>Point</code> objects have an <code>X</code> and <code>Y</code> property representing a position in 2D space.</p>
+<ol>
+<li>In the body of the <code>getCollision</code> method, create two new <code>Point</code> variables named <code>sprite1Center</code> and <code>sprite2Center</code></li>
+<li>Set the two <code>Point</code> variables to the center points of the corresponding sprite <code>Rectangle</code> objects using the <code>Center</code> property</li>
+<li>Under that, create two new <code>float</code> variables named <code>xDistance</code> and <code>yDistance</code></li>
+<li>Set the <code>float</code> variables to be the absolute value of the horizontal and vertical difference between the two center points<ul>
+<li>Use the <code>Math.Abs</code> method to accomplish this</li>
+</ul>
+</li>
+<li>Under that, create two more <code>float</code> variables named <code>collisionDistanceX</code> and <code>collisionDistanceY</code><ul>
+<li>These will represent the distance needed to detect overlap on each axis</li>
+</ul>
+</li>
+<li>Set the <code>collisionDistanceX</code> variable to the sum of each rectangle&apos;s width divided by two</li>
+<li>Set the <code>collisionDistanceY</code> variable to the sum of each rectangle&apos;s height divided by two</li>
+<li>Return a <code>bool</code> value that checks if <code>xDistance</code> is less than or equal to <code>collisionDistanceX</code> AND <code>yDistance</code> is less than <code>collisionDistanceY</code></li>
+</ol>
+<pre><code class="lang-cs">Point sprite1Center = spriteBounds1.Center;
+Point sprite2Center = spriteBounds2.Center;
+
+<span class="hljs-keyword">float</span> xDistance = Math.Abs(sprite1Center.X - sprite2Center.X);
+<span class="hljs-keyword">float</span> yDistance = Math.Abs(sprite1Center.Y - sprite2Center.Y);
+
+<span class="hljs-keyword">float</span> collisionDistanceX = (spriteBounds1.Width / <span class="hljs-number">2</span>) + (spriteBounds2.Width / <span class="hljs-number">2</span>);
+<span class="hljs-keyword">float</span> collisionDistanceY = (spriteBounds1.Height / <span class="hljs-number">2</span>) + (spriteBounds2.Height / <span class="hljs-number">2</span>);
+
+<span class="hljs-keyword">return</span> xDistance &lt;= collisionDistanceX &amp;&amp; yDistance &lt;= collisionDistanceY;
+</code></pre>
+<h2 id="removing-projectile-objects-on-collision">Removing <code>Projectile</code> Objects On Collision</h2>
+<p>Now that it is possible to detect collisions between sprites, it&apos;s time to update the game. If an enemy projectile comes in contact with the player, that projectile should be removed. Similarly, if a player projectile comes in contact with an enemy, that projectile should be removed. For now, the collision will not have any other effect (that will come later).</p>
+<h3 id="for-loop-setup"><code>for</code> Loop Setup</h3>
+<p>In order to remove <code>Projectile</code> objects from the <code>projectiles</code> list, it will be necessary to loop through each object. However, using a traditional <code>for</code> loop or <code>foreach</code> loop will not work; when an object is removed from a <code>List</code>, it disrupts the flow of the loop. Instead, loop through the list <em>backwards</em> so that removed objects do not interfere with the current position in the list.</p>
+<ol>
+<li>Find the <code>Update</code> method on the <code>ArcadeFlyerGame</code> class</li>
+<li>In the body of the <code>Update</code> method, remove the <code>foreach</code> loop that loops through the <code>projectiles</code> list</li>
+<li>Create a new <code>for</code> loop structure</li>
+<li>For the initialization, create a new <code>int i</code> variable and set it to the <code>Count</code> of the <code>projectiles</code> list minus <code>1</code></li>
+<li>For the condition, check if the <code>i</code> variable value is greater than or equal to <code>0</code></li>
+<li>For the increment, decrease the value of the <code>i</code> variable by <code>1</code> using <code>i--</code></li>
+<li>In the body of the <code>for</code> loop, define a new <code>Projectile</code> variable <code>p</code>, and set it to the element in the <code>projectiles</code> list at <code>i</code></li>
+<li>Under that, call the <code>Projectile</code>&apos;s <code>Update</code> method on the <code>p</code> variable</li>
+</ol>
+<pre><code class="lang-cs"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = projectiles.Count - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--)
+{
+    Projectile p = projectiles[i];
+    p.Update();
+}
+</code></pre>
+<h3 id="for-loop-body"><code>for</code> Loop Body</h3>
+<p>Now that the <code>for</code> loop will properly loop through each <code>Projectile</code> object, it&apos;s time to remove the ones that collide!</p>
+<ol>
+<li>Declare a new <code>bool</code> variable named <code>playerProjectile</code></li>
+<li>Set the value of the <code>playerProjectile</code> variable to check if the current <code>Projectile</code> object <code>p</code> has a <code>ProjectileType</code> of <code>ProjectileType.Player</code></li>
+<li>Under that, create an <code>if</code> statement</li>
+<li>In the condition for the <code>if</code> statement, check if <code>playerProjectile</code> is false AND there is a collision between the <code>player</code> and the current projectile <code>p</code></li>
+<li>In the body of the <code>if</code> statement, remove the current <code>Projectile</code> object <code>p</code> from the <code>projectiles</code> list with <code>projectiles.Remove(p)</code></li>
+<li>Under the <code>if</code>, create an <code>else if</code></li>
+<li>In the condition for the <code>else if</code> statement, check if <code>playerProjectile</code> is true AND there is a collision between the <code>enemy</code> and the current projectile <code>p</code></li>
+<li>In the body of the <code>else if</code>, remove the current <code>Projectile</code> object <code>p</code> from the <code>projectiles</code> list with <code>projectiles.Remove(p)</code></li>
+</ol>
+<pre><code class="lang-cs"><span class="hljs-keyword">bool</span> playerProjectile = p.ProjectileType == ProjectileType.Player;
+
+<span class="hljs-keyword">if</span> (!playerProjectile &amp;&amp; getCollision(player.PositionRectangle, p.PositionRectangle))
+{
+    projectiles.Remove(p);
+}
+<span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span> (<span class="hljs-params">playerProjectile &amp;&amp; getCollision(enemy.PositionRectangle, p.PositionRectangle</span>))
+</span>{
+    projectiles.Remove(p);
+}
+</code></pre>
+<p>Run the game, and verify that when the proper projectiles collide with the player or the enemy, they disappear! This is a stepping stone toward destroying enemies and tracking the player&apos;s life and score.</p>
+<h2 id="final-code">Final Code</h2>
+<p>The final code for this walkthrough is available on <a href="https://github.com/hylandtechoutreach/ArcadeFlyer/tree/Part7Start" target="_blank">GitHub</a>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Part5EnemyProjectiles.html" class="navigation navigation-prev " aria-label="Previous page: Part 5 - Enemy Projectiles">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../Reference.html" class="navigation navigation-next " aria-label="Next page: Reference">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Part 6 - Collisions","level":"1.3.7","depth":2,"next":{"title":"Reference","level":"1.4","depth":1,"path":"Reference.md","ref":"Reference.md","articles":[]},"previous":{"title":"Part 5 - Enemy Projectiles","level":"1.3.6","depth":2,"path":"Walkthroughs/Part5EnemyProjectiles.md","ref":"Walkthroughs/Part5EnemyProjectiles.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters"],"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"BOOKREADME.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Walkthroughs/Part6Collisions.md","mtime":"2020-09-11T15:25:34.881Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-11T15:26:12.909Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
