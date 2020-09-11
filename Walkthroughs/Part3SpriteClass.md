@@ -1,4 +1,4 @@
-# Part 2 - The `Sprite` Class
+# Part 3 - The `Sprite` Class
 In this walkthrough, refactor the code a bit to make it more maintainable and extendable.
 
 ## Motivation
