@@ -290,6 +290,9 @@ myDog.Bark();
 myDog.SayName();
 ```
 
+**Inheritance Video**
+Check out [this video](https://www.youtube.com/watch?v=oZcLmje8-fg) for a broad overview of inheritance. Note that in the video, the speaker uses **super class** and **parent class** to refer to **base classes**, and **sub class** and **child class** to refer to **derived classes**. They mean the same thing!
+
 ### Access Modifiers
 In C#, **access modifiers** control which parts of the code can be used in which other parts of the code. Check out [this article](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers) for further information.
 
