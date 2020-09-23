@@ -34,25 +34,27 @@ Review the new concepts on the [Reference](Reference.md) page.
 - Group-paced
 
 ## Parts
-There will be a series of code-along activities, each building on the last. There will be written guides as well as videos. For the starting point of each activity (other than the "Hello World" activity), there will be a branch in the student-facing GitHub repository.
+There will be a series of code-along activities, each building on the last. For the starting point of each activity (other than the "Hello World" activity), there will be a branch in the student-facing GitHub repository.
 
-- Environment setup
-- "Hello World" - make the player appear, loading in a Texture2D object, representing its position with a Vector and Rectangle
-- Create the Player class and control the player's movement
-- Create the Enemy class
-- Create the Sprite class and make the Player and Enemy classes inherit from the Sprite class
-- Create the Projectile class and let the player and enemy fire projectiles
-- Create the CoolDown class and use it on the player and enemy
-- Allow the Player and Enemy to fire Projectiles
-- Update the Enemy sprite image with Piskel
-- Handle collisions between projectiles
-    - Create the ProjectileType enum
-- Create the life count / score
+- [Environment setup](EnvironmentSetup.md)
+- ["Hello World"](Walkthroughs/Part0HelloWorld.md) - make the player appear, loading in a `Texture2D` object, representing its position with a `Rectangle`
+- [Create the `Player` class and control the player's movement](Walkthroughs/Part1PlayerClass.md)
+- [Create the `Enemy` class](Walkthroughs/Part2EnemyClass.md)
+- [Create the `Sprite` class and make the `Player` and `Enemy` classes inherit from the `Sprite` class](Walkthroughs/Part3SpriteClass.md)
+- [Create the `Projectile` class and let the player fire projectiles](Walkthroughs/Part4PlayerProjectiles.md)
+- [Allow `Enemy` objects to fire projectiles](Walkthroughs/Part5EnemyProjectiles.md)
+- [Handle collisions between projectiles](Walkthroughs/Part6Collisions.md)
+- [Make `Enemy` objects disappear and regenerate](Walkthroughs/Part7EnemyGeneration.md)
+- [Create the life count / score](Walkthroughs/Part8LifeScore.md)
+- [Game Over](Walkthroughs/Part9GameOver.md)
 - Create the screen cover
 - Create the EnemyColumn class
 - Create the divider line
 - Add animations
 - Make smoother movement
+
+### Bonus Part: Piskel
+At any point during the semester, walk through the [Piskel Lesson](PiskelLesson.md) to show the students how they can create their own sprite images.
 
 ### Starting/Ending Points for Walkthroughs
 All of the walkthrough code is available in [this GitHub Repository](https://github.com/hylandtechoutreach/ArcadeFlyer/). To see the difference from one part to another, utilize GitHub's [diff tool](https://github.com/hylandtechoutreach/ArcadeFlyer/compare/Part1Start...Part2Start). Select the part to start and the part to end to see the changes.
