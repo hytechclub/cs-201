@@ -10,7 +10,10 @@ Throughout the course, it will be necessary to store code in GitHub. Follow [thi
 ## Zoom Meetings
 The course will meet weekly on Tuesdays via **Zoom** from 4:30 p.m. to 6:30 p.m. ET.
 
-[Click Here to join from PC, Mac, Linux, iOS or Android](https://hyland.zoom.us/j/97905077190?pwd=NjNDeTVPUExJWVh2Y0lrWHYxV1VWdz09). If prompted, the password for the meeting is **407320**.
+The meeting ID is **979 0507 7190**, and the password is **407320**.
+
+- [Click Here to join from PC, Mac, Linux, iOS or Android](https://hyland.zoom.us/j/97905077190?pwd=NjNDeTVPUExJWVh2Y0lrWHYxV1VWdz09).
+- To join by phone: Dial [+1 312 626 6799](tel:+13126266799) and enter the meeting ID and password.
 
 ## Discord
 Use **Discord** to ask questions, view announcements, and chat with fellow students. Note that students are **NOT** required to use Discord.
