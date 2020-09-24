@@ -4,6 +4,9 @@ Welcome to the C# 201 Hy-Tech Club course!
 ## Setting Up
 Before participating in the course, be sure to follow the instructions on the [Environment Setup](EnvironmentSetup.md) page to get everything ready.
 
+### Pushing to GitHub
+Throughout the course, it will be necessary to store code in GitHub. Follow [this guide](https://hylandtechclub.com/capstone/GitLesson/PushingAndPulling/PushChanges.html) to push local changes up to the forked GitHub Repository.
+
 ## Zoom Meetings
 The course will meet weekly on Tuesdays via **Zoom** from 4:30 p.m. to 6:30 p.m. ET.
 
