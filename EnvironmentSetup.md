@@ -6,9 +6,19 @@ To get the starter game up and running, follow these steps:
 1. Download and Install [Visual Studio Code](https://code.visualstudio.com/download)
 1. Install the [Official C# Extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code
 1. Download and Install [Git](https://git-scm.com/downloads)
-1. Download and Install [MonoGame](https://www.monogame.net/downloads/)
 1. Download and Install the [.NET Core SDK (3.x)](https://dotnet.microsoft.com/download)
     - Make sure to grab the **Core SDK**, NOT the Framework or Runtime 
+1. Download and Install [MonoGame](https://www.monogame.net/downloads/)
+    - In Visual Studio Code's Terminal, You can run the following commands to do this:
+        ```
+        dotnet new --install MonoGame.Templates.CSharp
+        ```
+        ```
+        dotnet tool install --global dotnet-mgcb-editor
+        ```
+        ```
+        mgcb-editor --register
+        ```
 1. If you do not already have one, [create a GitHub account](https://hylandtechclub.com/capstone/GitLesson/Intro/MakeAGitHubAccount.html) and log into GitHub
 1. Go to the [Arcade Flyer GitHub Repository](https://github.com/hylandtechoutreach/ArcadeFlyer)
 1. Click the "Fork" button in the upper right  
