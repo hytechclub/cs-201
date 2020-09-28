@@ -10,6 +10,8 @@ Hopefully, students will come prepared with their environments. They should have
 ### <span>C#</span> Review
 Hopefully, the students will be well-prepared for the C# 201 course. To gauge their current level, play a quick review game of some sort. This can also serve as an icebreaker activity.
 
+[Kahoot Quiz](https://create.kahoot.it/v2/share/285fd281-8387-4198-bc25-ac0f6cc6b73e)
+
 ### Course Overview
 Briefly show the final game in action to show the students what the course is building toward. Additionally, make sure to discuss any housekeeping notes for the course.
 
