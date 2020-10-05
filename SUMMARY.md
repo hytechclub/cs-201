@@ -8,4 +8,5 @@
     - [Part 5 - Enemy Projectiles](Walkthroughs/Part5EnemyProjectiles.md)
     - [Part 6 - Collisions](Walkthroughs/Part6Collisions.md)
 - [Reference](Reference.md)
+- [Session Recordings](SessionRecordings.md)
 - [Enhancement Ideas](EnhancementIdeas.md)
