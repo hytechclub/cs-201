@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Environment Setup · GitBook</title>
+        <title>Mac Setup · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="MacSetup.html" />
+    <link rel="next" href="Walkthroughs/StudentDesc.html" />
     
     
-    <link rel="prev" href="./" />
+    <link rel="prev" href="EnvironmentSetup.html" />
     
 
     </head>
@@ -106,7 +106,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2" data-path="EnvironmentSetup.html">
+        <li class="chapter " data-level="1.2" data-path="EnvironmentSetup.html">
             
                 <a href="EnvironmentSetup.html">
             
@@ -120,7 +120,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="MacSetup.html">
+        <li class="chapter active" data-level="1.2.1" data-path="MacSetup.html">
             
                 <a href="MacSetup.html">
             
@@ -317,7 +317,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Environment Setup</a>
+        <a href="." >Mac Setup</a>
     </h1>
 </div>
 
@@ -332,42 +332,82 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="c-201-environment-setup"><span>C# 201 Environment Setup</span></h1>
-<p>All of the setup instructions and code can be found in the <a href="https://github.com/hylandtechoutreach/ArcadeFlyer" target="_blank">Arcade Flyer GitHub Repository</a>. If there are any issues, please do not hesitate to reach out to <a href="mailto:techoutreach@hyland.com" target="_blank">techoutreach@hyland.com</a>. For specific Mac setup steps, refer to <a href="MacSetup.html">this guide</a>.</p>
-<p>To get the starter game up and running, follow these steps:</p>
+                                <h1 id="mac-setup">Mac Setup</h1>
+<p>To set up the C# 201 environment on a Mac, it may look a little different than on a Windows computer. Follow the steps in the <a href="EnvironmentSetup.html">Environment Setup</a> guide, but refer to <em>this</em> guide for some specific steps.</p>
+<h2 id="installing-git">Installing Git</h2>
+<p>There are a few different ways to do it; one option is to use <a href="https://brew.sh/" target="_blank">Homebrew</a>. A user must have Administrator privileges to install Git on a Mac; make sure to log in as an admin user, then complete the steps below.</p>
+<h3 id="installing-homebrew">Installing Homebrew</h3>
+<p>First, install Homebrew.</p>
 <ol>
-<li>Download and Install <a href="https://code.visualstudio.com/download" target="_blank">Visual Studio Code</a></li>
-<li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp" target="_blank">Official C# Extension</a> for Visual Studio Code</li>
-<li>Download and Install <a href="https://git-scm.com/downloads" target="_blank">Git</a></li>
-<li>Download and Install the <a href="https://dotnet.microsoft.com/download" target="_blank">.NET Core SDK (3.x)</a><ul>
-<li>Make sure to grab the <strong>Core SDK</strong>, NOT the Framework or Runtime </li>
-</ul>
+<li>Open the <a href="https://www.howtogeek.com/682770/how-to-open-the-terminal-on-a-mac/" target="_blank">Terminal</a> app</li>
+<li>Copy and paste the command below into the terminal window, and press Enter/Return:  <pre><code class="lang-sh"> /bin/bash -c <span class="hljs-string">&quot;<span class="hljs-variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)</span>&quot;</span>
+</code></pre>
 </li>
-<li>Download and Install <a href="https://www.monogame.net/downloads/" target="_blank">MonoGame</a><ul>
-<li>In Visual Studio Code&apos;s Terminal, you can run the following commands to do this:<pre><code>  dotnet new --install MonoGame.Templates.CSharp
-</code></pre><pre><code>  dotnet tool install --global dotnet-mgcb-editor
-</code></pre><pre><code>  mgcb-editor --register
-</code></pre></li>
-<li>If you run into issues building the project, you may need to download &amp; install <a href="https://www.mono-project.com/download/stable/" target="_blank">Mono</a> as well</li>
-</ul>
-</li>
-<li>If you do not already have one, <a href="https://hylandtechclub.com/capstone/GitLesson/Intro/MakeAGitHubAccount.html" target="_blank">create a GitHub account</a> and log into GitHub</li>
-<li>Go to the <a href="https://github.com/hylandtechoutreach/ArcadeFlyer" target="_blank">Arcade Flyer GitHub Repository</a></li>
-<li>Click the &quot;Fork&quot; button in the upper right<br> <img src="https://i.imgur.com/9KHy050.png" alt=""></li>
-<li>On your new forked repository, click the green &quot;Code&quot; button</li>
-<li>In the menu that appears, click the &quot;Copy to Clipboard&quot; icon to copy the repository URL (this URL will be used later)<br> <img src="https://i.imgur.com/nvVKak3.png" alt=""></li>
-<li>Open Visual Studio Code</li>
-<li>In VS Code, open the Command Palette (on Windows, press <code>Ctrl</code>+<code>Shift</code>+<code>P</code>; on Mac, press <code>Cmd</code>+<code>Shift</code>+<code>P</code>)</li>
-<li>In the box, type in &quot;Git: Clone&quot; and press <code>Enter</code><br> <img src="https://i.imgur.com/wbuvzGy.png" alt=""></li>
-<li>In the next box, paste in the copied repository URL and press <code>Enter</code><br> <img src="https://i.imgur.com/lsIIL63.png" alt=""></li>
-<li>Find a folder for the project, and click &quot;Select Repository Location&quot;</li>
-<li>In the bottom right of the VS Code window, click the &quot;Open&quot; button in the new message box<br> <img src="https://i.imgur.com/sA5xBOx.png" alt=""></li>
-<li>Ensure that the <strong>ArcadeFlyer</strong> folder is opened in VS Code</li>
-<li>On the left menu bar, open the &quot;Run&quot; pane and click the &quot;Play&quot; button!<br> <img src="https://i.imgur.com/TX2NXKL.png" alt=""></li>
+<li>Enter your password, and press the Return or Enter key<br> <img src="https://i.imgur.com/NnDDnQ2.png" alt=""></li>
+<li>Press the Return or Enter key to continue</li>
+<li>Wait a few minutes for the process to complete<br> <img src="https://i.imgur.com/4mb0CJQ.png" alt="">
+ <img src="https://i.imgur.com/Oe6MQIz.png" alt=""></li>
 </ol>
-<p>To start, the game should simply contain a blank blue screen:</p>
-<p><img src="https://i.imgur.com/IqJlKyy.png" alt=""></p>
-<p>If that blue screen appears, it means everything is all set!</p>
+<h3 id="installing-git-from-homebrew">Installing Git from Homebrew</h3>
+<p>Once Homebrew has been installed, use it to install Git.</p>
+<ol>
+<li>In the terminal, enter the command below and press Enter/Return:  <pre><code class="lang-sh"> brew install git
+</code></pre>
+</li>
+<li>Wait for the process to complete<br> <img src="https://i.imgur.com/QZ3WgnU.png" alt=""></li>
+<li>When the process is done, enter the command below and press Enter/Return:  <pre><code class="lang-sh"> git --version
+</code></pre>
+</li>
+<li>Verify that a version appears<br> <img src="https://i.imgur.com/r93jXpd.png" alt=""></li>
+</ol>
+<p>If the <code>git --version</code> command returns a version, that means Git has been installed!</p>
+<h2 id="installing-net-core-sdk">Installing .NET Core SDK</h2>
+<p>Next, install the <strong>.NET Core SDK</strong>. This will be necessary to run C# programs.</p>
+<ol>
+<li>Go to the <a href="https://dotnet.microsoft.com/download" target="_blank">.NET Core download page</a>, and make sure macOS is selected</li>
+<li>Next to &quot;Build Apps&quot;, click on the <strong>Download .NET Core SDK</strong> button<br> <img src="https://i.imgur.com/vsfzfvr.png" alt=""></li>
+<li>When the file has downloaded, open it to start the installer<br> <img src="https://i.imgur.com/UygpwlI.png" alt=""></li>
+<li>Continue through the installer, keeping all of the default settings</li>
+<li>Verify that the installation was completed successfully<br> <img src="https://i.imgur.com/xCgyLMP.png" alt=""></li>
+<li>Open the Terminal application again</li>
+<li>Type in <code>dotnet</code>, press Enter/Return, and verify that the proper results appear<br> <img src="https://i.imgur.com/4RvXPaq.png" alt=""></li>
+</ol>
+<p>If the <code>dotnet</code> command returns the message in the image above, that means the .NET Core SDK has been installed!</p>
+<h2 id="installing-mono-and-monogame">Installing Mono and MonoGame</h2>
+<p>Next, install Mono and MonoGame. These will be necessary to run the game built throughout the course.</p>
+<h3 id="installing-mono">Installing Mono</h3>
+<p>First, install Mono.</p>
+<ol>
+<li>Go to the <a href="https://www.mono-project.com/download/stable/#download-mac" target="_blank">Mono download page</a>, and make sure macOS is selected</li>
+<li>Click the <strong>Download Mono (Stable channel)</strong> button<br> <img src="https://i.imgur.com/a5YnPWf.png" alt=""></li>
+<li>When the file is downloaded, open it to start the installer<br> <img src="https://i.imgur.com/IcX2rzt.png" alt=""></li>
+<li>Continue through the installer, keeping all of the default settings</li>
+<li>Verify that the installation was completed successfully<br> <img src="https://i.imgur.com/H5YOHJD.png" alt=""></li>
+</ol>
+<p>After these steps, Mono should be installed.</p>
+<h3 id="installing-monogame">Installing MonoGame</h3>
+<p>MonoGame is a framework built on top of Mono. Follow the steps below to install it.</p>
+<ol>
+<li>Open a terminal</li>
+<li>Copy and run the following commands, one after the other:  <pre><code class="lang-sh"> dotnet new --install MonoGame.Templates.CSharp
+</code></pre>
+<pre><code class="lang-sh"> dotnet tool install --global dotnet-mgcb-editor
+</code></pre>
+<pre><code class="lang-sh"> mgcb-editor --register
+</code></pre>
+</li>
+</ol>
+<p>Once the commands complete, MonoGame should be installed.</p>
+<h2 id="beyond">Beyond</h2>
+<p>The rest of the environment setup should be platform independent. Refer back to the main <a href="EnvironmentSetup.html">Environment Setup</a> guide to continue. By the end, it should be possible to:</p>
+<ul>
+<li>Open Visual Studio Code</li>
+<li>Open the <strong>ArcadeFlyer</strong> folder</li>
+<li>Open the &quot;Run&quot; pane from the left menu</li>
+<li>Click the &quot;Play&quot; button</li>
+<li>See an empty blue screen appear</li>
+</ul>
+<p>If all of that works, that means the environment has been setup properly!</p>
 
                                 
                                 </section>
@@ -395,12 +435,12 @@
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                <a href="EnvironmentSetup.html" class="navigation navigation-prev " aria-label="Previous page: Environment Setup">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="MacSetup.html" class="navigation navigation-next " aria-label="Next page: Mac Setup">
+                <a href="Walkthroughs/StudentDesc.html" class="navigation navigation-next " aria-label="Next page: Walkthroughs">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -411,7 +451,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Environment Setup","level":"1.2","depth":1,"next":{"title":"Mac Setup","level":"1.2.1","depth":2,"path":"MacSetup.md","ref":"MacSetup.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"BOOKREADME.md","ref":"BOOKREADME.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters"],"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"BOOKREADME.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"EnvironmentSetup.md","mtime":"2020-10-08T16:19:32.105Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-08T16:20:11.336Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Mac Setup","level":"1.2.1","depth":2,"next":{"title":"Walkthroughs","level":"1.3","depth":1,"path":"Walkthroughs/StudentDesc.md","ref":"Walkthroughs/StudentDesc.md","articles":[{"title":"Part 0 - Hello World","level":"1.3.1","depth":2,"path":"Walkthroughs/Part0HelloWorld.md","ref":"Walkthroughs/Part0HelloWorld.md","articles":[]},{"title":"Part 1 - The Player Class","level":"1.3.2","depth":2,"path":"Walkthroughs/Part1PlayerClass.md","ref":"Walkthroughs/Part1PlayerClass.md","articles":[]},{"title":"Part 2 - The Enemy Class","level":"1.3.3","depth":2,"path":"Walkthroughs/Part2EnemyClass.md","ref":"Walkthroughs/Part2EnemyClass.md","articles":[]},{"title":"Part 3 - The Sprite Class","level":"1.3.4","depth":2,"path":"Walkthroughs/Part3SpriteClass.md","ref":"Walkthroughs/Part3SpriteClass.md","articles":[]},{"title":"Part 4 - Player Projectiles","level":"1.3.5","depth":2,"path":"Walkthroughs/Part4PlayerProjectiles.md","ref":"Walkthroughs/Part4PlayerProjectiles.md","articles":[]},{"title":"Part 5 - Enemy Projectiles","level":"1.3.6","depth":2,"path":"Walkthroughs/Part5EnemyProjectiles.md","ref":"Walkthroughs/Part5EnemyProjectiles.md","articles":[]},{"title":"Part 6 - Collisions","level":"1.3.7","depth":2,"path":"Walkthroughs/Part6Collisions.md","ref":"Walkthroughs/Part6Collisions.md","articles":[]}]},"previous":{"title":"Environment Setup","level":"1.2","depth":1,"path":"EnvironmentSetup.md","ref":"EnvironmentSetup.md","articles":[{"title":"Mac Setup","level":"1.2.1","depth":2,"path":"MacSetup.md","ref":"MacSetup.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters"],"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"BOOKREADME.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"MacSetup.md","mtime":"2020-10-08T16:19:32.105Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-08T16:20:11.336Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
