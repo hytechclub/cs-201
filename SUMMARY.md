@@ -1,4 +1,5 @@
 - [Environment Setup](EnvironmentSetup.md)
+    - [Mac Setup](MacSetup.md)
 - [Walkthroughs](Walkthroughs/StudentDesc.md)
     - [Part 0 - Hello World](Walkthroughs/Part0HelloWorld.md)
     - [Part 1 - The `Player` Class](Walkthroughs/Part1PlayerClass.md)
