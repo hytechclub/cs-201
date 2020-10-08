@@ -61,7 +61,7 @@ Next, install Mono and MonoGame. These will be necessary to run the game built t
 First, install Mono.
 
 1. Go to the [Mono download page](https://www.mono-project.com/download/stable/#download-mac), and make sure macOS is selected
-1. Click the **Download Mono (Stable channel)** button 
+1. Click the **Download Mono (Stable channel)** button  
     ![](https://i.imgur.com/a5YnPWf.png)
 1. When the file is downloaded, open it to start the installer  
     ![](https://i.imgur.com/IcX2rzt.png)
