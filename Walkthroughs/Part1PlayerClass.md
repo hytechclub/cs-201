@@ -214,7 +214,7 @@ Now that the `Player` class has been defined, it's time to start using it in the
     ```cs
     private Player player;
     ```
-1. In the `ArcadeFlyerGame` constructor, initialize the `player` field. Set it to a new `Player` object, passing in `this` for the root, and a `(0, 0)` vector for the position:  
+1. At the end of the `ArcadeFlyerGame` constructor, initialize the `player` field. Set it to a new `Player` object, passing in `this` for the root, and a `(0, 0)` vector for the position:  
     ```cs
     player = new Player(this, new Vector2(0.0f, 0.0f));
     ```
