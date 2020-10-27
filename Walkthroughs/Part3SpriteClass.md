@@ -86,8 +86,8 @@ public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
 }
 ```
 
-### `Enemy` Class Code
-At this point, the code in the **Enemy.cs** file should look something like this:
+### `Sprite` Class Code
+At this point, the code in the **Sprite.cs** file should look something like this:
 
 ```cs
 using Microsoft.Xna.Framework;
