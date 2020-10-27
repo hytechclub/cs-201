@@ -17,7 +17,7 @@ The first step to introduce some inheritance will be to define a base class: `Sp
 ### Setup
 Fill out the basic code needed to define the `Sprite` class.
 
-1. Create a new file named **Enemy.cs** in the "src" folder
+1. Create a new file named **Sprite.cs** in the "src" folder
 2. Add `using` statements for `Microsoft.Xna.Framework` and `Microsoft.Xna.Framework.Graphics`
 3. Create a `namespace` wrapper for `ArcadeFlyer2D`
 4. In the body of the `ArcadeFlyer2D` namespace, define a `class` named `Sprite`
