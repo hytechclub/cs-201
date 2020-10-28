@@ -12,3 +12,6 @@ This page contains recordings for the virtual Hy-Tech Club sessions.
 
 ## Week 4
 <iframe width="100%" height="450px" src="https://www.youtube.com/embed/LxoYqI7B0ZM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Week 5
+<iframe width="100%" height="450px" src="https://www.youtube.com/embed/fjd4bEM_LnQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
