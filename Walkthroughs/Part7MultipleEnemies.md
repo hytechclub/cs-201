@@ -63,9 +63,6 @@ Previously, the game only needed to detect collisions for one enemy. Now, since 
     ```
 1. In the body of the `foreach` loop, create an `if` statement checking if there is a collision between the current projectile and the current enemy  
     - Note that this is the same condition that was cut from above
-    ```cs
-    if (getCollision(enemy.PositionRectangle, p.PositionRectangle)) { }
-    ```
 1. In the body of the `if` statement, remove the current projectile `p` from the `projectiles` list  
     ```cs
     projectiles.Remove(p);
@@ -154,9 +151,6 @@ Now it's time to add some new enemies! A new enemy should be added every time th
     ```
 1. In the body of the `if` statement, create a new `Enemy` and add it to the `enemies` list  
     - Note that this is just like what happens when the first enemy is created in the constructor!
-    ```cs
-    enemies.Add(new Enemy(this, new Vector2(screenWidth, 0.0f)));
-    ```
 1. Under that, still within the `if` body, start the timer again  
     ```cs
     enemyCreationTimer.StartTimer();
