@@ -46,7 +46,7 @@ There will be a series of code-along activities, each building on the last. For 
 - [Create the `Projectile` class and let the player fire projectiles](Walkthroughs/Part4PlayerProjectiles.md)
 - [Allow `Enemy` objects to fire projectiles](Walkthroughs/Part5EnemyProjectiles.md)
 - [Handle collisions between projectiles](Walkthroughs/Part6Collisions.md)
-- [Make `Enemy` objects disappear and regenerate](Walkthroughs/Part7EnemyGeneration.md)
+- [Make `Enemy` objects disappear and regenerate](Walkthroughs/Part7MultipleEnemies.md)
 - [Create the life count / score](Walkthroughs/Part8LifeScore.md)
 - [Game Over](Walkthroughs/Part9GameOver.md)
 - Create the screen cover
