@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Walkthroughs · GitBook</title>
+        <title>Part 8 - Life & Score · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Part0HelloWorld.html" />
+    <link rel="next" href="../Reference.html" />
     
     
-    <link rel="prev" href="../MacSetup.html" />
+    <link rel="prev" href="Part7MultipleEnemies.html" />
     
 
     </head>
@@ -138,7 +138,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3" data-path="StudentDesc.html">
+        <li class="chapter " data-level="1.3" data-path="StudentDesc.html">
             
                 <a href="StudentDesc.html">
             
@@ -256,7 +256,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.9" data-path="Part8LifeScore.html">
+        <li class="chapter active" data-level="1.3.9" data-path="Part8LifeScore.html">
             
                 <a href="Part8LifeScore.html">
             
@@ -343,7 +343,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Walkthroughs</a>
+        <a href=".." >Part 8 - Life & Score</a>
     </h1>
 </div>
 
@@ -358,19 +358,77 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="arcade-flyer-walkthroughs">Arcade Flyer Walkthroughs</h1>
-<p>Use these walkthroughs to guide the creation of the Arcade Flyer game. Make sure to complete the <a href="../EnvironmentSetup.html">Environment Setup</a> before jumping into the code!</p>
-<ul>
-<li><a href="Part0HelloWorld.html">Part 0 - Hello World</a></li>
-<li><a href="Part1PlayerClass.html">Part 1 - The <code>Player</code> Class</a></li>
-<li><a href="Part2EnemyClass.html">Part 2 - The <code>Enemy</code> Class</a></li>
-<li><a href="Part3SpriteClass.html">Part 3 - The <code>Sprite</code> Class</a></li>
-<li><a href="Part4PlayerProjectiles.html">Part 4 - Player Projectiles</a></li>
-<li><a href="Part5EnemyProjectiles.html">Part 5 - Enemy Projectiles</a></li>
-<li><a href="Part6Collisions.html">Part 6 - Collisions</a></li>
-<li><a href="Part7MultipleEnemies.html">Part 7 - Multiple Enemies</a></li>
-<li><a href="Part8LifeScore.html">Part 8 - Life &amp; Score</a></li>
+                                <h1 id="part-8---life--score">Part 8 - Life &amp; Score</h1>
+<p>At this point, the game should feel almost like a real game. The biggest thing missing is a way to track the player&apos;s life and score. Do this by creating <code>life</code> and <code>score</code> fields on the <code>ArcadeFlyerGame</code> class, and displaying the information in the game using a <code>SpriteFont</code>. All changes will take place in the <strong>ArcadeFlyerGame.cs</strong> class.</p>
+<h2 id="adding-life">Adding Life</h2>
+<p>In almost every game, there is some concept of health. In this game, the player should lose a life whenever a projectiles with the sprite.</p>
+<ol>
+<li>Add a <code>private int</code> field named <code>life</code> to the <code>ArcadeFlyerGame</code> class</li>
+<li>After the declaration, set the <code>life</code> field to <code>3</code>  <pre><code class="lang-cs"> <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> life = <span class="hljs-number">3</span>;
+</code></pre>
+</li>
+<li>Find the <code>Update</code> method in the <code>ArcadeFlyerGame</code> class</li>
+<li>Find the <code>if</code> statement that checks whether the player has collided with an enemy projectile  <pre><code class="lang-cs"> <span class="hljs-keyword">if</span> (!playerProjectile &amp;&amp; getCollision(player.PositionRectangle, p.PositionRectangle))
+</code></pre>
+</li>
+<li>In the body of that <code>if</code> statement, decrement the value of <code>life</code> by 1  <pre><code class="lang-cs"> life--;
+</code></pre>
+</li>
+</ol>
+<h2 id="adding-score">Adding Score</h2>
+<p>Another thing that exists in almost every game is a score. In this game, the player should gain a point whenever an enemy is destroyed.</p>
+<ol>
+<li>Under the <code>life</code> field, add a <code>private int</code> field named <code>score</code> to the <code>ArcadeFlyerGame</code> class</li>
+<li>After the declaration, set the <code>score</code> field to <code>0</code>  <pre><code class="lang-cs"> <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> score = <span class="hljs-number">0</span>;
+</code></pre>
+</li>
+<li>Find the <code>Update</code> method in the <code>ArcadeFlyerGame</code> class</li>
+<li>Find the <code>if</code> statement that checks whether an enemy has collided with a player projectile  <pre><code class="lang-cs"> <span class="hljs-keyword">if</span> (getCollision(enemy.PositionRectangle, p.PositionRectangle))
+</code></pre>
+</li>
+<li>In the body of that <code>if</code> statement, increment the value of <code>score</code> by 1  <pre><code class="lang-cs"> score++;
+</code></pre>
+</li>
+</ol>
+<h2 id="showing-the-life--score">Showing the Life &amp; Score</h2>
+<p>Now the life and score are tracked, but they don&apos;t actually show up anywhere yet! To do that, it will be necessary to create a <code>SpriteFont</code> <a href="http://rbwhitaker.wikidot.com/monogame-drawing-text-with-spritefonts" target="_blank">like this</a>.</p>
+<h3 id="creating-a-spritefont-asset">Creating a <code>SpriteFont</code> Asset</h3>
+<p>Just like all the image assets in the game, fonts are created with the Content Pipeline tool.</p>
+<ol>
+<li>Open up the <strong>Content.mgcb</strong> file in the MonoGame Pipeline Tool</li>
+<li>Click the &quot;New Item&quot; button<br> <img src="https://i.imgur.com/o9adUKk.png" alt=""></li>
+<li>In the popup, select the &quot;SpriteFont Description (.spritefont)&quot; option</li>
+<li>Change the name to &quot;Text&quot;</li>
+<li>Click the &quot;Create&quot; button at the bottom<br> <img src="https://i.imgur.com/BC3uJNn.png" alt=""></li>
+<li>When the popup closes, click the &quot;Build&quot; button<br> <img src="https://i.imgur.com/lWCNlQm.png" alt=""></li>
+<li>Go back into VS Code, and make sure the <strong>Text.spritefont</strong> file appears in the <strong>Content</strong> directory<br> <img src="https://i.imgur.com/me0Hueh.png" alt=""></li>
+</ol>
+<p>At this point, the <strong>Content.mgcb</strong> file should be updated, and there should be a <strong>Text.xnb</strong> file in the <strong>Content/bin/DesktopGL/</strong> directory.</p>
+<h3 id="using-the-spritefont-to-write-in-the-game">Using the <code>SpriteFont</code> to Write in the Game</h3>
+<p>Now that the asset has been created, it will be possible to use it in the game&apos;s code.</p>
+<ol>
+<li>Under the <code>spriteBatch</code> field in the <code>ArcadeFlyerGame</code> class, add a new <code>private SpriteFont</code> field named <code>textFont</code>  <pre><code class="lang-cs"> <span class="hljs-keyword">private</span> SpriteFont textFont;
+</code></pre>
+</li>
+<li>Find the <code>ArcadeFlyerGame()</code> constructor</li>
+<li>Somewhere in the method, initialize the <code>textFont</code> field using <code>Content.Load</code>  <pre><code class="lang-cs"> textFont = Content.Load&lt;SpriteFont&gt;(<span class="hljs-string">&quot;Text&quot;</span>);
+</code></pre>
+</li>
+<li>Find the <code>Draw</code> method</li>
+<li>Toward the end of the method, call the <code>spriteBatch.DrawString</code> method  <ul>
+<li>The first parameter should be a <code>SpriteFont</code> object - use <code>textFont</code></li>
+<li>The second parameter should be a <code>string</code> value - create a string that has both the <code>life</code> and <code>score</code> values</li>
+<li>The third parameter should be a <code>Vector2</code> object for position - use the <code>Vector2.Zero</code> for the upper left</li>
+<li>The fourth parameter should be a <code>Color</code> object - use <code>Color.Black</code></li>
 </ul>
+</li>
+<li>Add a semi-colon at the end, and it should be good to go  <pre><code class="lang-cs"> spriteBatch.DrawString(textFont, $<span class="hljs-string">&quot;Life: {life}\nScore: {score}&quot;</span>, Vector2.Zero, Color.Black);
+</code></pre>
+</li>
+</ol>
+<p>At this point, try running the game. The &quot;Life&quot; and &quot;Score&quot; values should update based on what happens in the game!</p>
+<h2 id="final-code">Final Code</h2>
+<p>The final code for this walkthrough is available on <a href="https://github.com/hylandtechoutreach/ArcadeFlyer/tree/Part9Start" target="_blank">GitHub</a>.</p>
 
                                 
                                 </section>
@@ -398,12 +456,12 @@
 
             
                 
-                <a href="../MacSetup.html" class="navigation navigation-prev " aria-label="Previous page: Mac Setup">
+                <a href="Part7MultipleEnemies.html" class="navigation navigation-prev " aria-label="Previous page: Part 7 - Multiple Enemies">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Part0HelloWorld.html" class="navigation navigation-next " aria-label="Next page: Part 0 - Hello World">
+                <a href="../Reference.html" class="navigation navigation-next " aria-label="Next page: Reference">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -414,7 +472,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Walkthroughs","level":"1.3","depth":1,"next":{"title":"Part 0 - Hello World","level":"1.3.1","depth":2,"path":"Walkthroughs/Part0HelloWorld.md","ref":"Walkthroughs/Part0HelloWorld.md","articles":[]},"previous":{"title":"Mac Setup","level":"1.2.1","depth":2,"path":"MacSetup.md","ref":"MacSetup.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters"],"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"BOOKREADME.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Walkthroughs/StudentDesc.md","mtime":"2020-11-09T20:47:55.313Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-09T20:48:33.318Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Part 8 - Life & Score","level":"1.3.9","depth":2,"next":{"title":"Reference","level":"1.4","depth":1,"path":"Reference.md","ref":"Reference.md","articles":[]},"previous":{"title":"Part 7 - Multiple Enemies","level":"1.3.8","depth":2,"path":"Walkthroughs/Part7MultipleEnemies.md","ref":"Walkthroughs/Part7MultipleEnemies.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters"],"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"BOOKREADME.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Walkthroughs/Part8LifeScore.md","mtime":"2020-11-09T20:47:55.313Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-09T20:48:33.318Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
