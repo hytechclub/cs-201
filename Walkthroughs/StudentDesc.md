@@ -9,3 +9,4 @@ Use these walkthroughs to guide the creation of the Arcade Flyer game. Make sure
 - [Part 5 - Enemy Projectiles](Part5EnemyProjectiles.md)
 - [Part 6 - Collisions](Part6Collisions.md)
 - [Part 7 - Multiple Enemies](Part7MultipleEnemies.md)
+- [Part 8 - Life & Score](Part8LifeScore.md)

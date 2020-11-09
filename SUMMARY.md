@@ -9,6 +9,7 @@
     - [Part 5 - Enemy Projectiles](Walkthroughs/Part5EnemyProjectiles.md)
     - [Part 6 - Collisions](Walkthroughs/Part6Collisions.md)
     - [Part 7 - Multiple Enemies](Walkthroughs/Part7MultipleEnemies.md)
+    - [Part 8 - Life & Score](Walkthroughs/Part8LifeScore.md)
 - [Reference](Reference.md)
 - [Session Recordings](SessionRecordings.md)
 - [Enhancement Ideas](EnhancementIdeas.md)
