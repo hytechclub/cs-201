@@ -98,3 +98,6 @@ The rest of the environment setup should be platform independent. Refer back to 
 - See an empty blue screen appear
 
 If all of that works, that means the environment has been setup properly!
+
+## Getting the Content Pipeline to Work
+[Guide](http://kflu.github.io/2020/01/12/2020-01-12-monogame-on-mac/)

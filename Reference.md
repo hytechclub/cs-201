@@ -102,6 +102,22 @@ int xCoordinate = centerPoint.X;
 int yCoordinate = centerPoint.Y;
 ```
 
+### `SpriteFont`
+To make text appear in the game, it will be necessary to use a `SpriteFont`. For more information, check out [this guide](http://rbwhitaker.wikidot.com/monogame-drawing-text-with-spritefonts). Before using a `SpriteFont` in the code, it will be necessary to use the Content Pipeline to generate one.
+
+The general steps to create a `SpriteFont` are as follows:
+
+1. Open the **Content.mgcb** file in the MonoGame Content Pipeline Tool
+1. Click the "New Item" button
+1. Create a **.spritefont** item
+1. Build the content
+1. In the code for the game, create a new `SpriteFont` field
+1. Initialize the `SpriteFont` field  
+    ```cs
+    // Example
+    myFontField = Content.Load<SpriteFont>("MySpriteFontFilename");
+    ```
+
 ## <span>C#</span> Language Features
 There are some important parts of the C# language that will be useful to know.
 
