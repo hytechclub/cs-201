@@ -35,70 +35,20 @@ Now that there is a `ProjectileType` on the `Projectile` class, it needs to be p
 
 At this point, there should be no errors in the code. Nothing will have changed, but the new `ProjectileType` property will make it possible to distinguish between projectiles in the game.
 
-## The `getCollision` Method
-Next, it's time to actually detect collisions! To do this, define a method named `getCollision` that can detect if two objects overlap. Open up the **ArcadeFlyerGame.cs** file to get started.
+## Sprite Collisions
+At long last, it's time to check whether any of the objects in our game collide with each other. One structure for doing this is by modifying our `Sprite` class, to add a method to see if any other sprites collide with it.
 
-### Setup
-Start with some basic setup for the method.
+Every `Sprite` has a member `Rectangle` called `PositionRectangle`. The `Rectangle` class has a method called `Intersects()`, which takes another `Rectangle` as a parameter, and returns a `bool` indicating if the two rectangles overlap. We can write a "wrapper" for this in our `Sprite` class, to tell us if a `Sprite` intersects with another `Sprite`.
 
-1. At the top of the **ArcadeFlyerGame.cs** file, add a `using` statement for `System`
-    - This will be necessary for some `Math` utilities
-1. In the body of the `ArcadeFlyerGame` class, define a new method named `getCollision`
-1. Make the method `private`
-    - This is because it will only be used within the `ArcadeFlyerGame` class
-1. Make the return type of the method `bool`
-1. Give the method two `Rectangle` parameters named `spriteBounds1` and `spriteBounds2`
-    - These will represent the locations of the two objects
+1. In the **Sprite.cs** file, inside the `Sprite` class, add a new method called `Overlaps`. This method should take a `Sprite` object named `otherSprite` as the parameter. This method will return a `bool` indicating if the two sprites overlap.
+1. This method should call `Intersects` on the `PositionRectangle` of this object, and pass in the `PositionRectangle` of the `otherSprite` as the parameter to `Intersects`.
 
 ```cs
-private bool getCollision(Rectangle spriteBounds1, Rectangle spriteBounds2)
+public bool Overlaps(Sprite otherSprite)
 {
-
+    bool doesOverlap = this.PositionRectangle.Intersects(otherSprite.PositionRectangle);
+    return doesOverlap;
 }
-```
-
-### Collision Detection Geometry
-For two rectangles to collide, they must _overlap_ across both the X and Y axis:
-
-![](https://i.imgur.com/toTo7Di.png)
-
-There are a few different ways to check for this, but for the purposes of this method, the center points of each rectangle will be used. To detect an overlap across the X-axis, the horizontal distance between the center points must be _less_ than the sum of each rectangle's width divided by two.
-
-Take a look at these two examples:
-
-![](https://i.imgur.com/68RsMxF.png)
-
-![](https://i.imgur.com/9ZfHmVb.png)
-
-The same principle holds true for detecting Y-axis overlap. So to detect collisions, the method should find the centers of the rectangles, find the horizontal and vertical distance between the two centers, and check if those distances both are less than the distance required for overlap (A width / 2 + B width / 2).
-
-### Collision Detection Code
-Based on the geometry above, it will be possible to write code to detect a collision between the `spriteBounds1` rectangle, and the `spriteBounds2` rectangle.
-
-To get the center points of the rectangles, use the `Center` property which returns a `Point` object. For more information about `Point` objects, check out <a href="https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/bb198467(v=xnagamestudio.35)">this article</a>. `Point` objects have an `X` and `Y` property representing a position in 2D space.
-
-1. In the body of the `getCollision` method, create two new `Point` variables named `sprite1Center` and `sprite2Center`
-1. Set the two `Point` variables to the center points of the corresponding sprite `Rectangle` objects using the `Center` property
-1. Under that, create two new `float` variables named `xDistance` and `yDistance`
-1. Set the `float` variables to be the absolute value of the horizontal and vertical difference between the two center points
-    - Use the `Math.Abs` method to accomplish this
-1. Under that, create two more `float` variables named `collisionDistanceX` and `collisionDistanceY`
-    - These will represent the distance needed to detect overlap on each axis
-1. Set the `collisionDistanceX` variable to the sum of each rectangle's width divided by two
-1. Set the `collisionDistanceY` variable to the sum of each rectangle's height divided by two
-1. Return a `bool` value that checks if `xDistance` is less than or equal to `collisionDistanceX` AND `yDistance` is less than `collisionDistanceY`
-
-```cs
-Point sprite1Center = spriteBounds1.Center;
-Point sprite2Center = spriteBounds2.Center;
-
-float xDistance = Math.Abs(sprite1Center.X - sprite2Center.X);
-float yDistance = Math.Abs(sprite1Center.Y - sprite2Center.Y);
-
-float collisionDistanceX = (spriteBounds1.Width / 2) + (spriteBounds2.Width / 2);
-float collisionDistanceY = (spriteBounds1.Height / 2) + (spriteBounds2.Height / 2);
-
-return xDistance <= collisionDistanceX && yDistance <= collisionDistanceY;
 ```
 
 ## Removing `Projectile` Objects On Collision
@@ -139,11 +89,11 @@ Now that the `for` loop will properly loop through each `Projectile` object, it'
 ```cs
 bool playerProjectile = p.ProjectileType == ProjectileType.Player;
 
-if (!playerProjectile && getCollision(player.PositionRectangle, p.PositionRectangle))
+if (!playerProjectile && player.Overlaps(p))
 {
     projectiles.Remove(p);
 }
-else if (playerProjectile && getCollision(enemy.PositionRectangle, p.PositionRectangle))
+else if (playerProjectile && enemy.Overlaps(p))
 {
     projectiles.Remove(p);
 }

@@ -48,6 +48,12 @@ namespace FlyingWizard2D
             }
         }
 
+        public bool Overlaps(Sprite otherSprite)
+        {
+            bool doesOverlap = this.PositionRectangle.Intersects(otherSprite.PositionRectangle);
+            return doesOverlap;
+        }
+
         // Number of frames for an animated sprite
         private int numberOfFrames;
         public int NumberOfFrames
