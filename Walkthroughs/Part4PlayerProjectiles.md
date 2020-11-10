@@ -179,7 +179,7 @@ public void FireProjectile(Vector2 position, Vector2 velocity)
 ## Firing Projectiles from the `Player` Class
 Now that game can properly handle `Projectile` objects, allow the `Player` to fire them! Open up the **Player.cs** file to get started. The `Player` should fire a projectile when the user presses the Space key.
 
-1. At the bottom of the `Update` method, create an `if` statement
+1. At the bottom of the `HandleInput` method, create an `if` statement
 1. For the condition of the `if` statement, check if the Space key is pressed
 1. In the body of the `if` statement, create a new `Vector2` variable named `projectilePosition`
     - This will be where the projectile is created on the screen
