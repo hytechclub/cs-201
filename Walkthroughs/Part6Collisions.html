@@ -405,68 +405,18 @@
 <li>Update the call to the <code>Projectile</code> constructor, and pass in the <code>projectileType</code> parameter value</li>
 </ol>
 <p>At this point, there should be no errors in the code. Nothing will have changed, but the new <code>ProjectileType</code> property will make it possible to distinguish between projectiles in the game.</p>
-<h2 id="the-getcollision-method">The <code>getCollision</code> Method</h2>
-<p>Next, it&apos;s time to actually detect collisions! To do this, define a method named <code>getCollision</code> that can detect if two objects overlap. Open up the <strong>ArcadeFlyerGame.cs</strong> file to get started.</p>
-<h3 id="setup">Setup</h3>
-<p>Start with some basic setup for the method.</p>
+<h2 id="sprite-collisions">Sprite Collisions</h2>
+<p>At long last, it&apos;s time to check whether any of the objects in our game collide with each other. One structure for doing this is by modifying our <code>Sprite</code> class, to add a method to see if any other sprites collide with it.</p>
+<p>Every <code>Sprite</code> has a member <code>Rectangle</code> called <code>PositionRectangle</code>. The <code>Rectangle</code> class has a method called <code>Intersects()</code>, which takes another <code>Rectangle</code> as a parameter, and returns a <code>bool</code> indicating if the two rectangles overlap. We can write a &quot;wrapper&quot; for this in our <code>Sprite</code> class, to tell us if a <code>Sprite</code> intersects with another <code>Sprite</code>.</p>
 <ol>
-<li>At the top of the <strong>ArcadeFlyerGame.cs</strong> file, add a <code>using</code> statement for <code>System</code><ul>
-<li>This will be necessary for some <code>Math</code> utilities</li>
-</ul>
-</li>
-<li>In the body of the <code>ArcadeFlyerGame</code> class, define a new method named <code>getCollision</code></li>
-<li>Make the method <code>private</code><ul>
-<li>This is because it will only be used within the <code>ArcadeFlyerGame</code> class</li>
-</ul>
-</li>
-<li>Make the return type of the method <code>bool</code></li>
-<li>Give the method two <code>Rectangle</code> parameters named <code>spriteBounds1</code> and <code>spriteBounds2</code><ul>
-<li>These will represent the locations of the two objects</li>
-</ul>
-</li>
+<li>In the <strong>Sprite.cs</strong> file, inside the <code>Sprite</code> class, add a new method called <code>Overlaps</code>. This method should take a <code>Sprite</code> object named <code>otherSprite</code> as the parameter. This method will return a <code>bool</code> indicating if the two sprites overlap.</li>
+<li>This method should call <code>Intersects</code> on the <code>PositionRectangle</code> of this object, and pass in the <code>PositionRectangle</code> of the <code>otherSprite</code> as the parameter to <code>Intersects</code>.</li>
 </ol>
-<pre><code class="lang-cs"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">bool</span> <span class="hljs-title">getCollision</span>(<span class="hljs-params">Rectangle spriteBounds1, Rectangle spriteBounds2</span>)
+<pre><code class="lang-cs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">bool</span> <span class="hljs-title">Overlaps</span>(<span class="hljs-params">Sprite otherSprite</span>)
 </span>{
-
+    <span class="hljs-keyword">bool</span> doesOverlap = <span class="hljs-keyword">this</span>.PositionRectangle.Intersects(otherSprite.PositionRectangle);
+    <span class="hljs-keyword">return</span> doesOverlap;
 }
-</code></pre>
-<h3 id="collision-detection-geometry">Collision Detection Geometry</h3>
-<p>For two rectangles to collide, they must <em>overlap</em> across both the X and Y axis:</p>
-<p><img src="https://i.imgur.com/toTo7Di.png" alt=""></p>
-<p>There are a few different ways to check for this, but for the purposes of this method, the center points of each rectangle will be used. To detect an overlap across the X-axis, the horizontal distance between the center points must be <em>less</em> than the sum of each rectangle&apos;s width divided by two.</p>
-<p>Take a look at these two examples:</p>
-<p><img src="https://i.imgur.com/68RsMxF.png" alt=""></p>
-<p><img src="https://i.imgur.com/9ZfHmVb.png" alt=""></p>
-<p>The same principle holds true for detecting Y-axis overlap. So to detect collisions, the method should find the centers of the rectangles, find the horizontal and vertical distance between the two centers, and check if those distances both are less than the distance required for overlap (A width / 2 + B width / 2).</p>
-<h3 id="collision-detection-code">Collision Detection Code</h3>
-<p>Based on the geometry above, it will be possible to write code to detect a collision between the <code>spriteBounds1</code> rectangle, and the <code>spriteBounds2</code> rectangle.</p>
-<p>To get the center points of the rectangles, use the <code>Center</code> property which returns a <code>Point</code> object. For more information about <code>Point</code> objects, check out <a href="https://docs.microsoft.com/en-us/previous-versions/windows/silverlight/dotnet-windows-silverlight/bb198467(v=xnagamestudio.35)" target="_blank">this article</a>. <code>Point</code> objects have an <code>X</code> and <code>Y</code> property representing a position in 2D space.</p>
-<ol>
-<li>In the body of the <code>getCollision</code> method, create two new <code>Point</code> variables named <code>sprite1Center</code> and <code>sprite2Center</code></li>
-<li>Set the two <code>Point</code> variables to the center points of the corresponding sprite <code>Rectangle</code> objects using the <code>Center</code> property</li>
-<li>Under that, create two new <code>float</code> variables named <code>xDistance</code> and <code>yDistance</code></li>
-<li>Set the <code>float</code> variables to be the absolute value of the horizontal and vertical difference between the two center points<ul>
-<li>Use the <code>Math.Abs</code> method to accomplish this</li>
-</ul>
-</li>
-<li>Under that, create two more <code>float</code> variables named <code>collisionDistanceX</code> and <code>collisionDistanceY</code><ul>
-<li>These will represent the distance needed to detect overlap on each axis</li>
-</ul>
-</li>
-<li>Set the <code>collisionDistanceX</code> variable to the sum of each rectangle&apos;s width divided by two</li>
-<li>Set the <code>collisionDistanceY</code> variable to the sum of each rectangle&apos;s height divided by two</li>
-<li>Return a <code>bool</code> value that checks if <code>xDistance</code> is less than or equal to <code>collisionDistanceX</code> AND <code>yDistance</code> is less than <code>collisionDistanceY</code></li>
-</ol>
-<pre><code class="lang-cs">Point sprite1Center = spriteBounds1.Center;
-Point sprite2Center = spriteBounds2.Center;
-
-<span class="hljs-keyword">float</span> xDistance = Math.Abs(sprite1Center.X - sprite2Center.X);
-<span class="hljs-keyword">float</span> yDistance = Math.Abs(sprite1Center.Y - sprite2Center.Y);
-
-<span class="hljs-keyword">float</span> collisionDistanceX = (spriteBounds1.Width / <span class="hljs-number">2</span>) + (spriteBounds2.Width / <span class="hljs-number">2</span>);
-<span class="hljs-keyword">float</span> collisionDistanceY = (spriteBounds1.Height / <span class="hljs-number">2</span>) + (spriteBounds2.Height / <span class="hljs-number">2</span>);
-
-<span class="hljs-keyword">return</span> xDistance &lt;= collisionDistanceX &amp;&amp; yDistance &lt;= collisionDistanceY;
 </code></pre>
 <h2 id="removing-projectile-objects-on-collision">Removing <code>Projectile</code> Objects On Collision</h2>
 <p>Now that it is possible to detect collisions between sprites, it&apos;s time to update the game. If an enemy projectile comes in contact with the player, that projectile should be removed. Similarly, if a player projectile comes in contact with an enemy, that projectile should be removed. For now, the collision will not have any other effect (that will come later).</p>
@@ -502,11 +452,11 @@ Point sprite2Center = spriteBounds2.Center;
 </ol>
 <pre><code class="lang-cs"><span class="hljs-keyword">bool</span> playerProjectile = p.ProjectileType == ProjectileType.Player;
 
-<span class="hljs-keyword">if</span> (!playerProjectile &amp;&amp; getCollision(player.PositionRectangle, p.PositionRectangle))
+<span class="hljs-keyword">if</span> (!playerProjectile &amp;&amp; player.Overlaps(p))
 {
     projectiles.Remove(p);
 }
-<span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span> (<span class="hljs-params">playerProjectile &amp;&amp; getCollision(enemy.PositionRectangle, p.PositionRectangle</span>))
+<span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span> (<span class="hljs-params">playerProjectile &amp;&amp; enemy.Overlaps(p</span>))
 </span>{
     projectiles.Remove(p);
 }
@@ -557,7 +507,7 @@ Point sprite2Center = spriteBounds2.Center;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Part 6 - Collisions","level":"1.3.7","depth":2,"next":{"title":"Part 7 - Multiple Enemies","level":"1.3.8","depth":2,"path":"Walkthroughs/Part7MultipleEnemies.md","ref":"Walkthroughs/Part7MultipleEnemies.md","articles":[]},"previous":{"title":"Part 5 - Enemy Projectiles","level":"1.3.6","depth":2,"path":"Walkthroughs/Part5EnemyProjectiles.md","ref":"Walkthroughs/Part5EnemyProjectiles.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters"],"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"BOOKREADME.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Walkthroughs/Part6Collisions.md","mtime":"2020-11-10T18:37:31.916Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-10T18:38:11.346Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Part 6 - Collisions","level":"1.3.7","depth":2,"next":{"title":"Part 7 - Multiple Enemies","level":"1.3.8","depth":2,"path":"Walkthroughs/Part7MultipleEnemies.md","ref":"Walkthroughs/Part7MultipleEnemies.md","articles":[]},"previous":{"title":"Part 5 - Enemy Projectiles","level":"1.3.6","depth":2,"path":"Walkthroughs/Part5EnemyProjectiles.md","ref":"Walkthroughs/Part5EnemyProjectiles.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters"],"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"BOOKREADME.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Walkthroughs/Part6Collisions.md","mtime":"2020-11-10T21:13:05.041Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-10T21:13:44.720Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

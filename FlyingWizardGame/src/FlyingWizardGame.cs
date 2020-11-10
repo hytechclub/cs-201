@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
-using System;
 
 namespace FlyingWizard2D
 {
@@ -168,25 +167,6 @@ namespace FlyingWizard2D
             screenCoverText = "Press Enter to Play";
         }
 
-        // Check for collisions between bounding rectangles
-        private bool getCollision(Rectangle spriteBounds1, Rectangle spriteBounds2)
-        {
-            // Get the center points
-            Point sprite1Center = spriteBounds1.Center;
-            Point sprite2Center = spriteBounds2.Center;
-
-            // Get the distances between the rectangle centers
-            float xDistance = Math.Abs(sprite1Center.X - sprite2Center.X);
-            float yDistance = Math.Abs(sprite1Center.Y - sprite2Center.Y);
-
-            // Get the distances required for collision across each axis
-            float collisionDistanceX = (spriteBounds1.Width / 2) + (spriteBounds2.Width / 2);
-            float collisionDistanceY = (spriteBounds1.Height / 2) + (spriteBounds2.Height / 2);
-
-            // Check for overlap on BOTH axes
-            return xDistance <= collisionDistanceX && yDistance <= collisionDistanceY;
-        }
-
         // Decrement life count
         private void decrementLife()
         {
@@ -268,7 +248,7 @@ namespace FlyingWizard2D
                 bool playerProjectile = p.ProjectileType == ProjectileType.Player;
 
                 // Check if the player collides with this non-player projectile
-                if (!playerProjectile && getCollision(player.PositionRectangle, p.PositionRectangle))
+                if (!playerProjectile && player.Overlaps(p))
                 {
                     // There is a collision, decrement life and remove the projectile
                     decrementLife();
@@ -296,7 +276,7 @@ namespace FlyingWizard2D
                         {
                             // Check if the enemy is colliding with the projectile
                             Enemy currentEnemy = enemyColumn.GetEnemy(k);
-                            if (getCollision(currentEnemy.PositionRectangle, p.PositionRectangle))
+                            if (currentEnemy.Overlaps(p))
                             {
                                 // Increment the score
                                 ++score;
