@@ -1,4 +1,4 @@
-# Part 5 - Player Projectiles
+# Part 5 - Enemy Projectiles
 In this walkthrough, add the ability for an `Enemy` object to fire projectiles. This will be similar to how the `Player` fires projectiles, but there will be some refactoring along the way.
 
 ## Basic Projectile Firing
@@ -216,7 +216,7 @@ Functionally, the game is working as expected. However, it would be nice to have
 ### Loading an Enemy Projectile Image Asset
 To create new enemy projectiles, it will be necessary to have a new image for the them! Use the following fireball image, or any other image:
 
-![](https://imgur.com/a/sW8KAyg)
+![](https://i.imgur.com/13tDtFL.png)
 
 1. Save a new image named **EnemyFire.png** in the "Content" folder
 1. Open up the **Content.mgcb** file in the MonoGame Pipeline Tool
