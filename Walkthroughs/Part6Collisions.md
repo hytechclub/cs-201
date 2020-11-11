@@ -38,10 +38,12 @@ At this point, there should be no errors in the code. Nothing will have changed,
 ## Sprite Collisions
 At long last, it's time to check whether any of the objects in our game collide with each other. One structure for doing this is by modifying our `Sprite` class, to add a method to see if any other sprites collide with it.
 
-Every `Sprite` has a member `Rectangle` called `PositionRectangle`. The `Rectangle` class has a method called `Intersects()`, which takes another `Rectangle` as a parameter, and returns a `bool` indicating if the two rectangles overlap. We can write a "wrapper" for this in our `Sprite` class, to tell us if a `Sprite` intersects with another `Sprite`.
+Every `Sprite` has a member `Rectangle` named `PositionRectangle`. The `Rectangle` class has a method named `Intersects()`, which takes another `Rectangle` as a parameter, and returns a `bool` indicating if the two rectangles overlap. We can write a "wrapper" for this in our `Sprite` class, to tell us if a `Sprite` intersects with another `Sprite`.
 
-1. In the **Sprite.cs** file, inside the `Sprite` class, add a new method called `Overlaps`. This method should take a `Sprite` object named `otherSprite` as the parameter. This method will return a `bool` indicating if the two sprites overlap.
-1. This method should call `Intersects` on the `PositionRectangle` of this object, and pass in the `PositionRectangle` of the `otherSprite` as the parameter to `Intersects`.
+1. In the **Sprite.cs** file, inside the `Sprite` class, add a new method named `Overlaps`
+1. Make the `Overlaps` method take a `Sprite` object named `otherSprite` as the parameter
+1. Make the `Overlaps` method return a `bool` indicating if the two sprites overlap
+1. The `Overlaps` method should call `Intersects` on the `PositionRectangle` of this object, and pass in the `PositionRectangle` of the `otherSprite` as the parameter to `Intersects`
 
 ```cs
 public bool Overlaps(Sprite otherSprite)

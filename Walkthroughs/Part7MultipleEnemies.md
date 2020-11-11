@@ -51,7 +51,7 @@ Previously, the game only needed to detect collisions for one enemy. Now, since 
 
 1. In the `Update` method, find the collision detection for enemies  
     ```cs
-    else if (playerProjectile && getCollision(enemy.PositionRectangle, p.PositionRectangle)) { // ...
+    else if (playerProjectile && enemy.Overlaps(p)) { // ...
     ```
 1. Cut the `&&` and everything after it, so that the `else if` only checks for `playerProjectile`  
     ```cs
@@ -70,15 +70,15 @@ Previously, the game only needed to detect collisions for one enemy. Now, since 
 
 #### Code
 ```cs
-if (!playerProjectile && getCollision(player.PositionRectangle, p.PositionRectangle))
+if (!playerProjectile && player.Overlaps(p))
 {
     projectiles.Remove(p);
 }
-else if (playerProjectile))
+else if (playerProjectile)
 {
     foreach (Enemy enemy in enemies)
     {
-        if (getCollision(enemy.PositionRectangle, p.PositionRectangle))
+        if (enemy.Overlaps(p))
         {
             projectiles.Remove(p);
         }
@@ -112,7 +112,7 @@ for (int enemyIdx = enemies.Count - 1; enemyIdx >= 0; enemyIdx--)
 {
     Enemy enemy = enemies[enemyIdx];
 
-    if (getCollision(enemy.PositionRectangle, p.PositionRectangle))
+    if (enemy.Overlaps(p))
     {
         projectiles.Remove(p);
         enemies.Remove(enemy);

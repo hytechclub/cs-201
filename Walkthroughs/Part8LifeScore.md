@@ -12,7 +12,7 @@ In almost every game, there is some concept of health. In this game, the player 
 1. Find the `Update` method in the `ArcadeFlyerGame` class
 1. Find the `if` statement that checks whether the player has collided with an enemy projectile  
     ```cs
-    if (!playerProjectile && getCollision(player.PositionRectangle, p.PositionRectangle))
+    if (!playerProjectile && player.Overlaps(p))
     ```
 1. In the body of that `if` statement, decrement the value of `life` by 1  
     ```cs
@@ -30,7 +30,7 @@ Another thing that exists in almost every game is a score. In this game, the pla
 1. Find the `Update` method in the `ArcadeFlyerGame` class
 1. Find the `if` statement that checks whether an enemy has collided with a player projectile  
     ```cs
-    if (getCollision(enemy.PositionRectangle, p.PositionRectangle))
+    if (enemy.Overlaps(p))
     ```
 1. In the body of that `if` statement, increment the value of `score` by 1  
     ```cs
