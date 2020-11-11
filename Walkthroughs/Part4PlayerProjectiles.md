@@ -228,7 +228,7 @@ private bool projectileTimerActive = false;
 ### Conditional Firing
 Next, update the code so that a projectile can only fire if the player is not cooling down.
 
-1. In the body of the `Update` method, find the `if` statement checking if Space is pressed
+1. In the body of the `HandleInput` method, find the `if` statement checking if Space is pressed
 1. Update the condition so that it checks for BOTH the key press, AND whether the projectile timer is not currently active:  
     ```cs
     if (!projectileTimerActive && currentKeyboardState.IsKeyDown(Keys.Space))

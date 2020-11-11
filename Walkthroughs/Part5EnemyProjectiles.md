@@ -188,11 +188,11 @@ First, refactor the `Player` class to use a `Timer` object instead of its own fi
 1. In the body of the `Player` class, remove the `projectileCoolDownTime`, `projectileTimer`, and `projectileTimerActive` fields
 1. In place of the removed fields, add a new private `Timer` field named `projectileCoolDown`
 1. In the `Player` constructor, set the `projectileCoolDown` field to a new `Timer` object, passing in `0.5f` to the `Timer` constructor
-1. In the body of the `Update` method, find the `if` statement that checks if a projectile should be fired
+1. In the body of the `HandleInput` method, find the `if` statement that checks if a projectile should be fired
 1. Fix the condition of the `if` statement so that it uses `projectileCoolDown.Active` instead of `projectileTimerActive`
 1. At the bottom of the body of that `if` statement, remove the `projectileTimerActive` and `projectileTimer` field setting
 1. In place of the removed statements, kick off a new timer with `projectileCoolDown.StartTimer()`
-1. Under the first `if` statement, remove the entirety of the `if (projectileTimerActive)` statement
+1. In the `Update` method, remove the entirety of the `if (projectileTimerActive)` statement
 1. Replace that `if` statement with an update to the `Timer` object: `projectileCoolDown.Update(gameTime)`
 
 The `Timer` class allowed quite a bit of code to be removed from the `Player` class, which is great!
