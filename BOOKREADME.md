@@ -8,11 +8,11 @@ Before participating in the course, be sure to follow the instructions on the [E
 Throughout the course, it will be necessary to store code in GitHub. Follow [this guide](https://hylandtechclub.com/capstone/GitLesson/PushingAndPulling/PushChanges.html) to push local changes up to the forked GitHub Repository.
 
 ## Zoom Meetings
-The course will meet weekly on Tuesdays via **Zoom** from 4:30 p.m. to 6:30 p.m. ET.
+The course will meet weekly on ???? via **Zoom** from ???? p.m. to ???? ET.
 
-The meeting ID is **979 0507 7190**, and the password is **407320**.
+The meeting ID is **????**, and the password is **????**.
 
-- [Click Here to join from PC, Mac, Linux, iOS or Android](https://hyland.zoom.us/j/97905077190?pwd=NjNDeTVPUExJWVh2Y0lrWHYxV1VWdz09).
+- [Click Here to join from PC, Mac, Linux, iOS or Android](????).
 - To join by phone: Dial [+1 312 626 6799](tel:+13126266799) and enter the meeting ID and password.
 
 ## Session Recordings
@@ -21,7 +21,7 @@ Check out [this page](SessionRecordings.md) to watch recordings of the virtual s
 ## Discord
 Use **Discord** to ask questions, view announcements, and chat with fellow students. Note that students are **NOT** required to use Discord.
 
-- [Course Server](https://discord.com/channels/755095411076759628/)
+- [Course Server](????)
 - [Usage Guidelines & Setup Instructions](https://hylandtechclub.com/DiscordUse)
 
 ## Course Material
